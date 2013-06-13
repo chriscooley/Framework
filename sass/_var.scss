@@ -1,0 +1,104 @@
+// Add UI colors here
+// Example Base Colors
+$white: #ffffff;
+$black: #000000;
+$gray: #eaeaea;
+$red: #e24547;
+$orange: #f18c2c;
+$blue: #42a7dd;
+$green: #78ca45;
+$green2: #3daf53;
+$purp: #a132a8;
+
+// DONT CHANGE VARIABLE NAMES BELOW THIS POINT 
+// _base.scss AND mixins.scss ARE DEPENDENT ON THESE VARS
+
+// Custom Font Family
+// Set true to use embeded fonts set false to use google font or default font
+$set-custom-font: true;
+$font-count: 2;
+$custom1-font-family: 'ITCAvantGardeGothicStdMedium';
+$custom1-font-family-url: 'itcavantgardestd-md';
+$custom2-font-family: 'ITCAvantGardeGothicStdBook';
+$custom2-font-family-url: 'itcavantgardestd-bk';
+//Add custom family and url for more fonts 
+
+// Default Font Colors
+$gray-headline: #575258;
+$gray-subheadline: #828282;
+$gray-maintext: #666666;
+
+// body Background
+$body-bg: none center center no-repeat #efefef;
+$body-text-color: $gray-maintext;
+$body-font-family: $custom1-font-family;
+$body-font-size: 100%;
+
+// Elements
+$link: #42a7dd;
+$link-hover: #e24547; 
+$ui-border: 4px solid #eaeaea;
+
+// Spacing
+$auto: 0 auto;
+
+// H font style
+$h-font-family: $custom1-font-family;
+$h-weight: normal;
+
+// Base font-size
+$h1-size: 2em;
+$h2-size: 1.3em;
+$h3-size: 1.2em;
+$h4-size: 1em;
+$h5-size: .8em;
+$h6-size: .6em;
+$label-size: 1em;
+$p-size: .8em;
+$li-size: .7em;
+
+// input style
+$input-bg: #fff;
+$input-text-color: #b9b9b9;
+$input-focus-text-color: #676667;
+$input-focus-border-color: #e24547;
+
+// Custom select drop down
+$select-t-color: #757474;
+$select-gradent-to: #fff; 
+$select-gradent-from: #e7e7e7;
+$select-gradent-default: #fff;
+
+$dd-default-w: 100%;
+$dd-h: 36px;
+$dd-margin: $auto;
+$dd-t-padding: 0 .4em;
+$dd-t-color: $select-t-color;
+$dd-f-weight: normal;
+$dd-f-size: 1em;
+
+// Main btnAll Default
+$btn-color: #e24547;
+$btn-hover: #f18c2c;
+$btn-text-color: #fff;
+$btn-padding: .3em 0;
+
+// Grid Spacing / Use for global spacing
+$top: 1%;
+$right: 1%;
+$bottom: 1%;
+$left: 1%;
+
+// Grid Selector: 
+// Use '%' for silent/placeholder selector and '.' for normal selector
+$gd-selector: '%';
+
+// Set grid count default 12
+$gd-count: 12;
+
+// Braking Points
+$start-width: 1280px;
+$mid-lr: 816px;
+$mid-sm: 481px;
+$mobile-lr: 480px;
+$mobile-sm: 0;

@@ -1,0 +1,63 @@
+// Global Elements 
+@import "var";
+@import "mixins";
+@import "base";
+
+// UI style
+@include grid-custom($gw: true);
+
+@include columns ($count: 5, $gap: 30px, $fill: auto, $break:avoid, $sectionWidth: 100%);
+
+#columns {
+	@include border-radius();
+	@extend %columns;
+}
+#new {
+	@extend %gd3;
+}
+#new2 {
+	@extend %gd6;
+}
+
+section {
+	@extend %section;
+	background:#fff;
+	min-height:200px;
+	&:nth-child(2n+1) {
+		min-height:100px;
+		background:$blue;
+	}
+	&:nth-child(4n-4) {
+		min-height:320px;
+	}
+	&:nth-child(5n-2) {
+		min-height:200px;
+		background:$red;
+	}
+}
+
+
+// Media Querys
+@media only screen and (min-width: 1800px)
+{
+}
+@media only screen and (max-width: $start-width)
+{
+	@include grid-wrap($gw-width: 100%);
+
+}
+@media only screen and (min-width: $mid-sm) and (max-width: $mid-lr)
+{
+	@include columns ($count: 3);
+	#columns {
+		@extend %columns;
+	}
+}
+@media only screen and (min-width: $mobile-sm) and (max-width: $mobile-lr)
+{
+	@include grid-custom($mobile: true, $gw: true, $gw-width: 100%);
+	@include columns ($count: 1);
+	#columns {
+		@extend %columns;
+	}
+}

@@ -1,0 +1,266 @@
+// add browser prefixes. Examples below:
+// Example: @include addprefixes(box-shadow, 4px, webkit moz ms o spec);
+// Example: @include addprefixes(transform, rotate(45deg), webkit moz ms o spec); 
+@mixin addprefixes($property, $value, $prefixes: webkit moz ms o spec) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit { -webkit-#{$property}: $value;} // Chrome10+,Safari5.1+ 
+    @if $prefix == moz {-moz-#{$property}: $value;} // FF3.6+ 
+    @if $prefix == ms { -ms-#{$property}: $value;} // IE10+ 
+    @if $prefix == o { -o-#{$property}: $value;} // Opera 11.10+ 
+    @if $prefix == spec { #{$property}: $value;} // W3C Spec 
+  }
+}
+
+@mixin border-radius ($borderRadius:10px){
+	@include addprefixes(border-radius, $borderRadius);
+}
+@mixin box-shadow ($boxShadow...){
+	-moz-box-shadow: $boxShadow;
+	-webkit-box-shadow: $boxShadow;
+	-ms-box-shadow: $boxShadow;
+	-o-box-shadow: $boxShadow;
+	box-shadow: $boxShadow;
+}
+//gradients
+@mixin gradient($startColor, $endColor, $noGradient: mix($startColor, $endColor,50%), $type: 'vertical', $degOrImagePath: ''){
+  @if ($type == 'vertical'){
+    background: $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+      background: #{$i}linear-gradient(top, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
+    }
+  }
+
+  @if ($type == 'horizontal'){
+    background: $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o- {
+      background: #{$i}linear-gradient(left, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
+    }
+    background: linear-gradient(to right, $startColor, $endColor) repeat-x $endColor;
+  }
+
+  @if ($type == 'radial'){
+    background: $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o-, ''{
+      background: #{$i}radial-gradient(circle, $startColor, $endColor) no-repeat mix($startColor, $endColor, 60%);
+    }
+  }
+
+  @if ($type == 'directional'){
+    background: $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+      background: #{$i}linear-gradient(#{$degOrImagePath}deg, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
+    }
+  }
+
+  @if ($type == 'image'){
+    background: url('#{$degOrImagePath}') no-repeat scroll $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+      background: url('#{$degOrImagePath}') no-repeat scroll, #{$i}linear-gradient(center top, $startColor, $endColor);
+    }
+  }
+}
+@mixin linear-gradient ($gradentTo, $gradentFrom, $noGradent){
+	background: $noGradent;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($gradentFrom), to($gradentTo)); 
+	background: -webkit-linear-gradient(top, $gradentTo, $gradentFrom);
+	background: -moz-linear-gradient(top, $gradentTo, $gradentFrom);
+	background: -ms-linear-gradient(top, $gradentTo, $gradentFrom);  
+	background: -o-linear-gradient(top, $gradentTo, $gradentFrom);
+	background: linear-gradient(top, $gradentTo, $gradentFrom);
+}
+@mixin image-linear-gradient ($imgPath, $gradentToImg, $gradentFromImg, $noGradentImg){
+	background:$imgPath no-repeat scroll $noGradentImg;
+	background:$imgPath no-repeat scroll, -webkit-gradient(linear, left bottom, left top, from($gradentFromImg), to($gradentToImg));
+	background:$imgPath no-repeat scroll, -webkit-linear-gradient(center top, $gradentToImg, $gradentFromImg);
+	background:$imgPath no-repeat scroll, -moz-linear-gradient(center top , $gradentToImg, $gradentFromImg);
+	background:$imgPath no-repeat scroll, -ms-linear-gradient(center top, $gradentToImg, $gradentFromImg);  
+	background:$imgPath no-repeat scroll, -o-linear-gradient(center top, $gradentToImg, $gradentFromImg);
+}
+// transition
+@mixin transition ($tr){
+	-webkit-transition:$tr;  
+    -moz-transition:$tr;    
+    -o-transition:$tr;     
+    -ms-transition:$tr;      
+    transition:$tr;	
+}
+//transformations
+@mixin rotate($deg){
+  @include addprefixes(transform, rotate(#{$deg}deg), webkit moz ms o spec);
+}
+@mixin rotate3d($x, $y, $z, $deg){
+  @include addprefixes(transform, rotate3d($x, $y, $z, #{$deg}deg), webkit moz ms o spec);
+}
+@mixin scale($ratio) {
+  @include addprefixes(transform, scale($ratio), webkit moz ms o spec);
+}
+@mixin translate($x, $y) {
+  @include addprefixes(transform, translate($x, $y), webkit moz ms o spec);
+}
+@mixin skew($x, $y) {
+  @include addprefixes(transform, skew($x, $y), webkit moz ms o spec);
+}
+@mixin translate3d($x, $y, $z) {
+  @include addprefixes(transform, translate3d($x, $y, $z), webkit moz o spec);
+}
+@mixin matrix($a, $b,$c, $d, $x, $y) {
+  @include addprefixes(transform, matrix($a, $b,$c, $d, $x, $y), webkit moz o spec);
+}
+//Add opacity to elements
+@mixin opacity($opacity){
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity}*10)";
+  filter: alpha(opacity=#{$opacity}*100);
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
+// Add an alphatransparency value to any background or border color
+@mixin translucent-background($color: #fff, $alpha: 0.5) {
+  background: $color; //fallback
+  background: hsla(hue($color), saturation($color), lightness($color), $alpha);
+}
+@mixin translucent-border($size: 1px, $style: solid, $color: #fff, $alpha: 0.5) {
+  border: $size $style hsla(hue($color), saturation($color), lightness($color), $alpha);
+  background-clip: padding-box;
+}
+// background-size
+@mixin background-size ($bs){
+	-webkit-background-size: $bs;
+	-moz-background-size: $bs;
+	-o-background-size: $bs;
+	background-size: $bs;
+}
+// Drop Downs
+@mixin drop-down ($dd-default-w: 100%, $dd-h: 36px, $dd-margin: $auto, $dd-t-padding: 0 .4em, $dd-t-color: $select-t-color, $dd-f-weight: normal, $dd-f-size: 1em){
+	span.selWrap {
+		width: $dd-default-w;
+		margin: $dd-margin;
+		height: $dd-h;
+		position:relative;
+		display:block;
+	    padding:0;
+	}
+	span.selText {
+		margin:0;
+		z-index:1;
+		width: 100%;
+		display: block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		position:absolute;
+		height: $dd-h;
+		line-height:$dd-h;
+		padding: $dd-t-padding;
+		font-weight: $dd-f-weight;
+		color: $dd-t-color;
+		font-size: $dd-f-size;
+		@include image-linear-gradient(url('../images/arrow.png') 100% 97.8%, $select-gradent-to, $select-gradent-from, $select-gradent-default);
+		border:$ui-border;
+	}
+	select.selIner {
+		width: 100%;
+		height: $dd-h;
+		position:absolute;
+		z-index:2;
+		padding:0;
+		margin:0;
+		border:0 none;
+		float:none;
+		opacity:0;
+		filter: alpha(opacity=00);
+		-webkit-appearance: menulist-button;
+	}
+}
+// Columns
+@mixin columns ($count: 4, $gap: 1%, $fill: auto, $break:avoid, $sectionWidth: 100%){
+	%columns {
+		-webkit-column-count: $count;
+		-webkit-column-gap: $gap;
+		-webkit-column-fill: $fill;
+		-moz-column-count: $count;
+		-moz-column-gap: $gap;
+		-moz-column-fill: $fill;
+		column-count: $count;
+		column-gap: $gap;
+		column-fill: $fill;
+	}
+	%section {
+		display: inline-block;
+		width:$sectionWidth;
+		-webkit-column-break-inside: $break;
+		-moz-column-break-inside: $break;
+		column-break-inside: $break;
+		// -webkit-transition: all .2s ease;
+		// -moz-transition: all .2s ease;
+		// -o-transition: all .2s ease;
+		// transition: all .2s ease;
+	}
+}
+
+// Grid Wrap
+@mixin grid-wrap ($t:$top, $r:$right, $b:$bottom, $l:$left, $gw-width: $start-width, $gw-margin: $auto){
+	%gw {
+		overflow: hidden;
+		width: $gw-width;
+		margin: $gw-margin;
+		padding:$t $r $b $l;
+	}
+}
+// Grid
+@mixin grid ($mobile: false, $t:$top, $r:$right, $b:$bottom, $l:$left, $selector: $gd-selector, $gd-float: left, $gd-clear: none){
+	@if $mobile == false {
+		%gd {
+			float:$gd-float;
+			clear:$gd-clear;
+			margin:$t $r $b $l;
+		}
+		@for $i from 1 through $gd-count {
+			#{$selector}gd#{$i} {width: (100 / $gd-count * $i - $r - $l); @extend %gd;}
+		}
+	}
+	@else {
+		%gd {
+			float:none;
+			clear:both;
+			margin:$t $r $b $l;
+			width: 100% - $r - $l;
+		}
+		@for $i from 1 through $gd-count {
+			#{$selector}gd#{$i} {@extend %gd;}
+		}
+	}
+}
+// Custom Grid $mobile, $t, $r, $b, $l, $selector, $gd-class, $gd-float, $gd-clear
+@mixin grid-custom ($mobile: false, $gw: false, $gw-class: '', $gw-width: $start-width, $gw-margin: $auto, $t:$top, $r:$right, $b:$bottom, $l:$left, $selector: $gd-selector, $gd-float: left, $gd-clear: none){
+	@if $gw == true {
+		@include grid-wrap($t, $r, $b, $l, $gw-width, $gw-margin);
+		@include grid($mobile);
+	}
+	@else {
+		@include grid($mobile);
+	}
+}
+// Custom Font Face
+@mixin c-font ($set-c-font: false, $font-url: '', $font-family: '', $f-count: $font-count, $c1-font-family: '', $c2-font-family: '', $c1-font-family-url: '', $c2-font-family-url: ''){
+	@if $set-c-font == true {
+		@for $f from 1 through $font-count {
+			@if $f == 1 {
+				$font-url: $c1-font-family-url;
+				$font-family: $c1-font-family;
+			}
+			@if $f == 2 {
+				$font-url: $c2-font-family-url;
+				$font-family: $c2-font-family;
+			}
+			@font-face {
+			    font-family: $font-family;
+			    src: url('../fonts/#{$font-url}.eot');
+			    src: url('../fonts/#{$font-url}.eot') format('embedded-opentype'),
+			         url('../fonts/#{$font-url}.woff') format('woff'),
+			         url('../fonts/#{$font-url}.ttf') format('truetype'),
+			         url('../fonts/#{$font-url}.svg##{$font-family}') format('svg');
+			}
+		}
+	}
+}
