@@ -288,10 +288,10 @@ section:nth-child(5n-2) {
   -moz-animation-name: flash;
   -o-animation-name: flash;
   animation-name: flash;
-  -webkit-animation-duration: 2s;
-  -moz-animation-duration: 2s;
-  -o-animation-duration: 2s;
-  animation-duration: 2s;
+  -webkit-animation-duration: 1.5s;
+  -moz-animation-duration: 1.5s;
+  -o-animation-duration: 1.5s;
+  animation-duration: 1.5s;
   -webkit-animation-iteration-count: 5;
   -moz-animation-iteration-count: 5;
   -o-animation-iteration-count: 5;
@@ -299,12 +299,48 @@ section:nth-child(5n-2) {
 }
 
 @keyframes flash {
-  /* line 272, ../sass/_mixins.scss */
+  /* line 274, ../sass/_mixins.scss */
   0%, 50%, 100% {
     opacity: 1;
   }
 
-  /* line 273, ../sass/_mixins.scss */
+  /* line 275, ../sass/_mixins.scss */
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  /* line 274, ../sass/_mixins.scss */
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  /* line 275, ../sass/_mixins.scss */
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  /* line 274, ../sass/_mixins.scss */
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  /* line 275, ../sass/_mixins.scss */
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+@keyframes flash {
+  /* line 274, ../sass/_mixins.scss */
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  /* line 275, ../sass/_mixins.scss */
   25%, 75% {
     opacity: 0;
   }

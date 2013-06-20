@@ -46,7 +46,7 @@ section {
 
 // for the animate mixin, just call the selector, animation name, duration, and iterations
 // the example below will create a .flash class selector that will do the flash animation for 2 seconds and loop it 5x
-@include animate('.flash', flash, 2, 5);
+@include animate('.flash', flash, 1.5, 5);
 
 
 
