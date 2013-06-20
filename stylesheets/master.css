@@ -118,7 +118,7 @@ ol {
 
 /* line 73, ../sass/_base.scss */
 input[type="text"], input[type="number"], input[type="email"], input[type="password"], textarea {
-  padding: .8% .6%;
+  padding: 0.8% 0.6%;
   border: 0 none;
   font-size: 1em;
   background: white;
@@ -144,8 +144,8 @@ textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type
 /* line 95, ../sass/_base.scss */
 input:focus::-webkit-input-placeholder, input:focus::-moz-placeholder {
   color: #676667;
-  -moz-box-shadow: none;
   -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   -ms-box-shadow: none;
   -o-box-shadow: none;
   box-shadow: none;
@@ -156,7 +156,7 @@ textarea {
   min-height: 166px;
 }
 
-/* line 135, ../sass/_mixins.scss */
+/* line 117, ../sass/_mixins.scss */
 span.selWrap {
   width: 100%;
   margin: 0 auto;
@@ -166,7 +166,7 @@ span.selWrap {
   padding: 0;
 }
 
-/* line 143, ../sass/_mixins.scss */
+/* line 125, ../sass/_mixins.scss */
 span.selText {
   margin: 0;
   z-index: 1;
@@ -182,16 +182,16 @@ span.selText {
   font-weight: normal;
   color: #757474;
   font-size: 1em;
-  background: url("../images/arrow.png") 100% 97.8% no-repeat scroll white;
-  background: url("../images/arrow.png") 100% 97.8% no-repeat scroll, -webkit-gradient(linear, left bottom, left top, from(#e7e7e7), to(white));
-  background: url("../images/arrow.png") 100% 97.8% no-repeat scroll, -webkit-linear-gradient(center top, white, #e7e7e7);
-  background: url("../images/arrow.png") 100% 97.8% no-repeat scroll, -moz-linear-gradient(center top, white, #e7e7e7);
-  background: url("../images/arrow.png") 100% 97.8% no-repeat scroll, -ms-linear-gradient(center top, white, #e7e7e7);
-  background: url("../images/arrow.png") 100% 97.8% no-repeat scroll, -o-linear-gradient(center top, white, #e7e7e7);
+  background: url('url("../images/arrow.png") 100% 97.8%') no-repeat scroll white;
+  background: url('url("../images/arrow.png") 100% 97.8%') no-repeat scroll, -webkit-linear-gradient(center top, #ffffff, #e7e7e7);
+  background: url('url("../images/arrow.png") 100% 97.8%') no-repeat scroll, -moz-linear-gradient(center top, #ffffff, #e7e7e7);
+  background: url('url("../images/arrow.png") 100% 97.8%') no-repeat scroll, -ms-linear-gradient(center top, #ffffff, #e7e7e7);
+  background: url('url("../images/arrow.png") 100% 97.8%') no-repeat scroll, -o-linear-gradient(center top, #ffffff, #e7e7e7);
+  background: url('url("../images/arrow.png") 100% 97.8%') no-repeat scroll, linear-gradient(center top, #ffffff, #e7e7e7);
   border: 4px solid #eaeaea;
 }
 
-/* line 161, ../sass/_mixins.scss */
+/* line 143, ../sass/_mixins.scss */
 select.selIner {
   width: 100%;
   height: 36px;
@@ -206,24 +206,24 @@ select.selIner {
   -webkit-appearance: menulist-button;
 }
 
-/* line 213, ../sass/_mixins.scss */
+/* line 195, ../sass/_mixins.scss */
 #new, #new2 {
   float: left;
   clear: none;
   margin: 1% 1% 1% 1%;
 }
 
-/* line 219, ../sass/_mixins.scss */
+/* line 201, ../sass/_mixins.scss */
 #new {
   width: 23%;
 }
 
-/* line 219, ../sass/_mixins.scss */
+/* line 201, ../sass/_mixins.scss */
 #new2 {
   width: 48%;
 }
 
-/* line 177, ../sass/_mixins.scss */
+/* line 159, ../sass/_mixins.scss */
 #columns {
   -webkit-column-count: 5;
   -webkit-column-gap: 30px;
@@ -236,7 +236,7 @@ select.selIner {
   column-fill: auto;
 }
 
-/* line 188, ../sass/_mixins.scss */
+/* line 170, ../sass/_mixins.scss */
 section {
   display: inline-block;
   width: 100%;
@@ -274,8 +274,44 @@ section:nth-child(5n-2) {
   background: #e24547;
 }
 
+/* line 39, ../sass/master.scss */
+#animation .btn {
+  background: #333;
+  width: 20%;
+  margin: 2% 5%;
+  padding: 5% 10%;
+}
+
+/* line 261, ../sass/_mixins.scss */
+.flash {
+  -webkit-animation-name: flash;
+  -moz-animation-name: flash;
+  -o-animation-name: flash;
+  animation-name: flash;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: 5;
+  -moz-animation-iteration-count: 5;
+  -o-animation-iteration-count: 5;
+  animation-iteration-count: 5;
+}
+
+@keyframes flash {
+  /* line 272, ../sass/_mixins.scss */
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  /* line 273, ../sass/_mixins.scss */
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
 @media only screen and (min-width: 481px) and (max-width: 816px) {
-  /* line 177, ../sass/_mixins.scss */
+  /* line 159, ../sass/_mixins.scss */
   #columns {
     -webkit-column-count: 3;
     -webkit-column-gap: 1%;
@@ -288,7 +324,7 @@ section:nth-child(5n-2) {
     column-fill: auto;
   }
 
-  /* line 188, ../sass/_mixins.scss */
+  /* line 170, ../sass/_mixins.scss */
   section {
     display: inline-block;
     width: 100%;
@@ -298,7 +334,7 @@ section:nth-child(5n-2) {
   }
 }
 @media only screen and (min-width: 0) and (max-width: 480px) {
-  /* line 223, ../sass/_mixins.scss */
+  /* line 205, ../sass/_mixins.scss */
   #new, #new2 {
     float: none;
     clear: both;
@@ -306,7 +342,7 @@ section:nth-child(5n-2) {
     width: 98%;
   }
 
-  /* line 177, ../sass/_mixins.scss */
+  /* line 159, ../sass/_mixins.scss */
   #columns {
     -webkit-column-count: 1;
     -webkit-column-gap: 1%;
@@ -319,7 +355,7 @@ section:nth-child(5n-2) {
     column-fill: auto;
   }
 
-  /* line 188, ../sass/_mixins.scss */
+  /* line 170, ../sass/_mixins.scss */
   section {
     display: inline-block;
     width: 100%;

@@ -1,7 +1,7 @@
 // add browser prefixes. Examples below:
-// Example: @include addprefixes(box-shadow, 4px, webkit moz ms o spec);
-// Example: @include addprefixes(transform, rotate(45deg), webkit moz ms o spec); 
-@mixin addprefixes($property, $value, $prefixes: webkit moz ms o spec) {
+// Example: @include prefix(box-shadow, 4px, webkit moz ms o spec);
+// Example: @include prefix(transform, rotate(45deg), webkit moz ms o spec); 
+@mixin prefix($property, $value, $prefixes: webkit moz ms o spec) {
   @each $prefix in $prefixes {
     @if $prefix == webkit { -webkit-#{$property}: $value;} // Chrome10+,Safari5.1+ 
     @if $prefix == moz {-moz-#{$property}: $value;} // FF3.6+ 
@@ -10,16 +10,15 @@
     @if $prefix == spec { #{$property}: $value;} // W3C Spec 
   }
 }
-
+//borders
 @mixin border-radius ($borderRadius:10px){
-	@include addprefixes(border-radius, $borderRadius);
+	@include prefix(border-radius, $borderRadius);
+}
+@mixin border-image($args){
+  @include addprefixes(border-image, $args, webkit moz o spec);
 }
 @mixin box-shadow ($boxShadow...){
-	-moz-box-shadow: $boxShadow;
-	-webkit-box-shadow: $boxShadow;
-	-ms-box-shadow: $boxShadow;
-	-o-box-shadow: $boxShadow;
-	box-shadow: $boxShadow;
+	@include prefix(box-shadow, $boxShadow);
 }
 //gradients
 @mixin gradient($startColor, $endColor, $noGradient: mix($startColor, $endColor,50%), $type: 'vertical', $degOrImagePath: ''){
@@ -59,52 +58,37 @@
     }
   }
 }
-@mixin linear-gradient ($gradentTo, $gradentFrom, $noGradent){
-	background: $noGradent;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($gradentFrom), to($gradentTo)); 
-	background: -webkit-linear-gradient(top, $gradentTo, $gradentFrom);
-	background: -moz-linear-gradient(top, $gradentTo, $gradentFrom);
-	background: -ms-linear-gradient(top, $gradentTo, $gradentFrom);  
-	background: -o-linear-gradient(top, $gradentTo, $gradentFrom);
-	background: linear-gradient(top, $gradentTo, $gradentFrom);
-}
-@mixin image-linear-gradient ($imgPath, $gradentToImg, $gradentFromImg, $noGradentImg){
-	background:$imgPath no-repeat scroll $noGradentImg;
-	background:$imgPath no-repeat scroll, -webkit-gradient(linear, left bottom, left top, from($gradentFromImg), to($gradentToImg));
-	background:$imgPath no-repeat scroll, -webkit-linear-gradient(center top, $gradentToImg, $gradentFromImg);
-	background:$imgPath no-repeat scroll, -moz-linear-gradient(center top , $gradentToImg, $gradentFromImg);
-	background:$imgPath no-repeat scroll, -ms-linear-gradient(center top, $gradentToImg, $gradentFromImg);  
-	background:$imgPath no-repeat scroll, -o-linear-gradient(center top, $gradentToImg, $gradentFromImg);
+@mixin gradient-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f, $noGradient: #444){
+  background: $noGradient;
+  @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+    background: #{$i}linear-gradient(top, $startColor, $midColor $colorStop, $endColor) no-repeat mix($midColor, $endColor, 80%);
+  }
 }
 // transition
 @mixin transition ($tr){
-	-webkit-transition:$tr;  
-    -moz-transition:$tr;    
-    -o-transition:$tr;     
-    -ms-transition:$tr;      
-    transition:$tr;	
+	@include prefix(transition, $tr, webkit moz ms o spec);
 }
 //transformations
 @mixin rotate($deg){
-  @include addprefixes(transform, rotate(#{$deg}deg), webkit moz ms o spec);
+  @include prefix(transform, rotate(#{$deg}deg), webkit moz ms o spec);
 }
 @mixin rotate3d($x, $y, $z, $deg){
-  @include addprefixes(transform, rotate3d($x, $y, $z, #{$deg}deg), webkit moz ms o spec);
+  @include prefix(transform, rotate3d($x, $y, $z, #{$deg}deg), webkit moz ms o spec);
 }
 @mixin scale($ratio) {
-  @include addprefixes(transform, scale($ratio), webkit moz ms o spec);
+  @include prefix(transform, scale($ratio), webkit moz ms o spec);
 }
 @mixin translate($x, $y) {
-  @include addprefixes(transform, translate($x, $y), webkit moz ms o spec);
+  @include prefix(transform, translate($x, $y), webkit moz ms o spec);
 }
 @mixin skew($x, $y) {
-  @include addprefixes(transform, skew($x, $y), webkit moz ms o spec);
+  @include prefix(transform, skew($x, $y), webkit moz ms o spec);
 }
 @mixin translate3d($x, $y, $z) {
-  @include addprefixes(transform, translate3d($x, $y, $z), webkit moz o spec);
+  @include prefix(transform, translate3d($x, $y, $z), webkit moz o spec);
 }
 @mixin matrix($a, $b,$c, $d, $x, $y) {
-  @include addprefixes(transform, matrix($a, $b,$c, $d, $x, $y), webkit moz o spec);
+  @include prefix(transform, matrix($a, $b,$c, $d, $x, $y), webkit moz o spec);
 }
 //Add opacity to elements
 @mixin opacity($opacity){
@@ -125,11 +109,9 @@
 }
 // background-size
 @mixin background-size ($bs){
-	-webkit-background-size: $bs;
-	-moz-background-size: $bs;
-	-o-background-size: $bs;
-	background-size: $bs;
+	@include prefix(background-size, $bs, webkit moz o spec);
 }
+
 // Drop Downs
 @mixin drop-down ($dd-default-w: 100%, $dd-h: 36px, $dd-margin: $auto, $dd-t-padding: 0 .4em, $dd-t-color: $select-t-color, $dd-f-weight: normal, $dd-f-size: 1em){
 	span.selWrap {
@@ -155,7 +137,7 @@
 		font-weight: $dd-f-weight;
 		color: $dd-t-color;
 		font-size: $dd-f-size;
-		@include image-linear-gradient(url('../images/arrow.png') 100% 97.8%, $select-gradent-to, $select-gradent-from, $select-gradent-default);
+		@include gradient( $select-gradent-to, $select-gradent-from, $select-gradent-default, image, url('../images/arrow.png') 100% 97.8%);
 		border:$ui-border;
 	}
 	select.selIner {
@@ -264,3 +246,53 @@
 		}
 	}
 }
+
+// Animation
+
+// This is a special mixin in that it is NOT called inside a selector but is instead
+// called to target a selector. This mixin will add the animation for that selector.
+// example: @include animate(.content, flash, 2, infinite); //this will add a selector of .content using the 'flash' animation for 2 secs long and loop the animation for infinite amount of times
+// $target = class/id selector
+// $animationName = name of animation type (i.e. bounce, flash, etc.)
+// $duration = time of animation in seconds
+// $iterationCount = how many times it will play the animation
+@mixin animate($target, $animationName, $duration: 1, $iterationCount: 1){
+
+	#{$target} {
+		@include prefix(animation-name, #{$animationName}, webkit moz o spec);
+		@include prefix(animation-duration, #{$duration}s, webkit moz o spec);
+		@include prefix(animation-iteration-count, #{$iterationCount}, webkit moz o spec);
+	}
+
+	//@each $i in -webkit-, -moz-, -o-, '' {
+
+		@keyframes #{$animationName} {
+
+			@if($animationName == 'flash'){
+				0%, 50%, 100% {opacity: 1;}
+				25%, 75% {opacity: 0;}
+			}
+			@if($animationName == 'shake'){
+				0%, 100% {#{$i}transform: translateX(0);}
+				10%, 30%, 50%, 70%, 90% {#{$i}transform: translateX(-10px);}
+				20%, 40%, 60%, 80% {#{$i}transform: translateX(10px);}
+			}
+			@if($animationName == 'bounce'){
+				0%, 20%, 50%, 80%, 100% {#{$i}transform: translateY(0);}
+				40% {#{$i}transform: translateY(-30px);}
+				60% {#{$i}transform: translateY(-15px);}
+			}
+			@if($animationName == 'swing'){
+				20%, 40%, 60%, 80%, 100% { #{$i}transform-origin: top center; }
+				20% {#{$i}transform: rotate(15deg);}
+				40% {#{$i}transform: rotate(-10deg);}
+				60% {#{$i}transform: rotate(5deg);}
+				80% {#{$i}transform: rotate(-5deg);}
+				100% {#{$i}transform: rotate(0deg);}
+			}
+
+		}
+    //}
+	
+}
+

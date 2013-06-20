@@ -35,6 +35,19 @@ section {
 		background:$red;
 	}
 }
+#animation {
+	.btn {
+		background:#333;
+		width: 20%;
+		margin: 2% 5%;
+		padding: 5% 10%;
+	}
+}
+
+// for the animate mixin, just call the selector, animation name, duration, and iterations
+// the example below will create a .flash class selector that will do the flash animation for 2 seconds and loop it 5x
+@include animate('.flash', flash, 2, 5);
+
 
 
 // Media Querys
