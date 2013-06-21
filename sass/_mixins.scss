@@ -1,13 +1,13 @@
 // add browser prefixes. Examples below:
 // Example: @include prefix(box-shadow, 4px, webkit moz ms o spec);
-// Example: @include prefix(transform, rotate(45deg), webkit moz ms o spec); 
+// Example: @include prefix(transform, rotate(45deg), webkit moz ms o spec);
 @mixin prefix($property, $value, $prefixes: webkit moz ms o spec) {
   @each $prefix in $prefixes {
-    @if $prefix == webkit { -webkit-#{$property}: $value;} // Chrome10+,Safari5.1+ 
-    @if $prefix == moz {-moz-#{$property}: $value;} // FF3.6+ 
-    @if $prefix == ms { -ms-#{$property}: $value;} // IE10+ 
-    @if $prefix == o { -o-#{$property}: $value;} // Opera 11.10+ 
-    @if $prefix == spec { #{$property}: $value;} // W3C Spec 
+    @if $prefix == webkit { -webkit-#{$property}: $value;} // Chrome10+,Safari5.1+
+    @if $prefix == moz {-moz-#{$property}: $value;} // FF3.6+
+    @if $prefix == ms { -ms-#{$property}: $value;} // IE10+
+    @if $prefix == o { -o-#{$property}: $value;} // Opera 11.10+
+    @if $prefix == spec { #{$property}: $value;} // W3C Spec
   }
 }
 //borders
@@ -251,25 +251,34 @@
 
 // This is a special mixin in that it is NOT called inside a selector but is instead
 // called to target a selector. This mixin will add the animation for that selector.
-// example: @include animate(.content, flash, 2, infinite); //this will add a selector of .content using the 'flash' animation for 2 secs long and loop the animation for infinite amount of times
+// example: @include animate(.content, flash, 2, infinite, ease-in); //this will add a selector of .content using the 'flash' animation for 2 secs long and loop the animation for infinite amount of times using an ease-in animation
 // $target = class/id selector
 // $animationName = name of animation type (i.e. bounce, flash, etc.)
 // $duration = time of animation in seconds
 // $iterationCount = how many times it will play the animation
-@mixin animate($target, $animationName, $duration: 1, $iterationCount: 1){
+// $timingFunction = how the animation will progress (i.e. ease, ease-in, ease-out, ease-in-out, linear, etc...). Default is ease.
+@mixin animate($target, $animationName, $duration: 1, $iterationCount: 1, $timingFunction: ease){
 
 	#{$target} {
 		@include prefix(animation-name, #{$animationName}, webkit moz o spec);
 		@include prefix(animation-duration, #{$duration}s, webkit moz o spec);
 		@include prefix(animation-iteration-count, #{$iterationCount}, webkit moz o spec);
+		@if($timingFunction != ease){
+			@include prefix(animation-timing-function, #{$timingFunction}, webkit moz o spec);
+		}
+		@if($animationName == 'lightSpeedIn'){
+			@include prefix(animation-timing-function, ease-out, webkit moz o spec);
+		}
+		@if($animationName == 'lightSpeedOut'){
+			@include prefix(animation-timing-function, ease-in, webkit moz o spec);
+		}
+
 	}
 
-	@each $i in -webkit-, -moz-, -o-, '' {
-
+	@each $i in '' {
 		@keyframes #{$animationName} {
 
 			// animations from Animate.css (http://daneden.me/animate/)
-
 			@if($animationName == 'flash'){
 				0%, 50%, 100% {opacity: 1;}
 				25%, 75% {opacity: 0;}
@@ -327,7 +336,7 @@
 				100% { #{$i}transform: perspective(400px) rotateY(90deg); opacity: 0; }
 			}
 			@if($animationName == 'fadeIn'){
-				0% {opacity: 0;}	
+				0% {opacity: 0;}
 				100% {opacity: 1;}
 			}
 			@if($animationName == 'fadeInUp'){
@@ -335,31 +344,31 @@
 				100% { opacity: 1; #{$i}transform: translateY(0); }
 			}
 			@if($animationName == 'fadeInDown'){
-				0% { opacity: 0; #{$i}transform: translateY(-20px); } 
+				0% { opacity: 0; #{$i}transform: translateY(-20px); }
 				100% { opacity: 1; #{$i}transform: translateY(0); }
 			}
 			@if($animationName == 'fadeInLeft'){
-				0% { opacity: 0; #{$i}transform: translateX(-20px); } 
+				0% { opacity: 0; #{$i}transform: translateX(-20px); }
 				100% { opacity: 1; #{$i}transform: translateX(0); }
 			}
 			@if($animationName == 'fadeInRight'){
-				0% { opacity: 0; #{$i}transform: translateX(20px); } 
+				0% { opacity: 0; #{$i}transform: translateX(20px); }
 				100% { opacity: 1; #{$i}transform: translateX(0); }
 			}
 			@if($animationName == 'fadeInUpBig'){
-				0% { opacity: 0; #{$i}transform: translateY(2000px); } 
+				0% { opacity: 0; #{$i}transform: translateY(2000px); }
 				100% { opacity: 1; #{$i}transform: translateY(0); }
 			}
 			@if($animationName == 'fadeInDownBig'){
-				0% { opacity: 0; #{$i}transform: translateY(-2000px); } 
+				0% { opacity: 0; #{$i}transform: translateY(-2000px); }
 				100% { opacity: 1; #{$i}transform: translateY(0); }
 			}
 			@if($animationName == 'fadeInLeftBig'){
-				0% { opacity: 0; #{$i}transform: translateX(-2000px); } 
+				0% { opacity: 0; #{$i}transform: translateX(-2000px); }
 				100% { opacity: 1; #{$i}transform: translateX(0); }
 			}
 			@if($animationName == 'fadeInRightBig'){
-				0% { opacity: 0; #{$i}transform: translateX(2000px); } 
+				0% { opacity: 0; #{$i}transform: translateX(2000px); }
 				100% { opacity: 1; #{$i}transform: translateX(0); }
 			}
 			@if($animationName == 'fadeOut'){
@@ -367,115 +376,115 @@
 				100% {opacity: 0;}
 			}
 			@if($animationName == 'fadeOutUp'){
-				0% { opacity: 1; #{$i}transform: translateY(0); } 
+				0% { opacity: 1; #{$i}transform: translateY(0); }
 				100% { opacity: 0; #{$i}transform: translateY(-20px); }
 			}
 			@if($animationName == 'fadeOutDown'){
-				0% { opacity: 1; #{$i}transform: translateY(0); } 
+				0% { opacity: 1; #{$i}transform: translateY(0); }
 				100% { opacity: 0; #{$i}transform: translateY(20px); }
 			}
 			@if($animationName == 'fadeOutLeft'){
-				0% { opacity: 1; #{$i}transform: translateX(0); } 
+				0% { opacity: 1; #{$i}transform: translateX(0); }
 				100% { opacity: 0; webkit-transform: translateX(-20px); }
 			}
 			@if($animationName == 'fadeOutRight'){
-				0% { opacity: 1; #{$i}transform: translateX(0); } 
+				0% { opacity: 1; #{$i}transform: translateX(0); }
 				100% { opacity: 0; #{$i}transform: translateX(20px); }
 			}
 			@if($animationName == 'fadeOutUpBig'){
-				0% { opacity: 1; #{$i}transform: translateY(0); } 
+				0% { opacity: 1; #{$i}transform: translateY(0); }
 				100% { opacity: 0; #{$i}transform: translateY(-2000px); }
 			}
 			@if($animationName == 'fadeOutDownBig'){
-				0% { opacity: 1; webkit-transform: translateY(0); } 
+				0% { opacity: 1; webkit-transform: translateY(0); }
 				100% { opacity: 0; #{$i}transform: translateY(2000px); }
 			}
 			@if($animationName == 'fadeOutLeftBig'){
-				0% { opacity: 1; #{$i}transform: translateX(0); } 
+				0% { opacity: 1; #{$i}transform: translateX(0); }
 				100% { opacity: 0; #{$i}transform: translateX(-2000px); }
 			}
 			@if($animationName == 'fadeOutRightBig'){
-				0% { opacity: 1; #{$i}transform: translateX(0); } 
+				0% { opacity: 1; #{$i}transform: translateX(0); }
 				100% { opacity: 0; #{$i}transform: translateX(2000px); }
 			}
 			@if($animationName == 'bounceIn'){
-				0% { opacity: 0; #{$i}transform: scale(.3); } 
-				50% { opacity: 1; #{$i}transform: scale(1.05); } 
-				70% { #{$i}transform: scale(.9); } 
+				0% { opacity: 0; #{$i}transform: scale(.3); }
+				50% { opacity: 1; #{$i}transform: scale(1.05); }
+				70% { #{$i}transform: scale(.9); }
 				100% { #{$i}transform: scale(1); }
 			}
 			@if($animationName == 'bounceInUp'){
-				0% { opacity: 0; #{$i}transform: translateY(2000px); } 
-				60% { opacity: 1; #{$i}transform: translateY(-30px); } 
-				80% { #{$i}transform: translateY(10px); } 
+				0% { opacity: 0; #{$i}transform: translateY(2000px); }
+				60% { opacity: 1; #{$i}transform: translateY(-30px); }
+				80% { #{$i}transform: translateY(10px); }
 				100% { #{$i}transform: translateY(0); }
 			}
 			@if($animationName == 'bounceInDown'){
-				0% { opacity: 0; #{$i}transform: translateY(-2000px); } 
-				60% { opacity: 1; #{$i}transform: translateY(30px); } 
-				80% { #{$i}transform: translateY(-10px); } 
+				0% { opacity: 0; #{$i}transform: translateY(-2000px); }
+				60% { opacity: 1; #{$i}transform: translateY(30px); }
+				80% { #{$i}transform: translateY(-10px); }
 				100% { #{$i}transform: translateY(0); }
 			}
 			@if($animationName == 'bounceInLeft'){
-				0% { opacity: 0; #{$i}transform: translateX(-2000px); } 
-				60% { opacity: 1; #{$i}transform: translateX(30px); } 
-				80% { #{$i}transform: translateX(-10px); } 
+				0% { opacity: 0; #{$i}transform: translateX(-2000px); }
+				60% { opacity: 1; #{$i}transform: translateX(30px); }
+				80% { #{$i}transform: translateX(-10px); }
 				100% { #{$i}transform: translateX(0); }
 			}
 			@if($animationName == 'bounceInRight'){
-				0% { opacity: 0; #{$i}transform: translateX(2000px); } 
-				60% { opacity: 1; #{$i}transform: translateX(-30px); } 
-				80% { #{$i}transform: translateX(10px); } 
+				0% { opacity: 0; #{$i}transform: translateX(2000px); }
+				60% { opacity: 1; #{$i}transform: translateX(-30px); }
+				80% { #{$i}transform: translateX(10px); }
 				100% { #{$i}transform: translateX(0); }
 			}
 			@if($animationName == 'bounceOut'){
-				0% { #{$i}transform: scale(1); } 
-				25% { #{$i}transform: scale(.95); } 
-				50% { opacity: 1; #{$i}transform: scale(1.1); } 
-				100% { opacity: 0; #{$i}transform: scale(.3); }	
+				0% { #{$i}transform: scale(1); }
+				25% { #{$i}transform: scale(.95); }
+				50% { opacity: 1; #{$i}transform: scale(1.1); }
+				100% { opacity: 0; #{$i}transform: scale(.3); }
 			}
 			@if($animationName == 'bounceOutUp'){
 				0% { #{$i}transform: translateY(0); }
-				20% { opacity: 1; #{$i}transform: translateY(20px); } 
+				20% { opacity: 1; #{$i}transform: translateY(20px); }
 				100% { opacity: 0; #{$i}transform: translateY(-2000px); }
 			}
 			@if($animationName == 'bounceOutDown'){
 				0% { #{$i}transform: translateY(0); }
-				20% { opacity: 1; #{$i}transform: translateY(-20px); } 
+				20% { opacity: 1; #{$i}transform: translateY(-20px); }
 				100% { opacity: 0; #{$i}transform: translateY(2000px); }
 			}
 			@if($animationName == 'bounceOutLeft'){
-				0% { #{$i}transform: translateX(0); } 
+				0% { #{$i}transform: translateX(0); }
 				20% { opacity: 1; #{$i}transform: translateX(20px); }
 				100% { opacity: 0; #{$i}transform: translateX(-2000px); }
 			}
 			@if($animationName == 'bounceOutRight'){
-				0% { #{$i}transform: translateX(0); } 
-				20% { opacity: 1; #{$i}transform: translateX(-20px); } 
+				0% { #{$i}transform: translateX(0); }
+				20% { opacity: 1; #{$i}transform: translateX(-20px); }
 				100% { opacity: 0; #{$i}transform: translateX(2000px); }
 			}
 			@if($animationName == 'rotateIn'){
-				0% { #{$i}transform-origin: center center; #{$i}transform: rotate(-200deg); opacity: 0; } 
+				0% { #{$i}transform-origin: center center; #{$i}transform: rotate(-200deg); opacity: 0; }
 				100% { #{$i}transform-origin: center center; #{$i}transform: rotate(0); opacity: 1; }
 			}
 			@if($animationName == 'rotateInUpLeft'){
-				0% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(90deg); opacity: 0; } 
+				0% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(90deg); opacity: 0; }
 				100% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(0); opacity: 1; }
 			}
 			@if($animationName == 'rotateInDownLeft'){
-				0% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(-90deg); opacity: 0; } 
+				0% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(-90deg); opacity: 0; }
 				100% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(0); opacity: 1; }
 			}
 			@if($animationName == 'rotateInUpRight'){
-				0% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(-90deg); opacity: 0; } 
+				0% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(-90deg); opacity: 0; }
 				100% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(0); opacity: 1; }
 			}
 			@if($animationName == 'rotateInDownRight'){
-				0% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(90deg); opacity: 0; } 
+				0% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(90deg); opacity: 0; }
 				100% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(0); opacity: 1; }
 			}
 			@if($animationName == 'rotateOut'){
-				0% { #{$i}transform-origin: center center; #{$i}transform: rotate(0); opacity: 1; } 
+				0% { #{$i}transform-origin: center center; #{$i}transform: rotate(0); opacity: 1; }
 				100% { #{$i}transform-origin: center center; #{$i}transform: rotate(200deg); opacity: 0; }
 			}
 			@if($animationName == 'rotateOutUpLeft'){
@@ -487,13 +496,24 @@
 				100% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(90deg); opacity: 0; }
 			}
 			@if($animationName == 'rotateOutUpRight'){
-				0% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(0); opacity: 1; } 
+				0% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(0); opacity: 1; }
 				100% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(90deg); opacity: 0; }
 			}
 			@if($animationName == 'rotateOutDownRight'){
 				0% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(0); opacity: 1; }
 				100% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(-90deg); opacity: 0; }
 			}
+			@if($animationName == 'lightSpeedIn'){
+				0% { #{$i}transform: translateX(100%) skewX(-30deg); opacity: 0; }
+				60% { #{$i}transform: translateX(-20%) skewX(30deg); opacity: 1; }
+				80% { #{$i}transform: translateX(0%) skewX(-15deg); opacity: 1; }
+				100% { #{$i}transform: translateX(0%) skewX(0deg); opacity: 1; }
+			}
+			@if($animationName == 'lightSpeedOut'){
+				0% { #{$i}transform: translateX(0%) skewX(0deg); opacity: 1; }
+				100% { #{$i}transform: translateX(100%) skewX(-30deg); opacity: 0; }
+			}
+
 
 
 		}

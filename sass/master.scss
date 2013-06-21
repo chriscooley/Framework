@@ -37,16 +37,25 @@ section {
 }
 #animation {
 	.btn {
+		@extend %gd3;
 		background:#333;
-		width: 20%;
-		margin: 2% 5%;
-		padding: 5% 10%;
+		margin: 2% 1%;
+		padding: 2% 5%;
 	}
 }
 
 // for the animate mixin, just call the selector, animation name, duration, and iterations
 // the example below will create a .flash class selector that will do the flash animation for 2 seconds and loop it 5x
-@include animate('.flash', flash, 1.5, 5);
+@include animate('.flash', flash, 1.5, infinite);
+@include animate('.shake', shake, 1.5, infinite);
+@include animate('.bounce', bounce, 1.5, infinite);
+@include animate('.swing', swing, 1.5, infinite);
+@include animate('.wobble', wobble, 1.5, infinite);
+@include animate('.pulse', pulse, 1.5, infinite);
+@include animate('.flipInX', flipInX, 1.5, infinite);
+@include animate('.flipOutX', flipOutX, 1.5, infinite);
+@include animate('.flipInY', flipInY, 1.5, infinite);
+@include animate('.flipOutY', flipOutY, 1.5, infinite);
 
 
 

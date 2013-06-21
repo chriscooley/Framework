@@ -88,7 +88,7 @@ input[type="text"], input[type="number"], input[type="email"], input[type="passw
 		width: 48%;
 	}
 }
-textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="password"]:focus {    
+textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="password"]:focus {
 	color: $input-focus-text-color;
 	background:$input-bg;
 }
