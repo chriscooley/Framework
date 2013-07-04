@@ -331,12 +331,13 @@
 // $duration = time of animation in seconds
 // $iterationCount = how many times it will play the animation
 // $timingFunction = how the animation will progress (i.e. ease, ease-in, ease-out, ease-in-out, linear, etc...). Default is ease.
-@mixin animate($target, $animationName, $duration: 1, $iterationCount: 1, $timingFunction: ease){
+@mixin animate($target, $animationName, $duration: 1, $iterationCount: 1, $timingFunction: ease, $delay: 0){
 
 	#{$target} {
 		@include prefix(animation-name, #{$animationName}, webkit moz o spec);
 		@include prefix(animation-duration, #{$duration}s, webkit moz o spec);
 		@include prefix(animation-iteration-count, #{$iterationCount}, webkit moz o spec);
+		@include prefix(animation-delay, #{$$delay}s, webkit moz o spec);
 		@if($timingFunction != ease){
 			@include prefix(animation-timing-function, #{$timingFunction}, webkit moz o spec);
 		}
