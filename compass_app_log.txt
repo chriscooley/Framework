@@ -8274,3 +8274,5 @@
 >>>>>>> e2d151321ee65b182a490ac10f8eb16557c5dd76
 2013-07-10 16:34:38     error sass/master.scss (Line 16 of sass/_mixins.scss: Invalid CSS after "...ty}: $fallback;": expected "}", was "<<<<<<< HEAD")
 2013-07-10 16:34:38 overwrite stylesheets/master.css 
+2013-07-10 16:39:18 overwrite stylesheets/master.css 
+2013-07-10 16:39:24 identical stylesheets/master.css 

@@ -13,11 +13,7 @@
 // CSS calc
 @mixin calc($property, $variable, $operation, $value, $fallback) {
 	 #{$property}: $fallback;
-<<<<<<< HEAD
 	 #{$property}: -moz-calc(#{$variable} #{$operation} #{$value});
-=======
-	 #{$property}: -mox-calc(#{$variable} #{$operation} #{$value});
->>>>>>> e2d151321ee65b182a490ac10f8eb16557c5dd76
 	 #{$property}: -o-calc(#{$variable} #{$operation} #{$value});
 	 #{$property}: -webkit-calc(#{$variable} #{$operation} #{$value});
 	 #{$property}: calc(#{$variable} #{$operation} #{$value});
@@ -28,11 +24,7 @@
 // `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._
 
 // Columns
-<<<<<<< HEAD
 @mixin columns ($count: 4, $gap: 1%, $fill: balance, $break:avoid, $sectionWidth: 100%){
-=======
-@mixin columns ($count: 4, $gap: 1%, $fill: auto, $break:avoid, $sectionWidth: 100%){
->>>>>>> e2d151321ee65b182a490ac10f8eb16557c5dd76
 	%columns {
 		@include prefix(column-fill, $fill, webkit moz o spec);
 		@include prefix(column-count, $count, webkit moz o spec);
@@ -181,11 +173,8 @@
   opacity: $opacity;
 }
 
-<<<<<<< HEAD
+
 // Add an alpha-transparency value to any background or border color
-=======
-// Add an alphatransparency value to any background or border color
->>>>>>> e2d151321ee65b182a490ac10f8eb16557c5dd76
 @mixin translucent-background($color: #fff, $alpha: 0.5) {
   background: $color; //fallback
   background: hsla(hue($color), saturation($color), lightness($color), $alpha);
@@ -238,7 +227,6 @@
 	}
 }
 
-<<<<<<< HEAD
 // retina image usage for devices that support it
 @mixin retina($image, $width, $height) {
   @media (min--moz-device-pixel-ratio: 1.3),
@@ -266,9 +254,6 @@
   }
 }
 
-
-=======
->>>>>>> e2d151321ee65b182a490ac10f8eb16557c5dd76
 // Font Section
 //      .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.   
 // `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._
