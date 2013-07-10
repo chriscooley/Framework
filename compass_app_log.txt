@@ -8265,3 +8265,7 @@
 2013-07-10 13:51:25 overwrite stylesheets/master.css 
 2013-07-10 14:07:58 overwrite stylesheets/master.css 
 2013-07-10 15:22:06 identical stylesheets/master.css 
+2013-07-10 16:30:43     error sass/master.scss (Line 16 of sass/_mixins.scss: Invalid CSS after "...ty}: $fallback;": expected "}", was "<<<<<<< HEAD")
+2013-07-10 16:30:43 overwrite stylesheets/master.css 
+2013-07-10 16:32:47 overwrite stylesheets/master.css 
+2013-07-10 16:33:00 identical stylesheets/master.css 
