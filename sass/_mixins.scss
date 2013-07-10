@@ -24,7 +24,7 @@
 // `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._
 
 // Columns
-@mixin columns ($count: 4, $gap: 1%, $fill: auto, $break:avoid, $sectionWidth: 100%){
+@mixin columns ($count: 4, $gap: 1%, $fill: balance, $break:avoid, $sectionWidth: 100%){
 	%columns {
 		@include prefix(column-fill, $fill, webkit moz o spec);
 		@include prefix(column-count, $count, webkit moz o spec);
@@ -337,7 +337,7 @@
 		@include prefix(animation-name, #{$animationName}, webkit moz o spec);
 		@include prefix(animation-duration, #{$duration}s, webkit moz o spec);
 		@include prefix(animation-iteration-count, #{$iterationCount}, webkit moz o spec);
-		@include prefix(animation-delay, #{$$delay}s, webkit moz o spec);
+		@include prefix(animation-delay, #{$delay}s, webkit moz o spec);
 		@if($timingFunction != ease){
 			@include prefix(animation-timing-function, #{$timingFunction}, webkit moz o spec);
 		}

@@ -5,12 +5,35 @@
 
 // UI style
 @include grid-custom($gw: true);
+//@include grid();
+#gridstructure {
+	@extend %gw;
+	text-align: center;
+	color: #fff;
 
-@include columns ($count: 5, $gap: 30px, $fill: auto, $break:avoid, $sectionWidth: 100%);
+	.g{	background: #237abd;}
+
+	.gd1 {@extend %gd1;}
+	.gd2 {@extend %gd2;}
+	.gd3 {@extend %gd3;}
+	.gd4 {@extend %gd4;}
+	.gd5 {@extend %gd5;}
+	.gd6 {@extend %gd6;}
+	.gd7 {@extend %gd7;}
+	.gd8 {@extend %gd8;}
+	.gd9 {@extend %gd9;}
+	.gd10 {@extend %gd10;}
+	.gd11 {@extend %gd11;}
+	.gd12 {@extend %gd12;}
+}
+
+
+@include columns ($count: 5, $gap: 30px, $fill: balance, $break:avoid, $sectionWidth: 100%);
 
 #columns {
 	@include border-radius();
 	@extend %columns;
+	clear: both;
 }
 #new {
 	@extend %gd3;
