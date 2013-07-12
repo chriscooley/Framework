@@ -1,0 +1,595 @@
+// add browser prefixes. Examples below:
+// Example: @include prefix(box-shadow, 4px, webkit moz ms o spec);
+// Example: @include prefix(transform, rotate(45deg), webkit moz ms o spec);
+@mixin prefix($property, $value, $prefixes: webkit moz ms o spec) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit { -webkit-#{$property}: $value;} // Chrome10+,Safari5.1+
+    @if $prefix == moz {-moz-#{$property}: $value;} // FF3.6+
+    @if $prefix == ms { -ms-#{$property}: $value;} // IE10+
+    @if $prefix == o { -o-#{$property}: $value;} // Opera 11.10+
+    @if $prefix == spec { #{$property}: $value;} // W3C Spec
+  }
+}
+// CSS calc
+@mixin calc($property, $variable, $operation, $value, $fallback) {
+	 #{$property}: $fallback;
+	 #{$property}: -moz-calc(#{$variable} #{$operation} #{$value});
+	 #{$property}: -o-calc(#{$variable} #{$operation} #{$value});
+	 #{$property}: -webkit-calc(#{$variable} #{$operation} #{$value});
+	 #{$property}: calc(#{$variable} #{$operation} #{$value});
+}
+
+// Grid Section
+//      .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.   
+// `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._
+
+// Columns
+@mixin columns ($count: 4, $gap: 1%, $fill: balance, $break:avoid, $sectionWidth: 100%){
+	%columns {
+		@include prefix(column-fill, $fill, webkit moz o spec);
+		@include prefix(column-count, $count, webkit moz o spec);
+		@include prefix(column-gap, $gap, webkit moz o spec);
+	}
+	%section {
+		display: inline-block;
+		width:$sectionWidth;
+		@include prefix(column-break-inside, $break, webkit moz o spec);
+	}
+}
+
+// Square
+@mixin square-box ($square-w:10%, $square-p: 0 0 $square-w 0, $circle: false, $square-b: false, $border-size: '', $border-style: ''){
+	@if $square-b == true {
+		border:$border-size $border-style;
+		@include calc($property:width, $variable:$square-w, $operation:'+', $value:$border-size*2, $fallback:$square-w);
+	}
+	@else {
+		width: $square-w;
+	}
+	padding: $square-p;
+	height:0;
+	@if $circle == true {
+		@include border-radius(50%);
+	}
+}
+
+// Grid Wrap
+@mixin grid-wrap ($t:$top, $r:$right, $b:$bottom, $l:$left, $gw-width: $start-width, $gw-margin: $auto){
+	%gw {
+		overflow: hidden;
+		width: $gw-width;
+		margin: $gw-margin;
+		padding:$t $r $b $l;
+	}
+}
+
+// Grid
+@mixin grid ($mobile: false, $t:$top, $r:$right, $b:$bottom, $l:$left, $selector: $gd-selector, $gd-float: left, $gd-clear: none){
+	@if $mobile == false {
+		%gd {
+			float:$gd-float;
+			clear:$gd-clear;
+			margin:$t $r $b $l;
+		}
+		@for $i from 1 through $gd-count {
+			#{$selector}gd#{$i} {width: (100 / $gd-count * $i - $r - $l); @extend %gd;}
+		}
+	}
+	@else {
+		%gd {
+			float:none;
+			clear:both;
+			margin:$t $r $b $l;
+			width: 100% - $r - $l;
+		}
+		@for $i from 1 through $gd-count {
+			#{$selector}gd#{$i} {@extend %gd;}
+		}
+	}
+}
+
+// Custom Grid $mobile, $t, $r, $b, $l, $selector, $gd-class, $gd-float, $gd-clear
+@mixin grid-custom ($mobile: false, $gw: false, $gw-class: '', $gw-width: $start-width, $gw-margin: $auto, $t:$top, $r:$right, $b:$bottom, $l:$left, $selector: $gd-selector, $gd-float: left, $gd-clear: none){
+	@if $gw == true {
+		@include grid-wrap($t, $r, $b, $l, $gw-width, $gw-margin);
+		@include grid($mobile);
+	}
+	@else {
+		@include grid($mobile);
+	}
+}
+
+// UI Section
+//      .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.   
+// `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._
+
+// Background Size
+@mixin background-size ($bs){
+	@include prefix(background-size, $bs, webkit moz o spec);
+}
+
+// Borders
+@mixin border-radius ($borderRadius:10px){
+	@include prefix(border-radius, $borderRadius);
+}
+@mixin border-image($args){
+  @include prefix(border-image, $args, webkit moz o spec);
+}
+@mixin box-shadow ($boxShadow...){
+	@include prefix(box-shadow, $boxShadow);
+}
+
+// Gradients
+@mixin gradient($startColor, $endColor, $noGradient: mix($startColor, $endColor,50%), $type: 'vertical', $degOrImagePath: ''){
+  @if ($type == 'vertical'){
+    background: $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+      background: #{$i}linear-gradient(top, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
+    }
+  }
+
+  @if ($type == 'horizontal'){
+    background: $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o- {
+      background: #{$i}linear-gradient(left, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
+    }
+    background: linear-gradient(to right, $startColor, $endColor) repeat-x $endColor;
+  }
+
+  @if ($type == 'radial'){
+    background: $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o-, ''{
+      background: #{$i}radial-gradient(circle, $startColor, $endColor) no-repeat mix($startColor, $endColor, 60%);
+    }
+  }
+
+  @if ($type == 'directional'){
+    background: $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+      background: #{$i}linear-gradient(#{$degOrImagePath}deg, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
+    }
+  }
+
+  @if ($type == 'image'){
+    background: url('#{$degOrImagePath}') no-repeat scroll $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+      background: url('#{$degOrImagePath}') no-repeat scroll, #{$i}linear-gradient(center top, $startColor, $endColor);
+    }
+  }
+}
+@mixin gradient-three-colors($startColor: #00b3ee, $midColor: #7a43b6, $colorStop: 50%, $endColor: #c3325f, $noGradient: #444){
+  background: $noGradient;
+  @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+    background: #{$i}linear-gradient(top, $startColor, $midColor $colorStop, $endColor) no-repeat mix($midColor, $endColor, 80%);
+  }
+}
+
+//Add opacity to elements
+@mixin opacity($opacity){
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity}*10)";
+  filter: alpha(opacity=#{$opacity}*100);
+  -moz-opacity: $opacity;
+  -khtml-opacity: $opacity;
+  opacity: $opacity;
+}
+
+
+// Add an alpha-transparency value to any background or border color
+@mixin translucent-background($color: #fff, $alpha: 0.5) {
+  background: $color; //fallback
+  background: hsla(hue($color), saturation($color), lightness($color), $alpha);
+}
+@mixin translucent-border($size: 1px, $style: solid, $color: #fff, $alpha: 0.5) {
+  border: $size $style hsla(hue($color), saturation($color), lightness($color), $alpha);
+  background-clip: padding-box;
+}
+
+// Custom Drop Downs needs JS for full support
+@mixin drop-down ($dd-default-w: 100%, $dd-h: 36px, $dd-margin: $auto, $dd-t-padding: 0 .4em, $dd-t-color: $select-t-color, $dd-f-weight: normal, $dd-f-size: 1em){
+	span.selWrap {
+		width: $dd-default-w;
+		margin: $dd-margin;
+		height: $dd-h;
+		position:relative;
+		display:block;
+	    padding:0;
+	}
+	span.selText {
+		margin:0;
+		z-index:1;
+		width: 100%;
+		display: block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow:ellipsis;
+		position:absolute;
+		height: $dd-h;
+		line-height:$dd-h;
+		padding: $dd-t-padding;
+		font-weight: $dd-f-weight;
+		color: $dd-t-color;
+		font-size: $dd-f-size;
+		@include gradient( $select-gradent-to, $select-gradent-from, $select-gradent-default, image, url('../images/arrow.png') 100% 97.8%);
+		border:$ui-border;
+	}
+	select.selIner {
+		width: 100%;
+		height: $dd-h;
+		position:absolute;
+		z-index:2;
+		padding:0;
+		margin:0;
+		border:0 none;
+		float:none;
+		opacity:0;
+		filter: alpha(opacity=00);
+		-webkit-appearance: menulist-button;
+	}
+}
+
+// retina image usage for devices that support it
+@mixin retina($image, $width, $height) {
+  @media (min--moz-device-pixel-ratio: 1.3),
+         (-o-min-device-pixel-ratio: 2.6/2),
+         (-webkit-min-device-pixel-ratio: 1.3),
+         (min-device-pixel-ratio: 1.3),
+         (min-resolution: 1.3dppx) {
+    /* on retina, use image that's scaled by 2 */
+    background-image: url($image);
+    background-size: $width $height;
+  }
+}
+
+// Adds button backgrounds using only one base colot
+@mixin button($baseColor: #aaa, $style: 'simple'){
+  background: $baseColor;
+  
+  @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+    @if ($style == 'simple') { background: #{$i}linear-gradient(top, lighten($baseColor, 10%), darken($baseColor, 10%)) repeat-x $baseColor; }
+    @if ($style == 'complex') { background: #{$i}linear-gradient(top,  lighten($baseColor, 30%) 0%, lighten($baseColor, 10%) 5%, darken($baseColor, 10%) 95%, darken($baseColor, 20%) 100%); }
+    @if ($style == 'shiny') { background: #{$i}linear-gradient(top,  lighten($baseColor, 5%) 0%, darken($baseColor, 5%) 50%, darken($baseColor, 15%) 51%, darken($baseColor, 4%) 100%); }
+  }
+  &:hover {
+    background: darken($baseColor, 5%);
+  }
+}
+
+// Font Section
+//      .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.   
+// `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._
+
+// Custom Font Face
+@mixin c-font ($set-c-font: false, $font-url: '', $font-family: '', $f-count: $font-count, $c1-font-family: '', $c2-font-family: '', $c1-font-family-url: '', $c2-font-family-url: ''){
+	@if $set-c-font == true {
+		@for $f from 1 through $font-count {
+			@if $f == 1 {
+				$font-url: $c1-font-family-url;
+				$font-family: $c1-font-family;
+			}
+			@if $f == 2 {
+				$font-url: $c2-font-family-url;
+				$font-family: $c2-font-family;
+			}
+			@font-face {
+			    font-family: $font-family;
+			    src: url('../fonts/#{$font-url}.eot');
+			    src: url('../fonts/#{$font-url}.eot') format('embedded-opentype'),
+			         url('../fonts/#{$font-url}.woff') format('woff'),
+			         url('../fonts/#{$font-url}.ttf') format('truetype'),
+			         url('../fonts/#{$font-url}.svg##{$font-family}') format('svg');
+			}
+		}
+	}
+}
+
+// ellipsis
+@mixin ellipsis {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+
+// Animation and Transition
+//      .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.   
+// `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._
+
+// Transition
+
+@mixin transition ($tr){
+	@include prefix(transition, $tr, webkit moz ms o spec);
+}
+// trans formations
+@mixin rotate($deg){
+  @include prefix(transform, rotate(#{$deg}deg), webkit moz ms o spec);
+}
+@mixin rotate3d($x, $y, $z, $deg){
+  @include prefix(transform, rotate3d($x, $y, $z, #{$deg}deg), webkit moz ms o spec);
+}
+@mixin scale($ratio) {
+  @include prefix(transform, scale($ratio), webkit moz ms o spec);
+}
+@mixin translate($x, $y) {
+  @include prefix(transform, translate($x, $y), webkit moz ms o spec);
+}
+@mixin skew($x, $y) {
+  @include prefix(transform, skew($x, $y), webkit moz ms o spec);
+}
+@mixin translate3d($x, $y, $z) {
+  @include prefix(transform, translate3d($x, $y, $z), webkit moz o spec);
+}
+@mixin matrix($a, $b,$c, $d, $x, $y) {
+  @include prefix(transform, matrix($a, $b,$c, $d, $x, $y), webkit moz o spec);
+}
+
+// Animation
+
+// This is a special mixin in that it is NOT called inside a selector but is instead
+// called to target a selector. This mixin will add the animation for that selector.
+// example: @include animate(.content, flash, 2, infinite, ease-in); //this will add a selector of .content using the 'flash' animation for 2 secs long and loop the animation for infinite amount of times using an ease-in animation
+// $target = class/id selector
+// $animationName = name of animation type (i.e. bounce, flash, etc.)
+// $duration = time of animation in seconds
+// $iterationCount = how many times it will play the animation
+// $timingFunction = how the animation will progress (i.e. ease, ease-in, ease-out, ease-in-out, linear, etc...). Default is ease.
+@mixin animate($target, $animationName, $duration: 1, $iterationCount: 1, $timingFunction: ease, $delay: 0){
+
+	#{$target} {
+		@include prefix(animation-name, #{$animationName}, webkit moz o spec);
+		@include prefix(animation-duration, #{$duration}s, webkit moz o spec);
+		@include prefix(animation-iteration-count, #{$iterationCount}, webkit moz o spec);
+		@include prefix(animation-delay, #{$delay}s, webkit moz o spec);
+		@if($timingFunction != ease){
+			@include prefix(animation-timing-function, #{$timingFunction}, webkit moz o spec);
+		}
+		@if($animationName == 'lightSpeedIn'){
+			@include prefix(animation-timing-function, ease-out, webkit moz o spec);
+		}
+		@if($animationName == 'lightSpeedOut'){
+			@include prefix(animation-timing-function, ease-in, webkit moz o spec);
+		}
+
+	}
+
+	@each $i in '' {
+		@keyframes #{$animationName} {
+
+			// animations from Animate.css (http://daneden.me/animate/)
+			@if($animationName == 'flash'){
+				0%, 50%, 100% {opacity: 1;}
+				25%, 75% {opacity: 0;}
+			}
+			@if($animationName == 'shake'){
+				0%, 100% {#{$i}transform: translateX(0);}
+				10%, 30%, 50%, 70%, 90% {#{$i}transform: translateX(-10px);}
+				20%, 40%, 60%, 80% {#{$i}transform: translateX(10px);}
+			}
+			@if($animationName == 'bounce'){
+				0%, 20%, 50%, 80%, 100% {#{$i}transform: translateY(0);}
+				40% {#{$i}transform: translateY(-30px);}
+				60% {#{$i}transform: translateY(-15px);}
+			}
+			@if($animationName == 'swing'){
+				20%, 40%, 60%, 80%, 100% { #{$i}transform-origin: top center; }
+				20% {#{$i}transform: rotate(15deg);}
+				40% {#{$i}transform: rotate(-10deg);}
+				60% {#{$i}transform: rotate(5deg);}
+				80% {#{$i}transform: rotate(-5deg);}
+				100% {#{$i}transform: rotate(0deg);}
+			}
+			@if($animationName == 'wobble'){
+				0% { #{$i}transform: translateX(0%); }
+				15% { #{$i}transform: translateX(-25%) rotate(-5deg); }
+				30% { #{$i}transform: translateX(20%) rotate(3deg); }
+				45% { #{$i}transform: translateX(-15%) rotate(-3deg); }
+				60% { #{$i}transform: translateX(10%) rotate(2deg); }
+				75% { #{$i}transform: translateX(-5%) rotate(-1deg); }
+				100% { #{$i}transform: translateX(0%); }
+			}
+			@if($animationName == 'pulse'){
+				0% { #{$i}transform: scale(1); }	
+				50% { #{$i}transform: scale(1.1); }
+			    100% { #{$i}transform: scale(1); }
+			}
+			@if($animationName == 'flipInX'){
+				0% { #{$i}transform: perspective(400px) rotateX(90deg); opacity: 0; }
+			    40% { #{$i}transform: perspective(400px) rotateX(-10deg); }
+			    70% { #{$i}transform: perspective(400px) rotateX(10deg); }
+			    100% { #{$i}transform: perspective(400px) rotateX(0deg); opacity: 1; }
+			}
+			@if($animationName == 'flipOutX'){
+				0% { #{$i}transform: perspective(400px) rotateX(0deg); opacity: 1; }
+				100% { #{$i}transform: perspective(400px) rotateX(90deg); opacity: 0; }
+			}
+			@if($animationName == 'flipInY'){
+				0% { #{$i}transform: perspective(400px) rotateY(90deg); opacity: 0; } 
+			    40% { #{$i}transform: perspective(400px) rotateY(-10deg); }
+			    70% { #{$i}transform: perspective(400px) rotateY(10deg); }
+			    100% { #{$i}transform: perspective(400px) rotateY(0deg); opacity: 1; }
+			}
+			@if($animationName == 'flipOutY'){
+				0% { #{$i}transform: perspective(400px) rotateY(0deg); opacity: 1; }
+				100% { #{$i}transform: perspective(400px) rotateY(90deg); opacity: 0; }
+			}
+			@if($animationName == 'fadeIn'){
+				0% {opacity: 0;}
+				100% {opacity: 1;}
+			}
+			@if($animationName == 'fadeInUp'){
+				0% { opacity: 0; #{$i}transform: translateY(20px); }
+				100% { opacity: 1; #{$i}transform: translateY(0); }
+			}
+			@if($animationName == 'fadeInDown'){
+				0% { opacity: 0; #{$i}transform: translateY(-20px); }
+				100% { opacity: 1; #{$i}transform: translateY(0); }
+			}
+			@if($animationName == 'fadeInLeft'){
+				0% { opacity: 0; #{$i}transform: translateX(-20px); }
+				100% { opacity: 1; #{$i}transform: translateX(0); }
+			}
+			@if($animationName == 'fadeInRight'){
+				0% { opacity: 0; #{$i}transform: translateX(20px); }
+				100% { opacity: 1; #{$i}transform: translateX(0); }
+			}
+			@if($animationName == 'fadeInUpBig'){
+				0% { opacity: 0; #{$i}transform: translateY(2000px); }
+				100% { opacity: 1; #{$i}transform: translateY(0); }
+			}
+			@if($animationName == 'fadeInDownBig'){
+				0% { opacity: 0; #{$i}transform: translateY(-2000px); }
+				100% { opacity: 1; #{$i}transform: translateY(0); }
+			}
+			@if($animationName == 'fadeInLeftBig'){
+				0% { opacity: 0; #{$i}transform: translateX(-2000px); }
+				100% { opacity: 1; #{$i}transform: translateX(0); }
+			}
+			@if($animationName == 'fadeInRightBig'){
+				0% { opacity: 0; #{$i}transform: translateX(2000px); }
+				100% { opacity: 1; #{$i}transform: translateX(0); }
+			}
+			@if($animationName == 'fadeOut'){
+				0% {opacity: 1;}
+				100% {opacity: 0;}
+			}
+			@if($animationName == 'fadeOutUp'){
+				0% { opacity: 1; #{$i}transform: translateY(0); }
+				100% { opacity: 0; #{$i}transform: translateY(-20px); }
+			}
+			@if($animationName == 'fadeOutDown'){
+				0% { opacity: 1; #{$i}transform: translateY(0); }
+				100% { opacity: 0; #{$i}transform: translateY(20px); }
+			}
+			@if($animationName == 'fadeOutLeft'){
+				0% { opacity: 1; #{$i}transform: translateX(0); }
+				100% { opacity: 0; webkit-transform: translateX(-20px); }
+			}
+			@if($animationName == 'fadeOutRight'){
+				0% { opacity: 1; #{$i}transform: translateX(0); }
+				100% { opacity: 0; #{$i}transform: translateX(20px); }
+			}
+			@if($animationName == 'fadeOutUpBig'){
+				0% { opacity: 1; #{$i}transform: translateY(0); }
+				100% { opacity: 0; #{$i}transform: translateY(-2000px); }
+			}
+			@if($animationName == 'fadeOutDownBig'){
+				0% { opacity: 1; webkit-transform: translateY(0); }
+				100% { opacity: 0; #{$i}transform: translateY(2000px); }
+			}
+			@if($animationName == 'fadeOutLeftBig'){
+				0% { opacity: 1; #{$i}transform: translateX(0); }
+				100% { opacity: 0; #{$i}transform: translateX(-2000px); }
+			}
+			@if($animationName == 'fadeOutRightBig'){
+				0% { opacity: 1; #{$i}transform: translateX(0); }
+				100% { opacity: 0; #{$i}transform: translateX(2000px); }
+			}
+			@if($animationName == 'bounceIn'){
+				0% { opacity: 0; #{$i}transform: scale(.3); }
+				50% { opacity: 1; #{$i}transform: scale(1.05); }
+				70% { #{$i}transform: scale(.9); }
+				100% { #{$i}transform: scale(1); }
+			}
+			@if($animationName == 'bounceInUp'){
+				0% { opacity: 0; #{$i}transform: translateY(2000px); }
+				60% { opacity: 1; #{$i}transform: translateY(-30px); }
+				80% { #{$i}transform: translateY(10px); }
+				100% { #{$i}transform: translateY(0); }
+			}
+			@if($animationName == 'bounceInDown'){
+				0% { opacity: 0; #{$i}transform: translateY(-2000px); }
+				60% { opacity: 1; #{$i}transform: translateY(30px); }
+				80% { #{$i}transform: translateY(-10px); }
+				100% { #{$i}transform: translateY(0); }
+			}
+			@if($animationName == 'bounceInLeft'){
+				0% { opacity: 0; #{$i}transform: translateX(-2000px); }
+				60% { opacity: 1; #{$i}transform: translateX(30px); }
+				80% { #{$i}transform: translateX(-10px); }
+				100% { #{$i}transform: translateX(0); }
+			}
+			@if($animationName == 'bounceInRight'){
+				0% { opacity: 0; #{$i}transform: translateX(2000px); }
+				60% { opacity: 1; #{$i}transform: translateX(-30px); }
+				80% { #{$i}transform: translateX(10px); }
+				100% { #{$i}transform: translateX(0); }
+			}
+			@if($animationName == 'bounceOut'){
+				0% { #{$i}transform: scale(1); }
+				25% { #{$i}transform: scale(.95); }
+				50% { opacity: 1; #{$i}transform: scale(1.1); }
+				100% { opacity: 0; #{$i}transform: scale(.3); }
+			}
+			@if($animationName == 'bounceOutUp'){
+				0% { #{$i}transform: translateY(0); }
+				20% { opacity: 1; #{$i}transform: translateY(20px); }
+				100% { opacity: 0; #{$i}transform: translateY(-2000px); }
+			}
+			@if($animationName == 'bounceOutDown'){
+				0% { #{$i}transform: translateY(0); }
+				20% { opacity: 1; #{$i}transform: translateY(-20px); }
+				100% { opacity: 0; #{$i}transform: translateY(2000px); }
+			}
+			@if($animationName == 'bounceOutLeft'){
+				0% { #{$i}transform: translateX(0); }
+				20% { opacity: 1; #{$i}transform: translateX(20px); }
+				100% { opacity: 0; #{$i}transform: translateX(-2000px); }
+			}
+			@if($animationName == 'bounceOutRight'){
+				0% { #{$i}transform: translateX(0); }
+				20% { opacity: 1; #{$i}transform: translateX(-20px); }
+				100% { opacity: 0; #{$i}transform: translateX(2000px); }
+			}
+			@if($animationName == 'rotateIn'){
+				0% { #{$i}transform-origin: center center; #{$i}transform: rotate(-200deg); opacity: 0; }
+				100% { #{$i}transform-origin: center center; #{$i}transform: rotate(0); opacity: 1; }
+			}
+			@if($animationName == 'rotateInUpLeft'){
+				0% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(90deg); opacity: 0; }
+				100% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(0); opacity: 1; }
+			}
+			@if($animationName == 'rotateInDownLeft'){
+				0% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(-90deg); opacity: 0; }
+				100% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(0); opacity: 1; }
+			}
+			@if($animationName == 'rotateInUpRight'){
+				0% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(-90deg); opacity: 0; }
+				100% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(0); opacity: 1; }
+			}
+			@if($animationName == 'rotateInDownRight'){
+				0% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(90deg); opacity: 0; }
+				100% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(0); opacity: 1; }
+			}
+			@if($animationName == 'rotateOut'){
+				0% { #{$i}transform-origin: center center; #{$i}transform: rotate(0); opacity: 1; }
+				100% { #{$i}transform-origin: center center; #{$i}transform: rotate(200deg); opacity: 0; }
+			}
+			@if($animationName == 'rotateOutUpLeft'){
+				0% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(0); opacity: 1; }
+				100% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(-90deg); opacity: 0; }
+			}
+			@if($animationName == 'rotateOutDownLeft'){
+				0% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(0); opacity: 1; }
+				100% { #{$i}transform-origin: left bottom; #{$i}transform: rotate(90deg); opacity: 0; }
+			}
+			@if($animationName == 'rotateOutUpRight'){
+				0% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(0); opacity: 1; }
+				100% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(90deg); opacity: 0; }
+			}
+			@if($animationName == 'rotateOutDownRight'){
+				0% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(0); opacity: 1; }
+				100% { #{$i}transform-origin: right bottom; #{$i}transform: rotate(-90deg); opacity: 0; }
+			}
+			@if($animationName == 'lightSpeedIn'){
+				0% { #{$i}transform: translateX(100%) skewX(-30deg); opacity: 0; }
+				60% { #{$i}transform: translateX(-20%) skewX(30deg); opacity: 1; }
+				80% { #{$i}transform: translateX(0%) skewX(-15deg); opacity: 1; }
+				100% { #{$i}transform: translateX(0%) skewX(0deg); opacity: 1; }
+			}
+			@if($animationName == 'lightSpeedOut'){
+				0% { #{$i}transform: translateX(0%) skewX(0deg); opacity: 1; }
+				100% { #{$i}transform: translateX(100%) skewX(-30deg); opacity: 0; }
+			}
+		}
+    }
+	
+}
+

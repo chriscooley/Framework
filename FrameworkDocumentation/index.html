@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="maximum-scale=1; user-scalable=no" name="viewport" />
+	<title>Cooley Styles Documentation</title>
+	<link type="text/css" rel="stylesheet" href="stylesheets/master.css" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/sunlight.default.css" />
+    <script type="text/javascript" src="js/modernizr.custom.js"></script>
+    <script type="text/javascript" src="js/jquery.mini.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+	
+    
+</head>
+<body>
+
+<div class="top">
+	<div class="header">
+		<h1>Cooley Styles Framework</h1>
+	</div>
+</div>
+
+<div class="container">
+	<div class="nav">
+		<ul>
+			<li><a href="#about">About</a></li>
+			<li><a href="#variables">Variables</a></li>
+			<li><a href="#mixins">Mixins</a></li>
+			<li class="last"><a href="#test">Test</a></li>
+		</ul>
+	</div>
+	<div class="content">
+		<h1 id="about">About Cooley Styles Framework</h1>
+		<p>The Cooley Styles framework mainly consists of four main Sass files and some JavaScript/jQuery libraries that help you to develop and design your website quickly and efficiently.</p>
+		<p>It also comes with a custom <a href="http://www.modernizr.com">Modernizr</a> JavaScript file for cross-browser compatability.</p>
+		<p>The four Sass files are <strong>_var.scss</strong>, <strong>_mixins.scss</strong>, <strong>_base.scss</strong>, and <strong>master.scss</strong>. The main file that you will use to design and develop your site is the <strong>master.scss</strong> file. At the top of the <strong>master.scss</strong> file, it will import the other three Sass files for us to use.</p>
+		<pre class="sunlight-highlight-javascript">
+@import "var";
+@import "mixins";
+@import "base";
+		</pre>
+
+		<h1 id="variables">Variables</h1>
+		<p>The <strong>_var.scss</strong> file contains all the variables used throughout the framework. You can change the default values in this file, though it is advised not to change the actual variable names as they are used all throughout the framework.</p>
+		<p>You can change the values of different colors, custom fonts, link colors, font-sizes, inputs and dropdown colors, media query break points, etc.</p>
+
+		<p>The main variables that are most important, however, is the <strong>$gd-selector</strong> and <strong>$gd-count</strong>.</p>
+
+		<hr />
+		<h2>$gd-selector</h2>
+		<pre class="sunlight-highlight-javascript">
+// Grid Selector: 
+// Use '%' for silent/placeholder selector and '.' for normal selector
+$gd-selector: '%';
+		</pre>
+		<p>The default value of <strong>$gd-selector</strong> uses the percent(%) silent class selectors which allows you to use Sass's <em>@extend</em> feature to extend your selectors without printing the acutal class selector itself.</p>
+		<p><strong>Example:</strong></p>
+		<pre class="sunlight-highlight-css">
+.container {
+	@extend %gw;
+}
+		</pre>
+		<p><strong>Output:</strong></p>
+		<pre class="sunlight-highlight-css">
+.container {
+	overflow: hidden;
+	width: 1280px;
+	margin: 0 auto;
+	padding: 1%;
+}
+		</pre>
+
+		<p>If you change the value of <strong>$gd-selector</strong> to use the dot(.) normal selector, the classes for your grid will print out to your css file.</p>
+		
+		<p><strong>Example:</strong></p>
+		<pre class="sunlight-highlight-javascript">
+// Grid Selector: 
+// Use '%' for silent/placeholder selector and '.' for normal selector
+$gd-selector: '.';
+		</pre>
+
+		<p><strong>Ouput:</strong></p>
+		<pre class="sunlight-highlight-css">
+.gd1, .gd2, .gd3, .gd4, .gd5, .gd6, .gd7, .gd8, .gd9, .gd10, .gd11, .gd12 {
+  float: left;
+  clear: none;
+  margin: 1% 1% 1% 1%;
+}
+
+.gd1 {
+  width: 6.33333%;
+}
+
+.gd2 {
+  width: 14.66667%;
+}
+
+.gd3 {
+  width: 23%;
+}
+
+.gd4 {
+  width: 31.33333%;
+}
+
+.gd5 {
+  width: 39.66667%;
+}
+
+.gd6 {
+  width: 48%;
+}
+
+.gd7 {
+  width: 56.33333%;
+}
+
+.gd8 {
+  width: 64.66667%;
+}
+
+.gd9 {
+  width: 73%;
+}
+
+.gd10 {
+  width: 81.33333%;
+}
+
+.gd11 {
+  width: 89.66667%;
+}
+
+.gd12 {
+  width: 98%;
+}
+		</pre>
+
+		<hr />
+		<h2>$gd-count</h2>
+		<p>The <strong>$gd-count</strong> variable allows you to change the number of columns you want to use for your grid. The default is set to use a 12 column grid.</p>
+
+		<p><strong>Example:</strong> </p>
+		<pre class="sunlight-highlight-css">
+$gd-count: 12;
+		</pre>
+
+		<p><strong>Output:</strong> </p>
+		<div class="grid-example1">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+			<section>4</section>
+			<section>5</section>
+			<section>6</section>
+			<section>7</section>
+			<section>8</section>
+			<section>9</section>
+			<section>10</section>
+			<section>11</section>
+			<section>12</section>
+		</div>
+
+		<p class="example2"><strong>Example2:</strong> </p>
+		<pre class="sunlight-highlight-css">
+$gd-count: 18;
+		</pre>
+
+		<p><strong>Output:</strong> </p>
+		<div class="grid-example2">
+			<section>1</section>
+			<section>2</section>
+			<section>3</section>
+			<section>4</section>
+			<section>5</section>
+			<section>6</section>
+			<section>7</section>
+			<section>8</section>
+			<section>9</section>
+			<section>10</section>
+			<section>11</section>
+			<section>12</section>
+			<section>13</section>
+			<section>14</section>
+			<section>15</section>
+			<section>16</section>
+			<section>17</section>
+			<section>18</section>
+		</div>
+
+
+		<h1 id="mixins">Mixins</h1>
+		<p>The <strong>_mixins.scss</strong> file contains all the helpful mixins you can use to help you develop and design your webpages quickly. This file also contains the <strong>grid mixin</strong> that is used to set up our grid system.</p>
+
+
+		<hr />
+		<h2>prefix</h2>
+		<p>The prefix mixin is only used within the <strong>_mixins.scss</strong> file to append browser prefixes to specific CSS properties.</p>
+		<p class="note"><strong>Note:</strong> You most likely will not need to use this mixin (as it is most extensively used within the <strong>_mixins.scss</strong> file only) unless you want to create your own custom prefixed CSS property.</p>
+		<pre class="sunlight-highlight-javascript">
+@mixin prefix($property, $value, $prefixes: webkit moz ms o spec) {
+  @each $prefix in $prefixes {
+    @if $prefix == webkit { -webkit-#{$property}: $value;} // Chrome10+,Safari5.1+
+    @if $prefix == moz {-moz-#{$property}: $value;} // FF3.6+
+    @if $prefix == ms { -ms-#{$property}: $value;} // IE10+
+    @if $prefix == o { -o-#{$property}: $value;} // Opera 11.10+
+    @if $prefix == spec { #{$property}: $value;} // W3C Spec
+  }
+}
+		</pre>
+		<p>The prefix mixin has three parameters, two of which require an actual value. The <strong>$property</strong> parameter requires the CSS parameter and the <strong>$value</strong> requires the value of that CSS parameter. The <strong>$prefixes</strong> parameter already have the default values for all modern browsers so it's optional to include.</p>
+		<p>If you want to use the prefix mixin to create your own custom prefixed property, you can include it like so:</p>
+		<p><strong>Example:</strong></p>
+		<pre class="sunlight-highlight-css">
+.element1 {
+	@include prefix(border-radius, 4px);
+}
+.element2 {
+	@include prefix(box-shadow, 0 1px 3px #333, webkit moz spec);
+}
+		</pre>
+
+		<p><strong>Output:</strong></p>
+		<pre class="sunlight-highlight-css">
+.element1 {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.element2 {
+  -webkit-box-shadow: 0 1px 3px #333333;
+  -moz-box-shadow: 0 1px 3px #333333;
+  box-shadow: 0 1px 3px #333333;
+}
+		</pre>
+
+
+		<hr />
+		<h2>calc</h2>
+		<p>The calc mixin uses the new CSS3 calc function to perform calculations to determine CSS values. It is useful for combining and converting 2 different values together such as percentages(%) and pixels(px).</p>
+		<pre class="sunlight-highlight-javascript">
+// CSS calc
+@mixin calc($property, $variable, $operation, $value, $fallback) {
+	 #{$property}: $fallback;
+	 #{$property}: -webkit-calc(#{$variable} #{$operation} #{$value});
+	 #{$property}: -moz-calc(#{$variable} #{$operation} #{$value});
+	 #{$property}: -o-calc(#{$variable} #{$operation} #{$value});
+	 #{$property}: calc(#{$variable} #{$operation} #{$value});
+}
+		</pre>
+
+		<p><strong>Example:</strong></p>
+		<pre class="sunlight-highlight-css">
+.element3 {
+	@include calc(width, 10%, '-', 5px, 10%);
+	height: 20px;
+	color: #fff;
+	background: #42A7DD;
+}
+		</pre>
+
+		<p><strong>Output:</strong></p>
+		<div class="example element3">.element3</div>
+		<pre class="sunlight-highlight-css">
+.element3 {
+  width: 10%;
+  width: -moz-calc(10% - 5px);
+  width: -o-calc(10% - 5px);
+  width: -webkit-calc(10% - 5px);
+  width: calc(10% - 5px);
+  height: 20px;
+  color: #fff;
+  background: #42A7DD;
+}
+		</pre>
+
+
+		<hr />
+		<h2>columns</h2>
+		<p>The columns mixin used the new CSS3 <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_multi-column_layouts">multi-columns layout</a>. This mixin allows you to set how many columns you want used for a certain section of your site.</p>
+		<pre class="sunlight-highlight-javascript">
+// Columns
+@mixin columns ($count: 4, $gap: 1%, $fill: balance, $break:avoid, $sectionWidth: 100%){
+	%columns {
+		@include prefix(column-fill, $fill, webkit moz o spec);
+		@include prefix(column-count, $count, webkit moz o spec);
+		@include prefix(column-gap, $gap, webkit moz o spec);
+	}
+	%section {
+		display: inline-block;
+		width:$sectionWidth;
+		@include prefix(column-break-inside, $break, webkit moz o spec);
+	}
+}
+		</pre>
+
+
+
+		<hr />
+		<h2>square-box</h2>
+		<p>The square-box mixin allows you to create perfectly responsive sqare boxes or circles that keep their content and proportions intact.</p>
+		<pre class="sunlight-highlight-javascript">
+// Square
+@mixin square-box ($square-w:10%, $square-p: 0 0 $square-w 0, $circle: false, $square-b: false, $border-size: '', $border-style: ''){
+	@if $square-b == true {
+		border:$border-size $border-style;
+		@include calc($property:width, $variable:$square-w, $operation:'+', $value:$border-size*2, $fallback:$square-w);
+	}
+	@else {
+		width: $square-w;
+	}
+	padding: $square-p;
+	height:0;
+	@if $circle == true {
+		@include border-radius(50%);
+	}
+}
+		</pre>
+
+
+		<hr />
+		<h2>grid-wrap</h2>
+		<p>The grid-wrap mixin...</p>
+		<pre class="sunlight-highlight-javascript">
+// Grid Wrap
+@mixin grid-wrap ($t:$top, $r:$right, $b:$bottom, $l:$left, $gw-width: $start-width, $gw-margin: $auto){
+	%gw {
+		overflow: hidden;
+		width: $gw-width;
+		margin: $gw-margin;
+		padding:$t $r $b $l;
+	}
+}
+		</pre>
+
+
+		<hr />
+		<h2>grid</h2>
+		<p>The grid mixin...</p>
+		<pre class="sunlight-highlight-javascript">
+// Grid
+@mixin grid ($mobile: false, $t:$top, $r:$right, $b:$bottom, $l:$left, $selector: $gd-selector, $gd-float: left, $gd-clear: none){
+	@if $mobile == false {
+		%gd {
+			float:$gd-float;
+			clear:$gd-clear;
+			margin:$t $r $b $l;
+		}
+		@for $i from 1 through $gd-count {
+			#{$selector}gd#{$i} {width: (100 / $gd-count * $i - $r - $l); @extend %gd;}
+		}
+	}
+	@else {
+		%gd {
+			float:none;
+			clear:both;
+			margin:$t $r $b $l;
+			width: 100% - $r - $l;
+		}
+		@for $i from 1 through $gd-count {
+			#{$selector}gd#{$i} {@extend %gd;}
+		}
+	}
+}
+		</pre>
+
+
+		<hr />
+		<h2>grid-custom</h2>
+		<p>The grid-custom mixin...</p>
+		<pre class="sunlight-highlight-javascript">
+// Custom Grid $mobile, $t, $r, $b, $l, $selector, $gd-class, $gd-float, $gd-clear
+@mixin grid-custom ($mobile: false, $gw: false, $gw-class: '', $gw-width: $start-width, $gw-margin: $auto, $t:$top, $r:$right, $b:$bottom, $l:$left, $selector: $gd-selector, $gd-float: left, $gd-clear: none){
+	@if $gw == true {
+		@include grid-wrap($t, $r, $b, $l, $gw-width, $gw-margin);
+		@include grid($mobile);
+	}
+	@else {
+		@include grid($mobile);
+	}
+}
+		</pre>
+
+
+		<hr />
+		<h2>background-size</h2>
+		<p>The background-size mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-size">background-size</a> property and allows you to specify the size of a background image.</p>
+		<pre class="sunlight-highlight-javascript">
+// Background Size
+@mixin background-size ($bs){
+	@include prefix(background-size, $bs, webkit moz o spec);
+}
+		</pre>
+
+		<p><strong>Example:</strong></p>
+		<pre class="sunlight-highlight-css">
+.element4 {
+	@include background-size(250px auto);
+}
+		</pre>
+
+		<p><strong>Output:</strong></p>
+		<pre class="sunlight-highlight-css">
+.element4 {
+  -webkit-background-size: 250px auto;
+  -moz-background-size: 250px auto;
+  -o-background-size: 250px auto;
+  background-size: 250px auto;
+}
+		</pre>
+
+
+		<hr />
+		<h2>border-radius</h2>
+		<p>The border-radius mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius">border-radius</a> property and allows you to specify the radius of the borders on various elements.</p>
+		<pre class="sunlight-highlight-javascript">
+// Borders
+@mixin border-radius ($borderRadius:10px){
+	@include prefix(border-radius, $borderRadius);
+}
+		</pre>
+
+		<p><strong>Example:</strong></p>
+		<pre class="sunlight-highlight-css">
+.element5 {
+	@include border-radius(5px);
+	height: 40px;
+	width: 200px;
+	background: #42A7DD;
+}
+		</pre>
+
+		<p><strong>Output:</strong></p>
+		<div class="example element5">.element5</div>
+		<pre class="sunlight-highlight-css">
+.element5 {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  height: 40px;
+  width: 200px;
+  background: #42A7DD;
+}
+		</pre>
+
+
+		<hr />
+		<h2>border-image</h2>
+		<p>The border-image mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-image">border-image</a> property and allows you to specify the image properties of the borders on various elements.</p>
+		<pre class="sunlight-highlight-javascript">
+@mixin border-image($args){
+  @include addprefixes(border-image, $args, webkit moz o spec);
+}
+		</pre>
+
+		<p><strong>Example:</strong></p>
+		<pre class="sunlight-highlight-css">
+.element6 {
+	@include border-image(url('../images/border-img.jpg') 20 20 repeat);
+	height: 100px;
+	width: 200px;
+}
+		</pre>
+
+		<p><strong>Output:</strong></p>
+		<div class="example element6">.element6</div>
+		<pre class="sunlight-highlight-css">
+.element6 {
+  border: 20px solid transparent;
+  -webkit-border-image: url("../images/border-img.jpg") 20 20 repeat;
+  -moz-border-image: url("../images/border-img.jpg") 20 20 repeat;
+  -o-border-image: url("../images/border-img.jpg") 20 20 repeat;
+  border-image: url("../images/border-img.jpg") 20 20 repeat;
+  height: 100px;
+  width: 200px;
+  color: #333;
+}
+		</pre>
+
+
+		<hr />
+		<h2>box-shadow</h2>
+		<p>The box-shadow mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow">box-shadow</a> property and allows you to specify the box-shadow properties of various block elements.</p>
+		<pre class="sunlight-highlight-javascript">
+@mixin box-shadow ($boxShadow...){
+	@include prefix(box-shadow, $boxShadow);
+}
+		</pre>
+
+		<p><strong>Example:</strong></p>
+		<pre class="sunlight-highlight-css">
+.element7 {
+	@include box-shadow(0 3px 4px rgba(0,0,0,0.8));
+	height: 100px;
+	width: 200px;
+	background: #42A7DD;
+}
+		</pre>
+
+		<p><strong>Output:</strong></p>
+		<div class="example element7">.element7</div>
+		<pre class="sunlight-highlight-css">
+.element7 {
+  -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.8);
+  -moz-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.8);
+  -ms-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.8);
+  -o-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.8);
+  height: 100px;
+  width: 200px;
+  background: #42A7DD;
+}
+		</pre>
+
+
+		<hr />
+		<h2>gradient</h2>
+		<p>The gradient mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient">gradient</a> property and allows you to specify the background image properties to change the color using gradients of various block elements.</p>
+		<p>This mixin uses two color values and has 5 different types. The default type is a vertical gradient from top to bottom.</p>
+
+		<pre class="sunlight-highlight-javascript">
+// Gradients
+@mixin gradient($startColor, $endColor, $noGradient: mix($startColor, $endColor,50%), $type: 'vertical', $degOrImagePath: ''){
+  @if ($type == 'vertical'){
+    background: $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+      background: #{$i}linear-gradient(top, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
+    }
+  }
+
+  @if ($type == 'horizontal'){
+    background: $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o- {
+      background: #{$i}linear-gradient(left, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
+    }
+    background: linear-gradient(to right, $startColor, $endColor) repeat-x $endColor;
+  }
+
+  @if ($type == 'radial'){
+    background: $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o-, ''{
+      background: #{$i}radial-gradient(circle, $startColor, $endColor) no-repeat mix($startColor, $endColor, 60%);
+    }
+  }
+
+  @if ($type == 'directional'){
+    background: $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+      background: #{$i}linear-gradient(#{$degOrImagePath}deg, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
+    }
+  }
+
+  @if ($type == 'image'){
+    background: url('#{$degOrImagePath}') no-repeat scroll $noGradient;
+    @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+      background: url('#{$degOrImagePath}') no-repeat scroll, #{$i}linear-gradient(center top, $startColor, $endColor);
+    }
+  }
+}
+		</pre>
+
+		<p><strong>Example:</strong></p>
+		<pre class="sunlight-highlight-css">
+//default gradient
+.element8 {
+	@include gradient(#9bbe4d, #649419);
+}
+.element9 {
+	@include gradient(#40a3db, #0c78b7, $type: horizontal);
+	@extend %gd3;
+	padding: 1% 2%;
+}
+.element10 {
+	@include gradient(#fdcd3d, #e99f00, $type: radial);
+	@extend %gd3;
+	padding: 1% 2%;
+}
+.element11 {
+	@include gradient(#e9574c, #9d0000, $type: directional, $degOrImagePath: 45);
+	@extend %gd3;
+	padding: 1% 2%;
+}
+		</pre>
+
+		<p><strong>Output:</strong></p>
+		<div class="example element8"><p>.element8</p><p>vertical gradient</p></div>
+		<div class="example element9"><p>.element9</p><p>horizontal gradient</p></div>
+		<div class="example element10"><p>.element10</p><p>radial gradient</p></div>
+		<div class="example element11"><p>.element11</p><p>directional gradient</p></div>
+		<pre class="sunlight-highlight-css">
+.element8 {
+  background: #7fa933;
+  background: -webkit-linear-gradient(top, #9bbe4d, #649419) repeat-x #85ad38;
+  background: -moz-linear-gradient(top, #9bbe4d, #649419) repeat-x #85ad38;
+  background: -ms-linear-gradient(top, #9bbe4d, #649419) repeat-x #85ad38;
+  background: -o-linear-gradient(top, #9bbe4d, #649419) repeat-x #85ad38;
+  background: linear-gradient(top, #9bbe4d, #649419) repeat-x #85ad38;
+}
+.element9 {
+  background: #268dc9;
+  background: -webkit-linear-gradient(left, #40a3db, #0c78b7) repeat-x #2b91cc;
+  background: -moz-linear-gradient(left, #40a3db, #0c78b7) repeat-x #2b91cc;
+  background: -ms-linear-gradient(left, #40a3db, #0c78b7) repeat-x #2b91cc;
+  background: -o-linear-gradient(left, #40a3db, #0c78b7) repeat-x #2b91cc;
+  background: linear-gradient(to right, #40a3db, #0c78b7) repeat-x #0c78b7;
+  padding: 1% 2%;
+}
+.element10 {
+  background: #f3b61e;
+  background: -webkit-radial-gradient(circle, #fdcd3d, #e99f00) no-repeat #f5ba24;
+  background: -moz-radial-gradient(circle, #fdcd3d, #e99f00) no-repeat #f5ba24;
+  background: -ms-radial-gradient(circle, #fdcd3d, #e99f00) no-repeat #f5ba24;
+  background: -o-radial-gradient(circle, #fdcd3d, #e99f00) no-repeat #f5ba24;
+  background: radial-gradient(circle, #fdcd3d, #e99f00) no-repeat #f5ba24;
+  padding: 1% 2%;
+}
+.element11 {
+  background: #c32b26;
+  background: -webkit-linear-gradient(45deg, #e9574c, #9d0000) repeat-x #ca342d;
+  background: -moz-linear-gradient(45deg, #e9574c, #9d0000) repeat-x #ca342d;
+  background: -ms-linear-gradient(45deg, #e9574c, #9d0000) repeat-x #ca342d;
+  background: -o-linear-gradient(45deg, #e9574c, #9d0000) repeat-x #ca342d;
+  background: linear-gradient(45deg, #e9574c, #9d0000) repeat-x #ca342d;
+  padding: 1% 2%;
+}
+		</pre>
+
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+	</div>
+</div>
+
+<script type="text/javascript" src="js/sunlight-min.js"></script>
+<script type="text/javascript" src="js/sunlight.css-min.js"></script>
+<script type="text/javascript" src="js/sunlight.javascript-min.js"></script>
+<script type="text/javascript">
+    Sunlight.highlightAll();
+</script>
+</body>
+</html>

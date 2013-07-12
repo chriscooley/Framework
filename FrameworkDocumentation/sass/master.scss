@@ -1,0 +1,219 @@
+// Global Elements 
+@import "var";
+@import "mixins";
+@import "base";
+
+// UI style
+@include grid-wrap(0,0,0,0);
+@include grid();
+
+.top {
+	@include gradient(#0c78b7, #40a3db, #268dc9, horizontal);
+	height: 200px;
+	width:100%;
+
+	&:after {
+		background: url("../images/headerbg.png") repeat scroll center center transparent;
+	    bottom: 0;
+	    content: "";
+	    display: block;
+	    left: 0;
+	    opacity: 0.4;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	}
+
+	.header {
+		z-index: 1;
+		position: relative;
+		@extend %gw;
+
+		h1 {
+			color: #fff;
+			font-size: 3em;
+			margin: 80px 0 0;
+		}
+	}
+}
+
+
+.container {
+	@extend %gw;
+	z-index: 5;
+	position: relative;
+	margin:0px auto 0;
+	min-height: 1200px;
+}
+
+.nav {
+	@extend %gd3;
+
+	ul {
+		border: 1px solid #ccc;
+		overflow: hidden;
+		@include border-radius(5px);
+
+		li {
+			background: #fff;
+			border-bottom: 1px solid #ccc;
+			&.last {
+				border-bottom: 0 none;
+			}
+			a {
+				display: block;
+				padding: 10px 2%;
+
+				&:hover {
+					background: #488ac2;
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+.content {
+	@extend %gd9;
+
+	p {
+		margin: 0 0 10px;
+
+		&.note {
+			background: #e8aeae;
+			padding: 1% 2%;
+		}
+	}
+	hr {
+		margin: 60px 0 0;
+		border-top: 1px solid rgba(0, 0, 0, 0.3); 
+		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	}
+	.example {
+		text-align: center;
+		color: #fff;
+	}
+
+	.grid-example1 {
+		overflow: auto;
+		color: #fff;
+
+		section {
+			@extend %gd1;
+			background: $blue;
+			padding: 1% 2%;
+			text-align: center;
+		}
+	}
+
+	.example2 {
+		margin: 20px 0 0;
+	}
+	.grid-example2 {
+		margin: 0 0 40px;
+		overflow: hidden;
+		color: #fff;
+
+		section {
+			@for $i from 1 through 18 {
+				width: ((100 / 18) - 2%);
+				float:left;
+				clear:none;
+				margin:1%;
+			}
+			background: $blue;
+			text-align: center;
+		}
+	}
+
+	.element3 {
+		@include calc(width, 10%, '-', 5px, 10%);
+		height: 20px;
+		color: #fff;
+		background: #42A7DD;
+	}
+	.element4 {
+		@include background-size(250px auto);
+	}
+	.element5 {
+		@include border-radius(5px);
+		height: 40px;
+		width: 200px;
+		background: #42A7DD;
+	}
+	.element6 {
+		border: 20px solid transparent;
+		@include border-image(url('../images/border-img.jpg') 20 20 repeat);
+		height: 100px;
+		width: 200px;
+		color: #333;
+	}
+	.element7 {
+		@include box-shadow(0 3px 4px rgba(0,0,0,0.8));
+		height: 100px;
+		width: 200px;
+		background: #42A7DD;
+	}
+	.element8 {
+		@include gradient(#9bbe4d, #649419);
+		@extend %gd3;
+		padding: 1% 2%;
+	}
+	.element9 {
+		@include gradient(#40a3db, #0c78b7, $type: horizontal);
+		@extend %gd3;
+		padding: 1% 2%;
+	}
+	.element10 {
+		@include gradient(#fdcd3d, #e99f00, $type: radial);
+		@extend %gd3;
+		padding: 1% 2%;
+	}
+	.element11 {
+		@include gradient(#e9574c, #9d0000, $type: directional, $degOrImagePath: 45);
+		@extend %gd3;
+		padding: 1% 2%;
+	}
+
+
+
+
+} //end .content
+
+
+
+
+
+
+
+// Media Querys
+@media only screen and (min-width: 1800px)
+{
+}
+@media only screen and (max-width: $start-width)
+{
+	@include grid-wrap($gw-width: 100%);
+
+}
+@media only screen and (min-width: $mid-sm) and (max-width: $mid-lr)
+{
+	// @include columns ($count: 3);
+	// #columns {
+	// 	@extend %columns;
+	// }
+}
+@media only screen and (min-width: $mobile-sm) and (max-width: $mobile-lr)
+{
+	@include grid-custom($mobile: true, $gw: true, $gw-width: 100%);
+	// @include columns ($count: 1);
+	// #columns {
+	// 	@extend %columns;
+	// }
+	.content {
+		.grid-example2 {
+			section {
+				width: 98%;
+			}
+		}
+	}
+	
+}
