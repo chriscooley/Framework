@@ -113,7 +113,7 @@
 	@include prefix(border-radius, $borderRadius);
 }
 @mixin border-image($args){
-  @include addprefixes(border-image, $args, webkit moz o spec);
+  @include prefix(border-image, $args, webkit moz o spec);
 }
 @mixin box-shadow ($boxShadow...){
 	@include prefix(box-shadow, $boxShadow);
@@ -240,11 +240,11 @@
   }
 }
 
-// Adds button backgrounds using only one base colot
-@mixin button($baseColor: #aaa, $style: 'simple'){
+// Adds button backgrounds using only one base color
+@mixin button($baseColor: #aaa, $style: 'flat'){
   background: $baseColor;
-  
   @each $i in -webkit-, -moz-, -ms-, -o-, '' {
+    @if ($style == 'flat') { background: $baseColor; }
     @if ($style == 'simple') { background: #{$i}linear-gradient(top, lighten($baseColor, 10%), darken($baseColor, 10%)) repeat-x $baseColor; }
     @if ($style == 'complex') { background: #{$i}linear-gradient(top,  lighten($baseColor, 30%) 0%, lighten($baseColor, 10%) 5%, darken($baseColor, 10%) 95%, darken($baseColor, 20%) 100%); }
     @if ($style == 'shiny') { background: #{$i}linear-gradient(top,  lighten($baseColor, 5%) 0%, darken($baseColor, 5%) 50%, darken($baseColor, 15%) 51%, darken($baseColor, 4%) 100%); }
@@ -252,6 +252,38 @@
   &:hover {
     background: darken($baseColor, 5%);
   }
+}
+
+// button sizes
+@mixin btn-large(){
+	font-size: 150%;
+	padding: 2% 0;
+}
+@mixin btn(){
+	font-size: 100%;
+	padding: 1% 0;
+}
+@mixin btn-small(){
+	font-size: 80%;
+	padding: 0.8% 0;
+}
+@mixin btn-mini(){
+	font-size: 60%;
+	padding: 0.4% 0;
+}
+
+//input styles
+@mixin input-warning(){
+	border: 2px solid $warning;
+}
+@mixin input-error(){
+	border: 2px solid $danger;
+}
+@mixin input-success(){
+	border: 2px solid $success;
+}
+@mixin input-info(){
+	border: 2px solid $info;
 }
 
 // Font Section

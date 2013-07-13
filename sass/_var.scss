@@ -7,8 +7,15 @@ $red: #e24547;
 $orange: #f18c2c;
 $blue: #42a7dd;
 $green: #78ca45;
-$green2: #3daf53;
-$purp: #a132a8;
+$yellow: #ffff00;
+$purple: #a132a8;
+$primary: #1ABC9C;
+$warning: #F1C40F;
+$default: #BDC3C7;
+$danger: #E74C3C;
+$success: #2ECC71;
+$inverse: #34495E;
+$info: #3498DB;
 
 // DONT CHANGE VARIABLE NAMES BELOW THIS POINT 
 // _base.scss AND mixins.scss ARE DEPENDENT ON THESE VARS
@@ -17,7 +24,7 @@ $purp: #a132a8;
 // Set true to use embeded fonts set false to use google font or default font
 $set-custom-font: true;
 $font-count: 2;
-$custom1-font-family: 'ITCAvantGardeGothicStdMedium';
+$custom1-font-family: 'Helvetica Neue', 'Helvetica', arial, sans-serif;
 $custom1-font-family-url: 'itcavantgardestd-md';
 $custom2-font-family: 'ITCAvantGardeGothicStdBook';
 $custom2-font-family-url: 'itcavantgardestd-bk';
@@ -44,11 +51,11 @@ $auto: 0 auto;
 
 // H font style
 $h-font-family: $custom1-font-family;
-$h-weight: normal;
+$h-weight: bold;
 
 // Base font-size
 $h1-size: 2em;
-$h2-size: 1.3em;
+$h2-size: 1.5em;
 $h3-size: 1.2em;
 $h4-size: 1em;
 $h5-size: .8em;
@@ -97,7 +104,7 @@ $gd-selector: '%';
 $gd-count: 12;
 
 // Braking Points
-$start-width: 1280px;
+$start-width: 1200px;
 $mid-lr: 816px;
 $mid-sm: 481px;
 $mobile-lr: 480px;
