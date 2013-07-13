@@ -29,10 +29,13 @@ $(document).ready(function(){
 		}
 		
 		// parralax header
-		jQuery('.top .header').css({
-			'top' : -(scrollPos/3)+"px",
-			'opacity' : 1-(scrollPos/150)
-		});
+		if(scrollPos < 200){
+			jQuery('.top .top-header').css({
+				'top' : -(scrollPos/3.5)+"px",
+				'opacity' : 1-(scrollPos/150)
+			});
+		}
+		
 	}
 
 	if(!isMobile()) {

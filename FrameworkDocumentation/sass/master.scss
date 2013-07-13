@@ -24,7 +24,7 @@
 	    top: 0;
 	}
 
-	.header {
+	.top-header {
 		z-index: 1;
 		position: relative;
 		@extend %gw;
@@ -50,9 +50,9 @@
 	@extend %gd3;
 
 	ul {
-		border: 1px solid #ccc;
+		border: 1px solid #ccc;  
 		overflow: hidden;
-		@include border-radius(5px);
+		
 
 		li {
 			background: #fff;
@@ -75,6 +75,9 @@
 .content {
 	@extend %gd9;
 
+	.header {
+		margin: 40px 0 0;
+	}
 	p {
 		margin: 0 0 10px;
 
@@ -87,6 +90,12 @@
 		margin: 60px 0 0;
 		border-top: 1px solid rgba(0, 0, 0, 0.3); 
 		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+	}
+	.output {
+		overflow: hidden;
+		background: #fff;
+		border:1px solid #ccc;
+		padding: 2%;
 	}
 	.example {
 		text-align: center;
@@ -174,6 +183,103 @@
 		padding: 1% 2%;
 	}
 
+	.color-swatches {
+		clear: both;
+		overflow: hidden;
+
+		li {
+			display: inline-block;
+			@extend %gd3;
+			height: 50px;
+			text-align: center;
+			font-size: 90%;
+			padding: 2%;
+			color: #fff;
+
+			&.white { background: $white; color:#999;}
+			&.black { background: $black;}
+			&.gray { background: $gray; color:#999;}
+			&.red { background: $red;}
+			&.orange { background: $orange;}
+			&.blue { background: $blue;}
+			&.green { background: $green;}
+			&.yellow { background: $yellow; color:#999;}
+			&.purple { background: $purple;}
+			&.primary { background: $primary;}
+			&.warning { background: $warning;}
+			&.default { background: $default;}
+			&.danger { background: $danger;}
+			&.success { background: $success;}
+			&.inverse { background: $inverse;}
+			&.info { background: $info;}
+		}
+	}
+
+
+	.html-example,
+	.css-example {
+		@extend %gd6;
+	}
+	button {
+		@extend %gd3;
+		padding: 1% 2%;
+		text-align: center; 
+		border: 1px solid #444;
+	}
+	.button1 {
+		@include button($blue);
+	}
+	.button2 {
+		@include button($blue, simple);
+	}
+	.button3 {
+		@include button($blue, complex);
+	}
+	.button4 {
+		@include button($blue, shiny);
+	}
+	.button-primary {
+		@include button($primary);
+	}
+	.button-warning {
+		@include button($warning);
+	}
+	.button-default {
+		@include button($default);
+	}
+	.button-danger {
+		@include button($danger);
+	}
+
+	.button5 {
+		@include button($blue, complex);
+		@include btn-large();
+	}
+	.button6 {
+		@include button($blue, complex);
+		@include btn();
+	}
+	.button7 {
+		@include button($blue, complex);
+		@include btn-small();
+	}
+	.button8 {
+		@include button($blue, complex);
+		@include btn-mini();
+	}
+
+	input.warning {
+		@include input-warning();
+	}
+	input.error {
+		@include input-error();
+	}
+	input.success {
+		@include input-success();
+	}
+	input.info {
+		@include input-info();
+	}
 
 
 

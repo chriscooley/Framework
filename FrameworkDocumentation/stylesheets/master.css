@@ -119,12 +119,12 @@ ol {
 /* line 73, ../sass/_base.scss */
 input[type="text"], input[type="number"], input[type="email"], input[type="password"], textarea {
   padding: 0.8% 0.6%;
-  border: 0 none;
+  border: 1px solid #cccccc;
   font-size: 1em;
   background: white;
   color: #b9b9b9;
-  border: none;
-  margin: 0;
+  font-family: "Helvetica Neue", "Helvetica", arial, sans-serif;
+  margin: 0 0 1%;
   width: 100%;
   display: block;
 }
@@ -207,7 +207,7 @@ select.selIner {
 }
 
 /* line 58, ../sass/_mixins.scss */
-.top .header, .container {
+.top .top-header, .container {
   overflow: hidden;
   width: 1200px;
   margin: 0 auto;
@@ -215,7 +215,8 @@ select.selIner {
 }
 
 /* line 69, ../sass/_mixins.scss */
-.content .grid-example1 section, .nav, .content .element8, .content .element9, .content .element10, .content .element11, .content {
+.content .grid-example1 section, .nav, .content .element8, .content .element9, .content .element10, .content .element11, .content .color-swatches li, .content button, .content .html-example,
+.content .css-example, .content {
   float: left;
   clear: none;
   margin: 1% 1% 1% 1%;
@@ -227,8 +228,14 @@ select.selIner {
 }
 
 /* line 75, ../sass/_mixins.scss */
-.nav, .content .element8, .content .element9, .content .element10, .content .element11 {
+.nav, .content .element8, .content .element9, .content .element10, .content .element11, .content .color-swatches li, .content button {
   width: 23%;
+}
+
+/* line 75, ../sass/_mixins.scss */
+.content .html-example,
+.content .css-example {
+  width: 48%;
 }
 
 /* line 75, ../sass/_mixins.scss */
@@ -260,12 +267,12 @@ select.selIner {
   top: 0;
 }
 /* line 27, ../sass/master.scss */
-.top .header {
+.top .top-header {
   z-index: 1;
   position: relative;
 }
 /* line 32, ../sass/master.scss */
-.top .header h1 {
+.top .top-header h1 {
   color: #fff;
   font-size: 3em;
   margin: 80px 0 0;
@@ -283,11 +290,6 @@ select.selIner {
 .nav ul {
   border: 1px solid #cccccc;
   overflow: hidden;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
 }
 /* line 57, ../sass/master.scss */
 .nav ul li {
@@ -310,47 +312,58 @@ select.selIner {
 }
 
 /* line 78, ../sass/master.scss */
+.content .header {
+  margin: 40px 0 0;
+}
+/* line 81, ../sass/master.scss */
 .content p {
   margin: 0 0 10px;
 }
-/* line 81, ../sass/master.scss */
+/* line 84, ../sass/master.scss */
 .content p.note {
   background: #e8aeae;
   padding: 1% 2%;
 }
-/* line 86, ../sass/master.scss */
+/* line 89, ../sass/master.scss */
 .content hr {
   margin: 60px 0 0;
   border-top: 1px solid rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-/* line 91, ../sass/master.scss */
+/* line 94, ../sass/master.scss */
+.content .output {
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #cccccc;
+  padding: 2%;
+}
+/* line 100, ../sass/master.scss */
 .content .example {
   text-align: center;
   color: #fff;
 }
-/* line 96, ../sass/master.scss */
+/* line 105, ../sass/master.scss */
 .content .grid-example1 {
   overflow: auto;
   color: #fff;
 }
-/* line 100, ../sass/master.scss */
+/* line 109, ../sass/master.scss */
 .content .grid-example1 section {
   background: #42a7dd;
   padding: 1% 2%;
   text-align: center;
 }
-/* line 108, ../sass/master.scss */
+/* line 117, ../sass/master.scss */
 .content .example2 {
   margin: 20px 0 0;
 }
-/* line 111, ../sass/master.scss */
+/* line 120, ../sass/master.scss */
 .content .grid-example2 {
   margin: 0 0 40px;
   overflow: hidden;
   color: #fff;
 }
-/* line 116, ../sass/master.scss */
+/* line 125, ../sass/master.scss */
 .content .grid-example2 section {
   width: 3.55556%;
   float: left;
@@ -427,7 +440,7 @@ select.selIner {
   background: #42a7dd;
   text-align: center;
 }
-/* line 128, ../sass/master.scss */
+/* line 137, ../sass/master.scss */
 .content .element3 {
   width: 10%;
   width: -moz-calc(10% - 5px);
@@ -438,14 +451,14 @@ select.selIner {
   color: #fff;
   background: #42A7DD;
 }
-/* line 134, ../sass/master.scss */
+/* line 143, ../sass/master.scss */
 .content .element4 {
   -webkit-background-size: 250px auto;
   -moz-background-size: 250px auto;
   -o-background-size: 250px auto;
   background-size: 250px auto;
 }
-/* line 137, ../sass/master.scss */
+/* line 146, ../sass/master.scss */
 .content .element5 {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -456,7 +469,7 @@ select.selIner {
   width: 200px;
   background: #42A7DD;
 }
-/* line 143, ../sass/master.scss */
+/* line 152, ../sass/master.scss */
 .content .element6 {
   border: 20px solid transparent;
   -webkit-border-image: url("../images/border-img.jpg") 20 20 repeat;
@@ -467,7 +480,7 @@ select.selIner {
   width: 200px;
   color: #333;
 }
-/* line 150, ../sass/master.scss */
+/* line 159, ../sass/master.scss */
 .content .element7 {
   -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.8);
@@ -478,7 +491,7 @@ select.selIner {
   width: 200px;
   background: #42A7DD;
 }
-/* line 156, ../sass/master.scss */
+/* line 165, ../sass/master.scss */
 .content .element8 {
   background: #7fa933;
   background: -webkit-linear-gradient(top, #9bbe4d, #649419) repeat-x #85ad38;
@@ -488,7 +501,7 @@ select.selIner {
   background: linear-gradient(top, #9bbe4d, #649419) repeat-x #85ad38;
   padding: 1% 2%;
 }
-/* line 161, ../sass/master.scss */
+/* line 170, ../sass/master.scss */
 .content .element9 {
   background: #268dc9;
   background: -webkit-linear-gradient(left, #40a3db, #0c78b7) repeat-x #2b91cc;
@@ -498,7 +511,7 @@ select.selIner {
   background: linear-gradient(to right, #40a3db, #0c78b7) repeat-x #0c78b7;
   padding: 1% 2%;
 }
-/* line 166, ../sass/master.scss */
+/* line 175, ../sass/master.scss */
 .content .element10 {
   background: #f3b61e;
   background: -webkit-radial-gradient(circle, #fdcd3d, #e99f00) no-repeat #f5ba24;
@@ -508,7 +521,7 @@ select.selIner {
   background: radial-gradient(circle, #fdcd3d, #e99f00) no-repeat #f5ba24;
   padding: 1% 2%;
 }
-/* line 171, ../sass/master.scss */
+/* line 180, ../sass/master.scss */
 .content .element11 {
   background: #c32b26;
   background: -webkit-linear-gradient(45deg, #e9574c, #9d0000) repeat-x #ca342d;
@@ -518,10 +531,277 @@ select.selIner {
   background: linear-gradient(45deg, #e9574c, #9d0000) repeat-x #ca342d;
   padding: 1% 2%;
 }
+/* line 186, ../sass/master.scss */
+.content .color-swatches {
+  clear: both;
+  overflow: hidden;
+}
+/* line 190, ../sass/master.scss */
+.content .color-swatches li {
+  display: inline-block;
+  height: 50px;
+  text-align: center;
+  font-size: 90%;
+  padding: 2%;
+  color: #fff;
+}
+/* line 199, ../sass/master.scss */
+.content .color-swatches li.white {
+  background: white;
+  color: #999;
+}
+/* line 200, ../sass/master.scss */
+.content .color-swatches li.black {
+  background: black;
+}
+/* line 201, ../sass/master.scss */
+.content .color-swatches li.gray {
+  background: #eaeaea;
+  color: #999;
+}
+/* line 202, ../sass/master.scss */
+.content .color-swatches li.red {
+  background: #e24547;
+}
+/* line 203, ../sass/master.scss */
+.content .color-swatches li.orange {
+  background: #f18c2c;
+}
+/* line 204, ../sass/master.scss */
+.content .color-swatches li.blue {
+  background: #42a7dd;
+}
+/* line 205, ../sass/master.scss */
+.content .color-swatches li.green {
+  background: #78ca45;
+}
+/* line 206, ../sass/master.scss */
+.content .color-swatches li.yellow {
+  background: yellow;
+  color: #999;
+}
+/* line 207, ../sass/master.scss */
+.content .color-swatches li.purple {
+  background: #a132a8;
+}
+/* line 208, ../sass/master.scss */
+.content .color-swatches li.primary {
+  background: #1abc9c;
+}
+/* line 209, ../sass/master.scss */
+.content .color-swatches li.warning {
+  background: #f1c40f;
+}
+/* line 210, ../sass/master.scss */
+.content .color-swatches li.default {
+  background: #bdc3c7;
+}
+/* line 211, ../sass/master.scss */
+.content .color-swatches li.danger {
+  background: #e74c3c;
+}
+/* line 212, ../sass/master.scss */
+.content .color-swatches li.success {
+  background: #2ecc71;
+}
+/* line 213, ../sass/master.scss */
+.content .color-swatches li.inverse {
+  background: #34495e;
+}
+/* line 214, ../sass/master.scss */
+.content .color-swatches li.info {
+  background: #3498db;
+}
+/* line 223, ../sass/master.scss */
+.content button {
+  padding: 1% 2%;
+  text-align: center;
+  border: 1px solid #444444;
+}
+/* line 229, ../sass/master.scss */
+.content .button1 {
+  background: #42a7dd;
+  background: #42a7dd;
+  background: #42a7dd;
+  background: #42a7dd;
+  background: #42a7dd;
+  background: #42a7dd;
+}
+/* line 252, ../sass/_mixins.scss */
+.content .button1:hover {
+  background: #2c9dd9;
+}
+/* line 232, ../sass/master.scss */
+.content .button2 {
+  background: #42a7dd;
+  background: -webkit-linear-gradient(top, #6dbbe5, #248fc8) repeat-x #42a7dd;
+  background: -moz-linear-gradient(top, #6dbbe5, #248fc8) repeat-x #42a7dd;
+  background: -ms-linear-gradient(top, #6dbbe5, #248fc8) repeat-x #42a7dd;
+  background: -o-linear-gradient(top, #6dbbe5, #248fc8) repeat-x #42a7dd;
+  background: linear-gradient(top, #6dbbe5, #248fc8) repeat-x #42a7dd;
+}
+/* line 252, ../sass/_mixins.scss */
+.content .button2:hover {
+  background: #2c9dd9;
+}
+/* line 235, ../sass/master.scss */
+.content .button3 {
+  background: #42a7dd;
+  background: -webkit-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -moz-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -ms-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -o-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+}
+/* line 252, ../sass/_mixins.scss */
+.content .button3:hover {
+  background: #2c9dd9;
+}
+/* line 238, ../sass/master.scss */
+.content .button4 {
+  background: #42a7dd;
+  background: -webkit-linear-gradient(top, #58b1e1 0%, #2c9dd9 50%, #207fb2 51%, #319fda 100%);
+  background: -moz-linear-gradient(top, #58b1e1 0%, #2c9dd9 50%, #207fb2 51%, #319fda 100%);
+  background: -ms-linear-gradient(top, #58b1e1 0%, #2c9dd9 50%, #207fb2 51%, #319fda 100%);
+  background: -o-linear-gradient(top, #58b1e1 0%, #2c9dd9 50%, #207fb2 51%, #319fda 100%);
+  background: linear-gradient(top, #58b1e1 0%, #2c9dd9 50%, #207fb2 51%, #319fda 100%);
+}
+/* line 252, ../sass/_mixins.scss */
+.content .button4:hover {
+  background: #2c9dd9;
+}
+/* line 241, ../sass/master.scss */
+.content .button-primary {
+  background: #1abc9c;
+  background: #1abc9c;
+  background: #1abc9c;
+  background: #1abc9c;
+  background: #1abc9c;
+  background: #1abc9c;
+}
+/* line 252, ../sass/_mixins.scss */
+.content .button-primary:hover {
+  background: #17a689;
+}
+/* line 244, ../sass/master.scss */
+.content .button-warning {
+  background: #f1c40f;
+  background: #f1c40f;
+  background: #f1c40f;
+  background: #f1c40f;
+  background: #f1c40f;
+  background: #f1c40f;
+}
+/* line 252, ../sass/_mixins.scss */
+.content .button-warning:hover {
+  background: #dab10d;
+}
+/* line 247, ../sass/master.scss */
+.content .button-default {
+  background: #bdc3c7;
+  background: #bdc3c7;
+  background: #bdc3c7;
+  background: #bdc3c7;
+  background: #bdc3c7;
+  background: #bdc3c7;
+}
+/* line 252, ../sass/_mixins.scss */
+.content .button-default:hover {
+  background: #afb6bb;
+}
+/* line 250, ../sass/master.scss */
+.content .button-danger {
+  background: #e74c3c;
+  background: #e74c3c;
+  background: #e74c3c;
+  background: #e74c3c;
+  background: #e74c3c;
+  background: #e74c3c;
+}
+/* line 252, ../sass/_mixins.scss */
+.content .button-danger:hover {
+  background: #e43725;
+}
+/* line 254, ../sass/master.scss */
+.content .button5 {
+  background: #42a7dd;
+  background: -webkit-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -moz-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -ms-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -o-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  font-size: 150%;
+  padding: 2% 0;
+}
+/* line 252, ../sass/_mixins.scss */
+.content .button5:hover {
+  background: #2c9dd9;
+}
+/* line 258, ../sass/master.scss */
+.content .button6 {
+  background: #42a7dd;
+  background: -webkit-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -moz-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -ms-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -o-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  font-size: 100%;
+  padding: 1% 0;
+}
+/* line 252, ../sass/_mixins.scss */
+.content .button6:hover {
+  background: #2c9dd9;
+}
+/* line 262, ../sass/master.scss */
+.content .button7 {
+  background: #42a7dd;
+  background: -webkit-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -moz-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -ms-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -o-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  font-size: 80%;
+  padding: 0.8% 0;
+}
+/* line 252, ../sass/_mixins.scss */
+.content .button7:hover {
+  background: #2c9dd9;
+}
+/* line 266, ../sass/master.scss */
+.content .button8 {
+  background: #42a7dd;
+  background: -webkit-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -moz-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -ms-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: -o-linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  background: linear-gradient(top, #c4e3f4 0%, #6dbbe5 5%, #248fc8 95%, #1c709d 100%);
+  font-size: 60%;
+  padding: 0.4% 0;
+}
+/* line 252, ../sass/_mixins.scss */
+.content .button8:hover {
+  background: #2c9dd9;
+}
+/* line 271, ../sass/master.scss */
+.content input.warning {
+  border: 2px solid #f1c40f;
+}
+/* line 274, ../sass/master.scss */
+.content input.error {
+  border: 2px solid #e74c3c;
+}
+/* line 277, ../sass/master.scss */
+.content input.success {
+  border: 2px solid #2ecc71;
+}
+/* line 280, ../sass/master.scss */
+.content input.info {
+  border: 2px solid #3498db;
+}
 
 @media only screen and (max-width: 1200px) {
   /* line 58, ../sass/_mixins.scss */
-  .top .header, .container {
+  .top .top-header, .container {
     overflow: hidden;
     width: 100%;
     margin: 0 auto;
@@ -530,7 +810,7 @@ select.selIner {
 }
 @media only screen and (min-width: 0) and (max-width: 480px) {
   /* line 58, ../sass/_mixins.scss */
-  .top .header, .container {
+  .top .top-header, .container {
     overflow: hidden;
     width: 100%;
     margin: 0 auto;
@@ -538,14 +818,15 @@ select.selIner {
   }
 
   /* line 79, ../sass/_mixins.scss */
-  .content .grid-example1 section, .nav, .content .element8, .content .element9, .content .element10, .content .element11, .content {
+  .content .grid-example1 section, .nav, .content .element8, .content .element9, .content .element10, .content .element11, .content .color-swatches li, .content button, .content .html-example,
+  .content .css-example, .content {
     float: none;
     clear: both;
     margin: 1% 1% 1% 1%;
     width: 98%;
   }
 
-  /* line 213, ../sass/master.scss */
+  /* line 319, ../sass/master.scss */
   .content .grid-example2 section {
     width: 98%;
   }
