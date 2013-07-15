@@ -120,16 +120,16 @@
 }
 
 // Gradients
-@mixin gradient($startColor, $endColor, $noGradient: mix($startColor, $endColor,50%), $type: 'vertical', $degOrImagePath: ''){
+@mixin gradient($startColor, $endColor, $type: 'vertical', $degOrImageArgs: ''){
   @if ($type == 'vertical'){
-    background: $noGradient;
+    background: mix($startColor, $endColor,50%);
     @each $i in -webkit-, -moz-, -ms-, -o-, '' {
       background: #{$i}linear-gradient(top, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
     }
   }
 
   @if ($type == 'horizontal'){
-    background: $noGradient;
+    background: mix($startColor, $endColor,50%);
     @each $i in -webkit-, -moz-, -ms-, -o- {
       background: #{$i}linear-gradient(left, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
     }
@@ -137,23 +137,23 @@
   }
 
   @if ($type == 'radial'){
-    background: $noGradient;
+    background: mix($startColor, $endColor,50%);
     @each $i in -webkit-, -moz-, -ms-, -o-, ''{
       background: #{$i}radial-gradient(circle, $startColor, $endColor) no-repeat mix($startColor, $endColor, 60%);
     }
   }
 
   @if ($type == 'directional'){
-    background: $noGradient;
+    background: mix($startColor, $endColor,50%);
     @each $i in -webkit-, -moz-, -ms-, -o-, '' {
-      background: #{$i}linear-gradient(#{$degOrImagePath}deg, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
+      background: #{$i}linear-gradient(#{$degOrImageArgs}deg, $startColor, $endColor) repeat-x mix($startColor, $endColor, 60%);
     }
   }
 
   @if ($type == 'image'){
-    background: url('#{$degOrImagePath}') no-repeat scroll $noGradient;
+    background: #{$degOrImageArgs} mix($startColor, $endColor,50%);
     @each $i in -webkit-, -moz-, -ms-, -o-, '' {
-      background: url('#{$degOrImagePath}') no-repeat scroll, #{$i}linear-gradient(center top, $startColor, $endColor);
+      background: #{$degOrImageArgs}, #{$i}linear-gradient(center top, $startColor, $endColor);
     }
   }
 }
@@ -209,7 +209,7 @@
 		font-weight: $dd-f-weight;
 		color: $dd-t-color;
 		font-size: $dd-f-size;
-		@include gradient( $select-gradent-to, $select-gradent-from, $select-gradent-default, image, url('../images/arrow.png') 100% 97.8%);
+		@include gradient( $select-gradent-to, $select-gradent-from, image, url('../images/arrow.png') 100% 97.8%);
 		border:$ui-border;
 	}
 	select.selIner {
@@ -259,7 +259,7 @@
 	font-size: 150%;
 	padding: 2% 0;
 }
-@mixin btn(){
+@mixin btn-regular(){
 	font-size: 100%;
 	padding: 1% 0;
 }

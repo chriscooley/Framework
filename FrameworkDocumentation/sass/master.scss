@@ -8,7 +8,7 @@
 @include grid();
 
 .top {
-	@include gradient(#0c78b7, #40a3db, #268dc9, horizontal);
+	@include gradient(#0c78b7, #40a3db, horizontal);
 	height: 200px;
 	width:100%;
 
@@ -86,7 +86,9 @@
 			padding: 1% 2%;
 		}
 	}
+	.clear {clear:both;}
 	hr {
+		clear: both;
 		margin: 60px 0 0;
 		border-top: 1px solid rgba(0, 0, 0, 0.3); 
 		border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -95,7 +97,7 @@
 		overflow: hidden;
 		background: #fff;
 		border:1px solid #ccc;
-		padding: 2%;
+		padding: 1%;
 	}
 	.example {
 		text-align: center;
@@ -134,6 +136,33 @@
 		}
 	}
 
+	.grid-example3 {
+		section {
+			background: #42A7DD;
+			min-height: 50px;
+			color: #fff;
+		}
+		.three-column {
+			@extend %gd3;
+		}
+		.nine-column {
+			@extend %gd9;
+		}
+		.gd1 { @extend %gd1; }
+		.gd2 { @extend %gd2; }
+		.gd3 { @extend %gd3; }
+		.gd4 { @extend %gd4; }
+		.gd5 { @extend %gd5; }
+		.gd6 { @extend %gd6; }
+		.gd7 { @extend %gd7; }
+		.gd8 { @extend %gd8; }
+		.gd9 { @extend %gd9; }
+		.gd10 { @extend %gd10; }
+		.gd11 { @extend %gd11; }
+		.gd12 { @extend %gd12; }
+	}
+	
+
 	.element3 {
 		@include calc(width, 10%, '-', 5px, 10%);
 		height: 20px;
@@ -168,20 +197,27 @@
 		padding: 1% 2%;
 	}
 	.element9 {
-		@include gradient(#40a3db, #0c78b7, $type: horizontal);
+		@include gradient(#40a3db, #0c78b7, horizontal);
 		@extend %gd3;
 		padding: 1% 2%;
 	}
 	.element10 {
-		@include gradient(#fdcd3d, #e99f00, $type: radial);
+		@include gradient(#fdcd3d, #e99f00, radial);
 		@extend %gd3;
 		padding: 1% 2%;
 	}
 	.element11 {
-		@include gradient(#e9574c, #9d0000, $type: directional, $degOrImagePath: 45);
+		@include gradient(#e9574c, #9d0000, directional, 45);
 		@extend %gd3;
 		padding: 1% 2%;
 	}
+	.element12 {
+		@include gradient(#ccc, #999, image, url('../images/arrow.png') no-repeat right center);
+		@extend %gd3;
+		padding: 1% 2%;
+	}
+
+
 
 	.color-swatches {
 		clear: both;
@@ -214,7 +250,6 @@
 			&.info { background: $info;}
 		}
 	}
-
 
 	.html-example,
 	.css-example {
@@ -251,20 +286,22 @@
 		@include button($danger);
 	}
 
-	.button5 {
+	.button5,
+	.button6,
+	.button7,
+	.button8 {
 		@include button($blue, complex);
+	}
+	.button5 {
 		@include btn-large();
 	}
 	.button6 {
-		@include button($blue, complex);
-		@include btn();
+		@include btn-regular();
 	}
 	.button7 {
-		@include button($blue, complex);
 		@include btn-small();
 	}
 	.button8 {
-		@include button($blue, complex);
 		@include btn-mini();
 	}
 
