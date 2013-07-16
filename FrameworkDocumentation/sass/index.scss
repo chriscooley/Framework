@@ -1,0 +1,112 @@
+// Global Elements 
+@import "var";
+@import "mixins";
+@import "base";
+
+// UI style
+@include grid-wrap(0,0,0,0);
+@include grid();
+
+.top {
+	@include gradient(#05456b, #3587f8, horizontal);
+	height: 400px;
+	width:100%;
+
+	&:after {
+		background: url("../images/headerbg.png") repeat scroll center center transparent;
+	    bottom: 0;
+	    content: "";
+	    display: block;
+	    left: 0;
+	    opacity: 0.4;
+	    position: absolute;
+	    right: 0;
+	    top: 0;
+	}
+
+	.top-container {
+		z-index: 1;
+		position: relative;
+		@extend %gw;
+		text-align: center;
+
+		h1,
+		p {
+			color: #fff;
+		}
+		h1 {
+			font-size: 400%;
+			margin: 80px 0 0;
+		}
+		p {
+			font-size: 150%;
+		}
+
+		a {
+			display: block;
+
+			&.docs {
+				@extend %gd3;
+				float: none;
+				padding: 1% 2%;
+				margin: 20px auto;
+				color: #fff;
+				@include gradient(#42A7DD, #297eac);
+				@include box-shadow(inset 0 1px 0 rgba(255,255,255,0.2), 0 1px 4px rgba(0,0,0,0.2));
+			}
+		}
+	}
+}
+
+
+.container {
+	@extend %gw;
+	z-index: 5;
+	position: relative;
+	margin:0px auto 0;
+	min-height: 1200px;
+
+	.sass {
+		@extend %gd4;
+	}
+}
+
+
+
+
+
+
+
+
+// Media Querys
+@media only screen and (min-width: 1800px)
+{
+}
+@media only screen and (max-width: $start-width)
+{
+	@include grid-wrap($gw-width: 100%);
+
+}
+@media only screen and (min-width: $mid-sm) and (max-width: $mid-lr)
+{
+	// @include columns ($count: 3);
+	// #columns {
+	// 	@extend %columns;
+	// }
+}
+@media only screen and (min-width: $mobile-sm) and (max-width: $mobile-lr)
+{
+	@include grid-custom($mobile: true, $gw: true, $gw-width: 100%);
+	// @include columns ($count: 1);
+	// #columns {
+	// 	@extend %columns;
+	// }
+	.content {
+		.grid-example2 {
+			section {
+				width: 98%;
+			}
+		}
+	}
+	
+}

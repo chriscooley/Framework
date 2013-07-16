@@ -99,6 +99,14 @@
 	}
 }
 
+@mixin alpha(){
+	clear: left;
+}
+@mixin omega(){
+	clear: right;
+}
+
+
 // UI Section
 //      .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.     .-.   
 // `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._.'   `._
@@ -241,49 +249,32 @@
 }
 
 // Adds button backgrounds using only one base color
-@mixin button($baseColor: #aaa, $style: 'flat'){
+@mixin button($baseColor: #aaa, $style: 'flat', $size: 'regular'){
   background: $baseColor;
+  text-align: center;
   @each $i in -webkit-, -moz-, -ms-, -o-, '' {
     @if ($style == 'flat') { background: $baseColor; }
     @if ($style == 'simple') { background: #{$i}linear-gradient(top, lighten($baseColor, 10%), darken($baseColor, 10%)) repeat-x $baseColor; }
     @if ($style == 'complex') { background: #{$i}linear-gradient(top,  lighten($baseColor, 30%) 0%, lighten($baseColor, 10%) 5%, darken($baseColor, 10%) 95%, darken($baseColor, 20%) 100%); }
     @if ($style == 'shiny') { background: #{$i}linear-gradient(top,  lighten($baseColor, 5%) 0%, darken($baseColor, 5%) 50%, darken($baseColor, 15%) 51%, darken($baseColor, 4%) 100%); }
+  	@if ($size == 'large') { font-size: 150%; padding: 2% 0; }
+  	@if ($size == 'regular') { font-size: 100%; padding: 1% 0; }
+  	@if ($size == 'small') { font-size: 80%; padding: 0.8% 0; }
+  	@if ($size == 'mini') { font-size: 60%; padding: 0.4% 0; }
   }
   &:hover {
     background: darken($baseColor, 5%);
   }
 }
 
-// button sizes
-@mixin btn-large(){
-	font-size: 150%;
-	padding: 2% 0;
-}
-@mixin btn-regular(){
-	font-size: 100%;
-	padding: 1% 0;
-}
-@mixin btn-small(){
-	font-size: 80%;
-	padding: 0.8% 0;
-}
-@mixin btn-mini(){
-	font-size: 60%;
-	padding: 0.4% 0;
-}
 
 //input styles
-@mixin input-warning(){
-	border: 2px solid $warning;
-}
-@mixin input-error(){
-	border: 2px solid $danger;
-}
-@mixin input-success(){
-	border: 2px solid $success;
-}
-@mixin input-info(){
-	border: 2px solid $info;
+@mixin input($style: 'default'){
+	@if($style == 'warning'){border: 2px solid $warning;}
+	@if($style == 'error'){border: 2px solid $danger;}
+	@if($style == 'success'){border: 2px solid $success;}
+	@if($style == 'info'){border: 2px solid $info;}
+	@if($style == 'disabled'){border: 2px solid $default;}
 }
 
 // Font Section

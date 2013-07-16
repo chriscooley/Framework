@@ -46,4 +46,12 @@ $(document).ready(function(){
 
 
 
+	$('.sunlight-punctuation').each(function(){
+		if($(this).html() == '{' || $(this).html() == '}' || $(this).html() == '/'){
+			$(this).css({'color': '#888'});
+		}
+	})
+
+
+
 });

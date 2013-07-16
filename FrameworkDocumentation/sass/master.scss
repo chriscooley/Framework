@@ -8,7 +8,7 @@
 @include grid();
 
 .top {
-	@include gradient(#0c78b7, #40a3db, horizontal);
+	@include gradient(#05456b, #3587f8, horizontal);
 	height: 200px;
 	width:100%;
 
@@ -257,65 +257,66 @@
 	}
 	button {
 		@extend %gd3;
-		padding: 1% 2%;
-		text-align: center; 
-		border: 1px solid #444;
+		border:1px solid #444;
 	}
-	.button1 {
+	.button-example1 {
 		@include button($blue);
 	}
-	.button2 {
+	.button-example2 {
 		@include button($blue, simple);
 	}
-	.button3 {
+	.button-example3 {
 		@include button($blue, complex);
 	}
-	.button4 {
+	.button-example4 {
 		@include button($blue, shiny);
 	}
-	.button-primary {
-		@include button($primary);
+	.button-example-primary {
+		@include button($primary, flat, large);
 	}
-	.button-warning {
-		@include button($warning);
+	.button-example-yellow {
+		@include button($yellow, simple, regular);
 	}
-	.button-default {
-		@include button($default);
+	.button-example-purple {
+		@include button($purple, complex, small);
 	}
-	.button-danger {
-		@include button($danger);
+	.button-example-danger {
+		@include button($danger,shiny, mini);
 	}
 
-	.button5,
-	.button6,
-	.button7,
-	.button8 {
-		@include button($blue, complex);
-	}
+	// .button5,
+	// .button6,
+	// .button7,
+	// .button8 {
+	// 	@include button($blue, complex);
+	// }
 	.button5 {
-		@include btn-large();
+		@include button($blue, complex, large);
 	}
 	.button6 {
-		@include btn-regular();
+		@include button($blue, complex, regular);
 	}
 	.button7 {
-		@include btn-small();
+		@include button($blue, complex, small);
 	}
 	.button8 {
-		@include btn-mini();
+		@include button($blue, complex, mini);
 	}
 
 	input.warning {
-		@include input-warning();
+		@include input(warning);
 	}
 	input.error {
-		@include input-error();
+		@include input(error);
 	}
 	input.success {
-		@include input-success();
+		@include input(success);
 	}
 	input.info {
-		@include input-info();
+		@include input(info);
+	}
+	input.disabled {
+		@include input(disabled);
 	}
 
 
