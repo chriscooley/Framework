@@ -28,7 +28,8 @@
 			<li><a href="#mixins">Mixins</a></li>
 			<li><a href="#grid">Grid</a></li>
 			<li><a href="#typography">Typography</a></li>
-			<li class="last"><a href="#ui">UI Elements</a></li>
+			<li><a href="#ui">UI Elements</a></li>
+			<li class="last"><a href="#animations">Animations and Transform</a></li>
 		</ul>
 	</div>
 	<div class="content">
@@ -298,7 +299,7 @@ $gd-count: 18;
 }
 		</pre>
 
-		<h1 id="grid">Grid</h1>
+		<h1 id="grid" class="header">Grid</h1>
 		<p>The grid system comprises of 3 seperate mixins that work together to create the grid structure used for the framework. They consist of the <strong>grid-wrap</strong>, <strong>grid</strong>, and <strong>grid-custom</strong> mixins.</p>
 
 		<hr />
@@ -448,6 +449,63 @@ $gd-count: 18;
 			<section class="gd12">12</section>
 		</div>
 
+		<p class="note">If for some reason you are having some floating issues (perhaps due to different box heights), you can add the <strong>alpha</strong> and/or <strong>omega</strong> mixins to your first and last elements respectively.</p>
+		<p><strong>Example:</strong></p>
+		<div class="html-example">
+			<p><strong>HTML</strong></p>
+			<pre class="sunlight-highlight-httpd">
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;
+	&lt;div class="container"&gt;
+		&lt;section class="three-column-example"&gt;3&lt;/section&gt;
+		&lt;section class="nine-column-example"&gt;9&lt;/section&gt;
+		&lt;section class="four-column-example"&gt;4&lt;/section&gt;
+		&lt;section class="eight-column-example"&gt;8&lt;/section&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+			</pre>
+		</div>
+		<div class="css-example">
+			<p><strong>SASS</strong></p>
+			<pre class="sunlight-highlight-css custom">
+@include grid-wrap();
+@include grid();
+
+.container {
+	@extend %gw;
+
+	section {
+		background: #42A7DD;
+		min-height: 40px;
+	}
+	
+	.three-column-example { @extend %gd3; height: 90px;}
+	.nine-column-example { @extend %gd9; }
+	.four-column-example { @extend %gd4; @include alpha();}
+	.eight-column-example { @extend %gd8; }
+}
+			</pre>
+		</div>
+
+		<p><strong>Output:</strong></p>
+		<div class="output html-example grid-example4">
+			<section class="three-column-example">3</section>
+			<section class="nine-column-example">9</section>
+			<section class="four-column-example">4 without alpha mixin</section>
+			<section class="eight-column-example">8</section>
+		</div>
+
+		<div class="output html-example grid-example5">
+			<section class="three-column-example">3</section>
+			<section class="nine-column-example">9</section>
+			<section class="four-column-example">4 with alpha mixin</section>
+			<section class="eight-column-example">8</section>
+		</div>
+
+
+
 
 
 		<hr />
@@ -477,6 +535,39 @@ $gd-count: 18;
 		<div class="output">
 			<p>Bacon ipsum dolor sit amet doner flank hamburger filet mignon cow. Pork loin fatback short loin meatloaf tri-tip biltong jerky shankle, ball tip shank meatball jowl shoulder leberkas spare ribs. Doner strip steak cow bacon sirloin. Pancetta beef ribs tri-tip venison. Sausage brisket andouille, chuck bresaola frankfurter sirloin flank capicola shankle biltong turkey pork loin.</p>
 			<p>Cow tenderloin shankle boudin ham tri-tip shank short loin tongue. Kielbasa prosciutto fatback beef. Pastrami prosciutto meatloaf brisket, ball tip rump filet mignon shankle t-bone bresaola meatball sausage shoulder andouille chuck. Strip steak pancetta chuck kielbasa.</p>
+		</div>
+
+		<hr />
+		<h2 id="ellipsis">ellipsis</h2>
+		<p>You can include the ellipsis mixin to text where you don't want your content to expand beyond the borders.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include ellipsis;</p>
+		<p><strong>Example:</strong></p>
+		<div class="html-example">
+			<p><strong>HTML</strong></p>
+			<pre class="sunlight-highlight-httpd">
+&lt;div class="ellipsis-example"&gt;
+	&lt;p&gt;Bacon ipsum dolor sit amet doner flank hamburger filet mignon cow loin fatback short loin meatloaf.&lt;/p&gt;
+&lt;/div&gt;
+			</pre>
+		</div>
+		<div class="css-example">
+			<p><strong>SASS</strong></p>
+			<pre class="sunlight-highlight-css custom">
+.ellipsis-example {
+	@extend %gd4;
+
+	p {
+		@include ellipsis;
+	}
+}
+			</pre>
+		</div>
+
+		<p><strong>Output:</strong></p>
+		<div class="output">
+			<div class="ellipsis-example">
+				<p>Bacon ipsum dolor sit amet doner flank hamburger filet mignon cow loin fatback short loin meatloaf.</p>
+			</div>
 		</div>
 
 
@@ -530,6 +621,7 @@ $info: #3498DB;
 		<p>It has three(3) parameters (the second and third parameters are both optional). The first parameter is the <strong>color value</strong> for the button, the second is the <strong>style</strong> of the button, and the third is the <strong>size</strong> of the button.</p>
 		<p>There are four different styles for buttons which you can choose from just by passing in the second parameter. The four types are <strong>flat</strong>, <strong>simple</strong>, <strong>complex</strong>, and <strong>shiny</strong> style buttons. The default is set to <strong>flat</strong>.<p>
 		<p>There are also four different sizes for buttons which you can choose from by passing in the third parameter. The four types are <strong>large</strong>, <strong>regular</strong>, <strong>small</strong>, and <strong>mini</strong> sizes for buttons. The default is set to <strong>regular</strong>.<p>
+		<p class="syntax"><strong>Syntax:</strong> @include button(color, <em>style</em>, <em>size</em>);</p>
 		<p><strong>Example:</strong></p>
 		<div class="html-example">
 			<p><strong>HTML</strong></p>
@@ -668,8 +760,9 @@ button {
 		</div>
 
 		<hr />
-		<h3>Validation</h3>
-		<p>Examples of adding validation styles to inputs.</p>
+		<h3 id="input">Input</h3>
+		<p>The input mixin allows you to add styling borders to inputs by passing in one of the styles. There are 5 different styles of inputs: <strong>warning</strong>, <strong>error</strong>, <strong>success</strong>, <strong>info</strong>, and <strong>disabled</strong>.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include input(type);</p>
 
 		<p><strong>Example:</strong></p>
 		<div class="html-example">
@@ -718,6 +811,7 @@ input.disabled {
 		<h2 id="background-sizes">background-size</h2>
 		<p>The background-size mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/background-size">background-size</a> property and allows you to specify the size of a background image.</p>
 		<p>The background-size mixin has one parameter that you can pass in the values of the width and height for the background image. The examplebelow shows a background size of 250px width and height set to auto.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include background-size(x y);</p>
 		<p><strong>Example:</strong></p>
 		<pre class="sunlight-highlight-css custom">
 .element4 {
@@ -729,20 +823,27 @@ input.disabled {
 		<hr />
 		<h2 id="border-radius">border-radius</h2>
 		<p>The border-radius mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius">border-radius</a> property and allows you to specify the radius of the borders on various elements.</p>
-
+		<p class="syntax"><strong>Syntax:</strong> @include border-radius(size);</p>
 		<p><strong>Example:</strong></p>
 		<pre class="sunlight-highlight-css custom">
+.element5,
+.element5b {
+	@extend %gd3;
+	height: 40px;
+	background: #42A7DD;
+}
 .element5 {
 	@include border-radius(5px);
-	height: 40px;
-	width: 200px;
-	background: #42A7DD;
+}
+.element5b {
+	@include border-radius(5px 10px 2px 15px);
 }
 		</pre>
 
 		<p><strong>Output:</strong></p>
 		<div class="output">
 			<div class="example element5">.element5</div>
+			<div class="example element5b">.element5b</div>
 		</div>
 
 
@@ -750,6 +851,7 @@ input.disabled {
 		<h2 id="border-image">border-image</h2>
 		<p>The border-image mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/border-image">border-image</a> property and allows you to specify the image properties of the borders on various elements.</p>
 		<p>It has one parameter that you can use to include the image path and size values for use on the border image.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include border-image(image-url position repeat attachment color);</p>
 		<p><strong>Example:</strong></p>
 		<pre class="sunlight-highlight-css custom">
 .element6 {
@@ -768,7 +870,7 @@ input.disabled {
 		<hr />
 		<h2 id="box-shadow">box-shadow</h2>
 		<p>The box-shadow mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow">box-shadow</a> property and allows you to specify the box-shadow properties of various block elements.</p>
-
+		<p class="syntax"><strong>Syntax:</strong> @include box-shadow(x y spread color);</p>
 		<p><strong>Example:</strong></p>
 		<pre class="sunlight-highlight-css custom">
 .element7 {
@@ -790,7 +892,7 @@ input.disabled {
 		<p>The gradient mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/gradient">gradient</a> property and allows you to specify the background image properties to change the color using gradients of various block elements.</p>
 		<p>This mixin requires two color values and has 5 optional types(vertical, horizontal, radial, directional, image). The default type is a vertical gradient from top to bottom.</p>
 		<p class="note">If the type is set to <strong>directional</strong>, you need the 4th parameter to be the degree direction. If the type is set to <strong>image</strong>, the 4th parameter needs to be the image arguments.</p>
-
+		<p class="syntax"><strong>Syntax:</strong> @include gradient(startColor, stopColor, style, [degree or image args depending on style]);</p>
 		<p><strong>Example:</strong></p>
 		<pre class="sunlight-highlight-css custom">
 //default vertical gradient
@@ -833,7 +935,497 @@ input.disabled {
 		</div>
 
 
+		<hr />
+		<h2 id="opacity">opacity</h2>
+		<p>The gradient mixin uses the CSS specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/opacity">opacity</a> property and allows you to specify the transparency of various block elements.</p>
+		<p>This mixin requires one value from 0.0 to 1.0.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include opacity(value);</p>
+		<p><strong>Example:</strong></p>
+		<pre class="sunlight-highlight-css custom">
+.element13,
+.element14,
+.element15,
+.element16 {
+	@extend %gd3;
+	padding: 1% 2%;
+	background: #42A7DD;
+}
+.element13 {
+	@include opacity(0.2);
+}
+.element14 {
+	@include opacity(0.5);
+}
+.element15 {
+	@include opacity(0.8);
+}
+.element16 {
+	@include opacity(1);
+}
+		</pre>
 
+		<p><strong>Output:</strong></p>
+		<div class="output">
+			<div class="example element13">opacity(0.2)</div>
+			<div class="example element14">opacity(0.5)</div>
+			<div class="example element15">opacity(0.8)</div>
+			<div class="example element16">opacity(1)</div>
+		</div>
+
+
+		<h1 id="animations" class="header">Animations and Transform</h1>
+		<p class="note"><strong>Note:</strong> Use of transitions, transforms, or animation mixins are not fully supported by older browsers. Please use with discretion.</p>
+
+		<hr />
+		<h2 id="transition">transition</h2>
+		<p>The transition mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Using_CSS_transitions">transitions</a> property and allows you to control animation properties of certain elements. It is usually used with hover effects.</p>
+		<p>This mixin requires only one value where you can specify which property you want to animate, for how long, and the timing function.</p>
+		<p class="note"><strong>Note:</strong> You can link numerous transitions by comma separating each transition property as shown in the second example.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include transition(property duration timing-function delay);</p>
+		<p><strong>Example:</strong></p>
+		<div class="html-example">
+			<p><strong>HTML</strong></p>
+			<pre class="sunlight-highlight-httpd">
+&lt;div class="transition-example1"&gt;transition example 1&lt;/div&gt;
+&lt;div class="transition-example2"&gt;transition example 2&lt;/div&gt;
+			</pre>
+		</div>
+		<div class="css-example">
+			<p><strong>SASS</strong></p>
+			<pre class="sunlight-highlight-css custom">
+.transition-example1,
+.transition-example2 {
+	@extend %gd4;
+	background: #42A7DD;
+	height: 40px;
+}
+.transition-example1 {
+	@include transition(background 1s ease);
+
+	&:hover {
+		background: #ff0000;
+	}
+}
+.transition-example2 {
+	@include transition(background 1s ease, height 2s ease-in);
+
+	&:hover {
+		background: #ff0000;
+		height: 100px;
+	}
+}
+			</pre>
+		</div>
+
+		<p><strong>Output:</strong></p>
+		<div class="output example">
+			<div class="transition-example1">transition example 1</div>
+			<div class="transition-example2">transition example 2</div>
+		</div>
+
+
+		<hr />
+		<h2 id="rotate">rotate</h2>
+		<p>The rotate mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform#rotate">transform: rotate</a> function and allows you to rotate elements.</p>
+		<p>This mixin requires only one value which specifies the rotational degree to be applied to an element.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include rotate(degree);</p>
+		<p><strong>Example:</strong></p>
+		<div class="html-example">
+			<p><strong>HTML</strong></p>
+			<pre class="sunlight-highlight-httpd">
+&lt;div class="rotate-example1"&gt;rotate 45deg&lt;/div&gt;
+&lt;div class="rotate-example2"&gt;rotate 90deg&lt;/div&gt;
+&lt;div class="rotate-example3"&gt;rotate 160deg&lt;/div&gt;
+			</pre>
+		</div>
+		<div class="css-example">
+			<p><strong>SASS</strong></p>
+			<pre class="sunlight-highlight-css custom">
+.rotate-example1,
+.rotate-example2,
+.rotate-example3 {
+	@extend %gd4;
+	background: #42A7DD;
+	height: 40px;
+}
+.rotate-example1 {
+	@include rotate(45);
+}
+.rotate-example2 {
+	@include rotate(90);
+}
+.rotate-example3 {
+	@include rotate(160);
+}
+			</pre>
+		</div>
+
+		<p><strong>Output:</strong></p>
+		<div class="output example rotate">
+			<div class="rotate-example1">rotate 45deg</div>
+			<div class="rotate-example2">rotate 90deg</div>
+			<div class="rotate-example3">rotate 160deg</div>
+		</div>
+
+
+		<hr />
+		<h2 id="rotate3d">rotate3d</h2>
+		<p>The rotate3d mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform#rotate">transform: rotate</a> function and allows you to rotate elements in 3 dimensions.</p>
+		<p>This mixin requires four(4) values which specifies the rotational degree to be applied to an element. They are the x, y, z, and angle.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include rotate3d(x-axis, y-axis, z-axis, degree);</p>
+		<p><strong>Example:</strong></p>
+		<div class="html-example">
+			<p><strong>HTML</strong></p>
+			<pre class="sunlight-highlight-httpd">
+&lt;div class="rotate3d-example1"&gt;rotate3d(131, 160, -180, 80)&lt;/div&gt;
+&lt;div class="rotate3d-example2"&gt;rotate3d(50, 64, 25, 60)&lt;/div&gt;
+&lt;div class="rotate3d-example3"&gt;rotate3d(-60, 415, 170, 145)&lt;/div&gt;
+			</pre>
+		</div>
+		<div class="css-example">
+			<p><strong>SASS</strong></p>
+			<pre class="sunlight-highlight-css custom">
+.rotate3d-example1,
+.rotate3d-example2,
+.rotate3d-example3 {
+	@extend %gd4;
+	background: #42A7DD;
+	height: 40px;
+}
+.rotate3d-example1 {
+	@include rotate3d(131, 160, -180, 80);
+}
+.rotate3d-example2 {
+	@include rotate3d(50, 64, 25, 60);
+}
+.rotate3d-example3 {
+	@include rotate3d(-60, 415, 170, 145);
+}
+			</pre>
+		</div>
+
+		<p><strong>Output:</strong></p>
+		<div class="output example rotate3d">
+			<div class="rotate3d-example1">rotate3d(1, 2, 3, 10)</div>
+			<div class="rotate3d-example2">rotate3d(10, 4, 45, 0)</div>
+			<div class="rotate3d-example3">rotate3d(110, 25, 180, 15)</div>
+		</div>
+
+
+		<hr />
+		<h2 id="scale">scale</h2>
+		<p>The scale mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform#scale">transform: scale</a> function and allows you to scale the element by a specified amount.</p>
+		<p>This mixin requires one value which specifies the scale value to be applied to an element.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include scale(value);</p>
+		<p><strong>Example:</strong></p>
+		<div class="html-example">
+			<p><strong>HTML</strong></p>
+			<pre class="sunlight-highlight-httpd">
+&lt;div class="scale-example1"&gt;scale(1)&lt;/div&gt;
+&lt;div class="scale-example2"&gt;scale(1.5)&lt;/div&gt;
+&lt;div class="scale-example3"&gt;scale(2.0)&lt;/div&gt;
+			</pre>
+		</div>
+		<div class="css-example">
+			<p><strong>SASS</strong></p>
+			<pre class="sunlight-highlight-css custom">
+.scale-example1,
+.scale-example2,
+.scale-example3 {
+	@extend %gd2;
+	background: #42A7DD;
+	height: 40px;
+}
+.scale-example1 {
+	@include scale(1);
+}
+.scale-example2 {
+	@include scale(1.5);
+}
+.scale-example3 {
+	@include scale(2.0);
+}
+			</pre>
+		</div>
+
+		<p><strong>Output:</strong></p>
+		<div class="output example scale">
+			<div class="scale-example1">scale(1)</div>
+			<div class="scale-example2">scale(1.5)</div>
+			<div class="scale-example3">scale(2.0)</div>
+		</div>
+
+
+		<hr />
+		<h2 id="translate">translate</h2>
+		<p>The translate mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform#translate">transform: translate</a> function and allows you to specify the 2D translation of the element by a specified amount. This allows you to move elements around their relative position without changing it's actual box-model characteristics.</p>
+		<p>This mixin requires two(2) values which specifies the x and y values to be applied to an element.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include translate(x, y);</p>
+		<p><strong>Example:</strong></p>
+		<div class="html-example">
+			<p><strong>HTML</strong></p>
+			<pre class="sunlight-highlight-httpd">
+&lt;div class="translate-example1"&gt;translate(0px, 50px)&lt;/div&gt;
+&lt;div class="translate-example2"&gt;translate(45px, -30px)&lt;/div&gt;
+&lt;div class="translate-example3"&gt;translate(0, 0)&lt;/div&gt;
+			</pre>
+		</div>
+		<div class="css-example">
+			<p><strong>SASS</strong></p>
+			<pre class="sunlight-highlight-css custom">
+.translate-example1,
+.translate-example2,
+.translate-example3 {
+	@extend %gd2;
+	background: #42A7DD;
+	height: 40px;
+	margin: 1% 8%;
+}
+.translate-example1 {
+	@include translate(0px, 50px);
+}
+.translate-example2 {
+	@include translate(45px, -30px);
+}
+.translate-example3 {
+	@include translate(0, 0);
+}
+			</pre>
+		</div>
+
+		<p><strong>Output:</strong></p>
+		<div class="output example translate">
+			<div class="translate-example1">translate(0px, 50px)</div>
+			<div class="translate-example2">translate(45px, -30px)</div>
+			<div class="translate-example3">translate(0, 0)</div>
+		</div>
+
+
+		<hr />
+		<h2 id="translate3d">translate3d</h2>
+		<p>The translate3d mixin uses the CSS3 specific <a href="http://msdn.microsoft.com/en-us/library/ie/jj200286%28v=vs.85%29.aspx">transform: translate3d</a> function and allows you to specify the 3D translation of the element by a specified amount. This is similar to the translate mixin with the exception of adding the z-axis value..</p>
+		<p>This mixin requires three(3) values which specifies the x, y, and z values to be applied to an element.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include translate3d(x, y, z);</p>
+		<p><strong>Example:</strong></p>
+		<div class="html-example">
+			<p><strong>HTML</strong></p>
+			<pre class="sunlight-highlight-httpd">
+&lt;div class="translate3d-example1"&gt;translate3d(0px, 50px, 20px)&lt;/div&gt;
+&lt;div class="translate3d-example2"&gt;translate3d(45px, -30px, 95px)&lt;/div&gt;
+&lt;div class="translate3d-example3"&gt;translate3d(0, 0, 80px)&lt;/div&gt;
+			</pre>
+		</div>
+		<div class="css-example">
+			<p><strong>SASS</strong></p>
+			<pre class="sunlight-highlight-css custom">
+.translate3d-example1,
+.translate3d-example2,
+.translate3d-example3 {
+	@extend %gd2;
+	background: #42A7DD;
+	height: 40px;
+	margin: 1% 8%;
+}
+.translate3d-example1 {
+	@include translate3d(0px, 50px, 20px);
+}
+.translate3d-example2 {
+	@include translate3d(45px, -30px, 95px);
+}
+.translate3d-example3 {
+	@include translate3d(0, 0, 80px);
+}
+			</pre>
+		</div>
+
+		<p><strong>Output:</strong></p>
+		<div class="output example translate3d">
+			<div class="translate3d-example1">translate3d(0px, 50px, 20px)</div>
+			<div class="translate3d-example2">translate3d(45px, -30px, 95px)</div>
+			<div class="translate3d-example3">translate3d(0, 0, 80px)</div>
+		</div>
+
+
+		<hr />
+		<h2 id="skew">skew</h2>
+		<p>The skew mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform#skew">transform: skew</a> property and allows you to skew an element around the X and Y axes.</p>
+		<p>This mixin requires two(2) values which specifies the x and y values to be applied to an element.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include skew(x, y);</p>
+		<p><strong>Example:</strong></p>
+		<div class="html-example">
+			<p><strong>HTML</strong></p>
+			<pre class="sunlight-highlight-httpd">
+&lt;div class="skew-example1"&gt;skew(0, 34)&lt;/div&gt;
+&lt;div class="skew-example2"&gt;skew(45, -30)&lt;/div&gt;
+&lt;div class="skew-example3"&gt;skew(-30, -10)&lt;/div&gt;
+			</pre>
+		</div>
+		<div class="css-example">
+			<p><strong>SASS</strong></p>
+			<pre class="sunlight-highlight-css custom">
+.skew-example1,
+.skew-example2,
+.skew-example3 {
+	@extend %gd2;
+	background: #42A7DD;
+	height: 40px;
+	margin: 1% 8%;
+}
+.skew-example1 {
+	@include skew(0, 34);
+}
+.skew-example2 {
+	@include skew(45, -30);
+}
+.skew-example3 {
+	@include skew(-30, -10);
+}
+			</pre>
+		</div>
+
+		<p><strong>Output:</strong></p>
+		<div class="output example skew">
+			<div class="skew-example1">skew(0, 34)</div>
+			<div class="skew-example2">skew(45, -30)</div>
+			<div class="skew-example3">skew(-30, -10)</div>
+		</div>
+
+
+		<hr />
+		<h2 id="matrix">matrix</h2>
+		<p>The matrix mixin uses the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform#matrix">transform: matrix</a> function and allows you to specify a 2d transformation matrix using six values.</p>
+		<p>This mixin requires six(6) values which specifies the a, b, c, d, x, and y values to be applied to an element.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include matrix(a, b, c, d, x, y);</p>
+		<p><strong>Example:</strong></p>
+		<div class="html-example">
+			<p><strong>HTML</strong></p>
+			<pre class="sunlight-highlight-httpd">
+&lt;div class="matrix-example1"&gt;matrix(0.7, -0.2, 0, 1, 0, 0)&lt;/div&gt;
+&lt;div class="matrix-example2"&gt;matrix(1, 0.2, 0.6, 1, 150, 0)&lt;/div&gt;
+&lt;div class="matrix-example3"&gt;matrix(0.4, -0.4, 1, 0.6, 40, -30)&lt;/div&gt;
+			</pre>
+		</div>
+		<div class="css-example">
+			<p><strong>SASS</strong></p>
+			<pre class="sunlight-highlight-css custom">
+.matrix-example1,
+.matrix-example2,
+.matrix-example3 {
+	@extend %gd2;
+	background: #42A7DD;
+	height: 40px;
+	margin: 1% 8%;
+}
+.matrix-example1 {
+	@include matrix(0.7, -0.2, 0, 1, 0, 0);
+}
+.matrix-example2 {
+	@include matrix(1, 0.2, 0.6, 1, 150, 0)
+}
+.matrix-example3 {
+	@include matrix(0.4, -0.4, 1, 0.6, 40, -30)
+}
+			</pre>
+		</div>
+
+		<p><strong>Output:</strong></p>
+		<div class="output example matrix">
+			<div class="matrix-example1">matrix(0.7, -0.2, 0, 1, 0, 0);</div>
+			<div class="matrix-example2">matrix(1, 0.2, 0.6, 1, 150, 0)</div>
+			<div class="matrix-example3">matrix(0.4, -0.4, 1, 0.6, 40, -30)</div>
+		</div>
+
+
+		<hr />
+		<h2 id="animate">animate</h2>
+		<p>The animate mixin uses many of the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">transform</a> and opacity properties which allows you to create animations based on the predefined animation names.</p>
+		<p>This mixin has a total of six(values) you can pass in, though only the first two(2) are required. The values are: <strong>selector</strong>, <strong>animationName</strong>, <strong>duration</strong>, <strong>iterationCount</strong>, <strong>timingFunction</strong>, and <strong>delay</strong>. The default values for the 4 latter properties are: <strong>duration: 1</strong>, <strong>iterationCount: 1</strong>,<strong>timingFunction: ease</strong>, and <strong>delay: 0</strong>.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include animate(selector, animation-name, duration(in seconds), iteration, timing, delay(in seconds));</p>
+		<p class="note"><strong>Note:</strong> The animate mixin is a special mixin that is <strong>NOT</strong> called inside a selector but is instead called to target a selector. Make sure that the animate mixin is not nested within another selector in your Sass file or it may not work.</p>
+		<p><strong>List of predefined animation names</strong></p>
+		<p class="syntax">Click on the animation name to view the animation</p>
+		<ul class="animation-list">
+			<li>flash</li>
+			<li>shake</li>
+			<li>bounce</li>
+			<li>swing</li>
+			<li>wobble</li>
+			<li>pulse</li>
+			<li>flipInX</li>
+			<li>flipOutX</li>
+			<li>flipInY</li>
+			<li>flipOutY</li>
+			<li>fadeIn</li>
+			<li>fadeInUp</li>
+			<li>fadeInDown</li>
+			<li>fadeInLeft</li>
+			<li>fadeInRight</li>
+			<li>fadeInUpBig</li>
+			<li>fadeInDownBig</li>
+			<li>fadeInLeftBig</li>
+			<li>fadeInRightBig</li>
+			<li>fadeOut</li>
+			<li>fadeOutUp</li>
+			<li>fadeOutDown</li>
+			<li>fadeOutLeft</li>
+			<li>fadeOutRight</li>
+			<li>fadeOutUpBig</li>
+		</ul>
+		<ul class="animation-list">
+			<li>fadeOutDownBig</li>
+			<li>fadeOutLeftBig</li>
+			<li>fadeOutRightBig</li>
+			<li>bounceIn</li>
+			<li>bounceInUp</li>
+			<li>bounceInDown</li>
+			<li>bounceInLeft</li>
+			<li>bounceInRight</li>
+			<li>bounceOut</li>
+			<li>bounceOutUp</li>
+			<li>bounceOutDown</li>
+			<li>bounceOutLeft</li>
+			<li>bounceOutRight</li>
+			<li>rotateIn</li>
+			<li>rotateInUpLeft</li>
+			<li>rotateInDownLeft</li>
+			<li>rotateInUpRight</li>
+			<li>rotateInDownRight</li>
+			<li>rotateOut</li>
+			<li>rotateOutUpLeft</li>
+			<li>rotateOutDownLeft</li>
+			<li>rotateOutUpRight</li>
+			<li>rotateOutDownRight</li>
+			<li>lightSpeedIn</li>
+			<li>lightSpeedOut</li>
+		</ul>
+
+		<p><strong>Example:</strong></p>
+		<div class="html-example">
+			<p><strong>HTML</strong></p>
+			<pre class="sunlight-highlight-httpd">
+&lt;div class="animate-example"&gt;flash animation with infinite loop&lt;/div&gt;
+			</pre>
+		</div>
+		<div class="css-example">
+			<p><strong>SASS</strong></p>
+			<pre class="sunlight-highlight-css custom">
+.animate-example {
+	@extend %gd4;
+	background: #42A7DD;
+	height: 40px;
+	margin: 1% 8%;
+}
+
+@include animate('.animate-example', flash, 1, infinite);
+
+			</pre>
+		</div>
+
+		<p><strong>Output:</strong></p>
+		<div class="output example animate">
+			<div class="animate-example">flash animation with infinite loop</div>
+		</div>
+		<div class="animate-me">Animate Me</div>
 
 
 

@@ -1,4 +1,4 @@
-Cooley Styles
+Cooley Styles Framework
 =========
 
-Documentation can be found in the FrameworkDocumentation folder.
+Documentation can be found at [www.cooleystyles.com](http://www.cooleystyles.com/documentation) 

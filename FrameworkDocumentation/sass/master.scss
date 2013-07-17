@@ -84,6 +84,13 @@
 		&.note {
 			background: #e8aeae;
 			padding: 1% 2%;
+			margin: 10px 0;
+		}
+		&.syntax {
+			background: #fff;
+			padding: 1% 2%;
+			margin: 10px 0;
+			border: 1px solid #aaa;
 		}
 	}
 	.clear {clear:both;}
@@ -161,7 +168,43 @@
 		.gd11 { @extend %gd11; }
 		.gd12 { @extend %gd12; }
 	}
-	
+
+	.grid-example4,
+	.grid-example5 {
+		section {
+			background: #42A7DD;
+			min-height: 50px;
+			color: #fff;
+		}
+
+		.three-column-example {
+			@extend %gd3;
+			height: 90px;
+		}
+		.nine-column-example {
+			@extend %gd9;
+			height: 20px;
+		}
+		.four-column-example {
+			@extend %gd4;
+		}
+		.eight-column-example {
+			@extend %gd8;
+		}
+	}
+	.grid-example5 {
+		.four-column-example {
+			@include alpha();
+		}
+	}
+
+	.ellipsis-example {
+		@extend %gd4;
+
+		p {
+			@include ellipsis;
+		}
+	}
 
 	.element3 {
 		@include calc(width, 10%, '-', 5px, 10%);
@@ -172,11 +215,17 @@
 	.element4 {
 		@include background-size(250px auto);
 	}
+	.element5,
+	.element5b {
+		@extend %gd3;
+		height: 40px;
+		background: #42A7DD;
+	}
 	.element5 {
 		@include border-radius(5px);
-		height: 40px;
-		width: 200px;
-		background: #42A7DD;
+	}
+	.element5b {
+		@include border-radius(5px 10px 2px 15px);
 	}
 	.element6 {
 		border: 20px solid transparent;
@@ -215,6 +264,26 @@
 		@include gradient(#ccc, #999, image, url('../images/arrow.png') no-repeat right center);
 		@extend %gd3;
 		padding: 1% 2%;
+	}
+	.element13,
+	.element14,
+	.element15,
+	.element16 {
+		@extend %gd3;
+		padding: 1% 2%;
+		background: #42A7DD;
+	}
+	.element13 {
+		@include opacity(0.2);
+	}
+	.element14 {
+		@include opacity(0.5);
+	}
+	.element15 {
+		@include opacity(0.8);
+	}
+	.element16 {
+		@include opacity(1);
 	}
 
 
@@ -320,13 +389,265 @@
 	}
 
 
+	.transition-example1,
+	.transition-example2 {
+		@extend %gd4;
+		background: #42A7DD;
+		height: 40px;
+	}
+	.transition-example1 {
+		@include transition(background 1s ease);
+
+		&:hover {
+			background: #ff0000;
+		}
+	}
+	.transition-example2 {
+		@include transition(background 1s ease, height 2s ease-in);
+
+		&:hover {
+			background: #ff0000;
+			height: 100px;
+		}
+	}
+
+	.rotate {
+		padding: 14% 1%;
+	}
+	.rotate-example1,
+	.rotate-example2,
+	.rotate-example3 {
+		@extend %gd4;
+		background: #42A7DD;
+		height: 40px;
+	}
+	.rotate-example1 {
+		@include rotate(45);
+	}
+	.rotate-example2 {
+		@include rotate(90);
+	}
+	.rotate-example3 {
+		@include rotate(160);
+	}
+
+	.rotate3d {
+		padding: 14% 1%;
+	}
+	.rotate3d-example1,
+	.rotate3d-example2,
+	.rotate3d-example3 {
+		@extend %gd4;
+		background: #42A7DD;
+		height: 40px;
+	}
+	.rotate3d-example1 {
+		@include rotate3d(131, 160, -180, 80);
+	}
+	.rotate3d-example2 {
+		@include rotate3d(50, 64, 25, 60);
+	}
+	.rotate3d-example3 {
+		@include rotate3d(-60, 415, 170, 145);
+	}
+
+	.scale {
+		padding: 5% 1%;
+	}
+	.scale-example1,
+	.scale-example2,
+	.scale-example3 {
+		@extend %gd2;
+		background: #42A7DD;
+		height: 40px;
+		margin: 1% 8%;
+	}
+	.scale-example1 {
+		@include scale(1);
+	}
+	.scale-example2 {
+		@include scale(1.5);
+	}
+	.scale-example3 {
+		@include scale(2.0);
+	}
+
+	.translate {
+		padding: 5% 1%;
+	}
+	.translate-example1,
+	.translate-example2,
+	.translate-example3 {
+		@extend %gd2;
+		background: #42A7DD;
+		height: 40px;
+		margin: 1% 8%;
+	}
+	.translate-example1 {
+		@include translate(0px, 50px);
+	}
+	.translate-example2 {
+		@include translate(45px, -30px);
+	}
+	.translate-example3 {
+		@include translate(0, 0);
+	}
+
+	.translate3d {
+		padding: 5% 1%;
+	}
+	.translate3d-example1,
+	.translate3d-example2,
+	.translate3d-example3 {
+		@extend %gd2;
+		background: #42A7DD;
+		height: 40px;
+		margin: 1% 8%;
+	}
+	.translate3d-example1 {
+		@include translate3d(0px, 50px, 20px);
+	}
+	.translate3d-example2 {
+		@include translate3d(45px, -30px, 95px);
+	}
+	.translate3d-example3 {
+		@include translate3d(0, 0, 80px);
+	}
+
+	.skew {
+		padding: 5% 1%;
+	}
+	.skew-example1,
+	.skew-example2,
+	.skew-example3 {
+		@extend %gd2;
+		background: #42A7DD;
+		height: 40px;
+		margin: 1% 8%;
+	}
+	.skew-example1 {
+		@include skew(0, 34);
+	}
+	.skew-example2 {
+		@include skew(45, -30);
+	}
+	.skew-example3 {
+		@include skew(-30, -10);
+	}
+
+	.matrix {
+		padding: 5% 1%;
+	}
+	.matrix-example1,
+	.matrix-example2,
+	.matrix-example3 {
+		@extend %gd2;
+		background: #42A7DD;
+		height: 40px;
+		margin: 1% 8%;
+	}
+	.matrix-example1 {
+		@include matrix(0.7, -0.2, 0, 1, 0, 0);
+	}
+	.matrix-example2 {
+		@include matrix(1, 0.2, 0.6, 1, 150, 0)
+	}
+	.matrix-example3 {
+		@include matrix(0.4, -0.4, 1, 0.6, 40, -30)
+	}
+
+	.animation-list {
+		@extend %gd6;
+		list-style: disc inside none; 
+
+		li {
+			cursor: pointer;
+		}
+	}
+	.animate {
+		padding: 5% 1%;
+	}
+	.animate-example {
+		@extend %gd4;
+		background: #42A7DD;
+		height: 40px;
+		margin: 1% 8%;
+	}
+
+	.animate-me {
+		display: none;
+		position: fixed;
+		top: 20px;
+		width: 200px;
+		height: 40px;
+		left: 50%;
+		margin: 0 0 0 -100px;
+		padding: 8px;
+		background: #42A7DD; 
+		border: 1px solid #888;
+		text-align: center;
+		color: #fff;
+		@include border-radius(4px);
+		@include box-shadow(0 0 5px rgba(0,0,0,0.3));
+		@include gradient(#42A7DD, darken(#42A7DD, 10%));
+	}
+
 
 } //end .content
 
 
+@include animate('.animate-example', flash, 1, infinite);
 
-
-
+@include animate('.animate-me.flash', flash);
+@include animate('.animate-me.shake', shake);
+@include animate('.animate-me.bounce', bounce);
+@include animate('.animate-me.swing', swing);
+@include animate('.animate-me.wobble', wobble);
+@include animate('.animate-me.pulse', pulse);
+@include animate('.animate-me.flipInX', flipInX);
+@include animate('.animate-me.flipOutX', flipOutX);
+@include animate('.animate-me.flipInY', flipInY);
+@include animate('.animate-me.flipOutY', flipOutY);
+@include animate('.animate-me.fadeIn', fadeIn);
+@include animate('.animate-me.fadeInUp', fadeInUp);
+@include animate('.animate-me.fadeInDown', fadeInDown);
+@include animate('.animate-me.fadeInLeft', fadeInLeft);
+@include animate('.animate-me.fadeInRight', fadeInRight);
+@include animate('.animate-me.fadeInUpBig', fadeInUpBig);
+@include animate('.animate-me.fadeInDownBig', fadeInDownBig);
+@include animate('.animate-me.fadeInLeftBig', fadeInLeftBig);
+@include animate('.animate-me.fadeInRightBig', fadeInRightBig);
+@include animate('.animate-me.fadeOut', fadeOut);
+@include animate('.animate-me.fadeOutUp', fadeOutUp);
+@include animate('.animate-me.fadeOutDown', fadeOutDown);
+@include animate('.animate-me.fadeOutLeft', fadeOutLeft);
+@include animate('.animate-me.fadeOutRight', fadeOutRight);
+@include animate('.animate-me.fadeOutUpBig', fadeOutUpBig);
+@include animate('.animate-me.fadeOutDownBig', fadeOutDownBig);
+@include animate('.animate-me.fadeOutLeftBig', fadeOutLeftBig);
+@include animate('.animate-me.fadeOutRightBig', fadeOutRightBig);
+@include animate('.animate-me.bounceIn', bounceIn);
+@include animate('.animate-me.bounceInUp', bounceInUp);
+@include animate('.animate-me.bounceInDown', bounceInDown);
+@include animate('.animate-me.bounceInLeft', bounceInLeft);
+@include animate('.animate-me.bounceInRight', bounceInRight);
+@include animate('.animate-me.bounceOut', bounceOut);
+@include animate('.animate-me.bounceOutUp', bounceOutUp);
+@include animate('.animate-me.bounceOutDown', bounceOutDown);
+@include animate('.animate-me.bounceOutLeft', bounceOutLeft);
+@include animate('.animate-me.bounceOutRight', bounceOutRight);
+@include animate('.animate-me.rotateIn', rotateIn);
+@include animate('.animate-me.rotateInUpLeft', rotateInUpLeft);
+@include animate('.animate-me.rotateInDownLeft', rotateInDownLeft);
+@include animate('.animate-me.rotateInUpRight', rotateInUpRight);
+@include animate('.animate-me.rotateInDownRight', rotateInDownRight);
+@include animate('.animate-me.rotateOut', rotateOut);
+@include animate('.animate-me.rotateOutUpLeft', rotateOutUpLeft);
+@include animate('.animate-me.rotateOutDownLeft', rotateOutDownLeft);
+@include animate('.animate-me.rotateOutUpRight', rotateOutUpRight);
+@include animate('.animate-me.rotateOutDownRight', rotateOutDownRight);
+@include animate('.animate-me.lightSpeedIn', lightSpeedIn);
+@include animate('.animate-me.lightSpeedOut', lightSpeedOut);
 
 
 // Media Querys

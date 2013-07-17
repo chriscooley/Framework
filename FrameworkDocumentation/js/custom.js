@@ -16,7 +16,6 @@ $(document).ready(function(){
 	function scrollBanner() {
 		//Get the scoll position of the page
 		scrollPos = jQuery(this).scrollTop();
-		console.log(scrollPos);
 		
 
 		// fix nav to top
@@ -24,7 +23,6 @@ $(document).ready(function(){
 			$('.container .nav ul').css({ 'position' : 'relative','top': (scrollPos-200)+'px'});
 		
 		}else if(scrollPos < 200) {
-			console.log('test');
 			$('.container .nav ul').css({ 'position' : 'relative', 'top' : 0+'px' });
 		}
 		
@@ -35,9 +33,17 @@ $(document).ready(function(){
 				'opacity' : 1-(scrollPos/150)
 			});
 		}
+
+		//show the animate-me box
+		if(scrollPos >= $('#animate').offset().top){
+			$('.animate-me').show(500);
+		}else {
+			$('.animate-me').hide(500);
+		}
 		
 	}
 
+	// don't parallax for mobile
 	if(!isMobile()) {
 		jQuery(window).scroll(function() {
 			scrollBanner();
@@ -45,12 +51,32 @@ $(document).ready(function(){
 	}
 
 
-
+	// change punction color
 	$('.sunlight-punctuation').each(function(){
 		if($(this).html() == '{' || $(this).html() == '}' || $(this).html() == '/'){
 			$(this).css({'color': '#888'});
 		}
-	})
+	});
+
+	// scroll to section
+	$('.nav li a').click(function(event){
+		event.preventDefault();
+		var id = $(this).attr('href');
+		$('html, body').animate({
+	         scrollTop: $(id).offset().top
+	     }, 500);
+	});
+
+	// animate the animate-me box
+	$('.animation-list li').click(function(){
+		var text = $(this).text();
+		$('.animate-me').html(text).addClass(text);
+		var lastClass = $('.animate-me').attr('class').split(' ').pop();
+		setTimeout(function(){
+			$('.animate-me').removeClass(lastClass);
+		}, 1000);
+		
+	});
 
 
 

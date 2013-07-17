@@ -245,8 +245,31 @@ select.selIner {
 }
 
 /* line 69, ../sass/_mixins.scss */
-.content .grid-example1 section, .content .grid-example3 .gd1, .content .grid-example3 .gd2, .nav, .content .grid-example3 .three-column, .content .grid-example3 .gd3, .content .element8, .content .element9, .content .element10, .content .element11, .content .element12, .content .color-swatches li, .content button, .content .grid-example3 .gd4, .content .grid-example3 .gd5, .content .grid-example3 .gd6, .content .html-example,
-.content .css-example, .content .grid-example3 .gd7, .content .grid-example3 .gd8, .content, .content .grid-example3 .nine-column, .content .grid-example3 .gd9, .content .grid-example3 .gd10, .content .grid-example3 .gd11, .content .grid-example3 .gd12 {
+.content .grid-example1 section, .content .grid-example3 .gd1, .content .grid-example3 .gd2, .content .scale-example1,
+.content .scale-example2,
+.content .scale-example3, .content .translate-example1,
+.content .translate-example2,
+.content .translate-example3, .content .translate3d-example1,
+.content .translate3d-example2,
+.content .translate3d-example3, .content .skew-example1,
+.content .skew-example2,
+.content .skew-example3, .content .matrix-example1,
+.content .matrix-example2,
+.content .matrix-example3, .nav, .content .grid-example3 .three-column, .content .grid-example3 .gd3, .content .grid-example4 .three-column-example,
+.content .grid-example5 .three-column-example, .content .element5,
+.content .element5b, .content .element8, .content .element9, .content .element10, .content .element11, .content .element12, .content .element13,
+.content .element14,
+.content .element15,
+.content .element16, .content .color-swatches li, .content button, .content .grid-example3 .gd4, .content .grid-example4 .four-column-example,
+.content .grid-example5 .four-column-example, .content .ellipsis-example, .content .transition-example1,
+.content .transition-example2, .content .rotate-example1,
+.content .rotate-example2,
+.content .rotate-example3, .content .rotate3d-example1,
+.content .rotate3d-example2,
+.content .rotate3d-example3, .content .animate-example, .content .grid-example3 .gd5, .content .grid-example3 .gd6, .content .html-example,
+.content .css-example, .content .animation-list, .content .grid-example3 .gd7, .content .grid-example3 .gd8, .content .grid-example4 .eight-column-example,
+.content .grid-example5 .eight-column-example, .content, .content .grid-example3 .nine-column, .content .grid-example3 .gd9, .content .grid-example4 .nine-column-example,
+.content .grid-example5 .nine-column-example, .content .grid-example3 .gd10, .content .grid-example3 .gd11, .content .grid-example3 .gd12 {
   float: left;
   clear: none;
   margin: 1% 1% 1% 1%;
@@ -258,17 +281,38 @@ select.selIner {
 }
 
 /* line 75, ../sass/_mixins.scss */
-.content .grid-example3 .gd2 {
+.content .grid-example3 .gd2, .content .scale-example1,
+.content .scale-example2,
+.content .scale-example3, .content .translate-example1,
+.content .translate-example2,
+.content .translate-example3, .content .translate3d-example1,
+.content .translate3d-example2,
+.content .translate3d-example3, .content .skew-example1,
+.content .skew-example2,
+.content .skew-example3, .content .matrix-example1,
+.content .matrix-example2,
+.content .matrix-example3 {
   width: 14.66667%;
 }
 
 /* line 75, ../sass/_mixins.scss */
-.nav, .content .grid-example3 .three-column, .content .grid-example3 .gd3, .content .element8, .content .element9, .content .element10, .content .element11, .content .element12, .content .color-swatches li, .content button {
+.nav, .content .grid-example3 .three-column, .content .grid-example3 .gd3, .content .grid-example4 .three-column-example,
+.content .grid-example5 .three-column-example, .content .element5,
+.content .element5b, .content .element8, .content .element9, .content .element10, .content .element11, .content .element12, .content .element13,
+.content .element14,
+.content .element15,
+.content .element16, .content .color-swatches li, .content button {
   width: 23%;
 }
 
 /* line 75, ../sass/_mixins.scss */
-.content .grid-example3 .gd4 {
+.content .grid-example3 .gd4, .content .grid-example4 .four-column-example,
+.content .grid-example5 .four-column-example, .content .ellipsis-example, .content .transition-example1,
+.content .transition-example2, .content .rotate-example1,
+.content .rotate-example2,
+.content .rotate-example3, .content .rotate3d-example1,
+.content .rotate3d-example2,
+.content .rotate3d-example3, .content .animate-example {
   width: 31.33333%;
 }
 
@@ -279,7 +323,7 @@ select.selIner {
 
 /* line 75, ../sass/_mixins.scss */
 .content .grid-example3 .gd6, .content .html-example,
-.content .css-example {
+.content .css-example, .content .animation-list {
   width: 48%;
 }
 
@@ -289,12 +333,14 @@ select.selIner {
 }
 
 /* line 75, ../sass/_mixins.scss */
-.content .grid-example3 .gd8 {
+.content .grid-example3 .gd8, .content .grid-example4 .eight-column-example,
+.content .grid-example5 .eight-column-example {
   width: 64.66667%;
 }
 
 /* line 75, ../sass/_mixins.scss */
-.content, .content .grid-example3 .nine-column, .content .grid-example3 .gd9 {
+.content, .content .grid-example3 .nine-column, .content .grid-example3 .gd9, .content .grid-example4 .nine-column-example,
+.content .grid-example5 .nine-column-example {
   width: 73%;
 }
 
@@ -393,52 +439,60 @@ select.selIner {
 .content p.note {
   background: #e8aeae;
   padding: 1% 2%;
+  margin: 10px 0;
 }
 /* line 89, ../sass/master.scss */
+.content p.syntax {
+  background: #fff;
+  padding: 1% 2%;
+  margin: 10px 0;
+  border: 1px solid #aaaaaa;
+}
+/* line 96, ../sass/master.scss */
 .content .clear {
   clear: both;
 }
-/* line 90, ../sass/master.scss */
+/* line 97, ../sass/master.scss */
 .content hr {
   clear: both;
   margin: 60px 0 0;
   border-top: 1px solid rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
-/* line 96, ../sass/master.scss */
+/* line 103, ../sass/master.scss */
 .content .output {
   overflow: hidden;
   background: #fff;
   border: 1px solid #cccccc;
   padding: 1%;
 }
-/* line 102, ../sass/master.scss */
+/* line 109, ../sass/master.scss */
 .content .example {
   text-align: center;
   color: #fff;
 }
-/* line 107, ../sass/master.scss */
+/* line 114, ../sass/master.scss */
 .content .grid-example1 {
   overflow: auto;
   color: #fff;
 }
-/* line 111, ../sass/master.scss */
+/* line 118, ../sass/master.scss */
 .content .grid-example1 section {
   background: #42a7dd;
   padding: 1% 2%;
   text-align: center;
 }
-/* line 119, ../sass/master.scss */
+/* line 126, ../sass/master.scss */
 .content .example2 {
   margin: 20px 0 0;
 }
-/* line 122, ../sass/master.scss */
+/* line 129, ../sass/master.scss */
 .content .grid-example2 {
   margin: 0 0 40px;
   overflow: hidden;
   color: #fff;
 }
-/* line 127, ../sass/master.scss */
+/* line 134, ../sass/master.scss */
 .content .grid-example2 section {
   width: 3.55556%;
   float: left;
@@ -515,13 +569,40 @@ select.selIner {
   background: #42a7dd;
   text-align: center;
 }
-/* line 140, ../sass/master.scss */
+/* line 147, ../sass/master.scss */
 .content .grid-example3 section {
   background: #42A7DD;
   min-height: 50px;
   color: #fff;
 }
-/* line 166, ../sass/master.scss */
+/* line 174, ../sass/master.scss */
+.content .grid-example4 section,
+.content .grid-example5 section {
+  background: #42A7DD;
+  min-height: 50px;
+  color: #fff;
+}
+/* line 180, ../sass/master.scss */
+.content .grid-example4 .three-column-example,
+.content .grid-example5 .three-column-example {
+  height: 90px;
+}
+/* line 184, ../sass/master.scss */
+.content .grid-example4 .nine-column-example,
+.content .grid-example5 .nine-column-example {
+  height: 20px;
+}
+/* line 196, ../sass/master.scss */
+.content .grid-example5 .four-column-example {
+  clear: left;
+}
+/* line 204, ../sass/master.scss */
+.content .ellipsis-example p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* line 209, ../sass/master.scss */
 .content .element3 {
   width: 10%;
   width: -moz-calc(10% - 5px);
@@ -532,25 +613,36 @@ select.selIner {
   color: #fff;
   background: #42A7DD;
 }
-/* line 172, ../sass/master.scss */
+/* line 215, ../sass/master.scss */
 .content .element4 {
   -webkit-background-size: 250px auto;
   -moz-background-size: 250px auto;
   -o-background-size: 250px auto;
   background-size: 250px auto;
 }
-/* line 175, ../sass/master.scss */
+/* line 219, ../sass/master.scss */
+.content .element5,
+.content .element5b {
+  height: 40px;
+  background: #42A7DD;
+}
+/* line 224, ../sass/master.scss */
 .content .element5 {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
   border-radius: 5px;
-  height: 40px;
-  width: 200px;
-  background: #42A7DD;
 }
-/* line 181, ../sass/master.scss */
+/* line 227, ../sass/master.scss */
+.content .element5b {
+  -webkit-border-radius: 5px 10px 2px 15px;
+  -moz-border-radius: 5px 10px 2px 15px;
+  -ms-border-radius: 5px 10px 2px 15px;
+  -o-border-radius: 5px 10px 2px 15px;
+  border-radius: 5px 10px 2px 15px;
+}
+/* line 230, ../sass/master.scss */
 .content .element6 {
   border: 20px solid transparent;
   -webkit-border-image: url("../images/border-img.jpg") 20 20 repeat;
@@ -561,7 +653,7 @@ select.selIner {
   width: 200px;
   color: #333;
 }
-/* line 188, ../sass/master.scss */
+/* line 237, ../sass/master.scss */
 .content .element7 {
   -webkit-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.8);
   -moz-box-shadow: 0 3px 4px rgba(0, 0, 0, 0.8);
@@ -572,7 +664,7 @@ select.selIner {
   width: 200px;
   background: #42A7DD;
 }
-/* line 194, ../sass/master.scss */
+/* line 243, ../sass/master.scss */
 .content .element8 {
   background: #7fa933;
   background: -webkit-linear-gradient(top, #9bbe4d, #649419) repeat-x #85ad38;
@@ -582,7 +674,7 @@ select.selIner {
   background: linear-gradient(top, #9bbe4d, #649419) repeat-x #85ad38;
   padding: 1% 2%;
 }
-/* line 199, ../sass/master.scss */
+/* line 248, ../sass/master.scss */
 .content .element9 {
   background: #268dc9;
   background: -webkit-linear-gradient(left, #40a3db, #0c78b7) repeat-x #2b91cc;
@@ -592,7 +684,7 @@ select.selIner {
   background: linear-gradient(to right, #40a3db, #0c78b7) repeat-x #0c78b7;
   padding: 1% 2%;
 }
-/* line 204, ../sass/master.scss */
+/* line 253, ../sass/master.scss */
 .content .element10 {
   background: #f3b61e;
   background: -webkit-radial-gradient(circle, #fdcd3d, #e99f00) no-repeat #f5ba24;
@@ -602,7 +694,7 @@ select.selIner {
   background: radial-gradient(circle, #fdcd3d, #e99f00) no-repeat #f5ba24;
   padding: 1% 2%;
 }
-/* line 209, ../sass/master.scss */
+/* line 258, ../sass/master.scss */
 .content .element11 {
   background: #c32b26;
   background: -webkit-linear-gradient(45deg, #e9574c, #9d0000) repeat-x #ca342d;
@@ -612,7 +704,7 @@ select.selIner {
   background: linear-gradient(45deg, #e9574c, #9d0000) repeat-x #ca342d;
   padding: 1% 2%;
 }
-/* line 214, ../sass/master.scss */
+/* line 263, ../sass/master.scss */
 .content .element12 {
   background: url("../images/arrow.png") no-repeat right center #b2b2b2;
   background: url("../images/arrow.png") no-repeat right center, -webkit-linear-gradient(center top, #cccccc, #999999);
@@ -622,12 +714,52 @@ select.selIner {
   background: url("../images/arrow.png") no-repeat right center, linear-gradient(center top, #cccccc, #999999);
   padding: 1% 2%;
 }
-/* line 222, ../sass/master.scss */
+/* line 271, ../sass/master.scss */
+.content .element13,
+.content .element14,
+.content .element15,
+.content .element16 {
+  padding: 1% 2%;
+  background: #42A7DD;
+}
+/* line 276, ../sass/master.scss */
+.content .element13 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.2*10)";
+  filter: alpha(opacity=0.2*100);
+  -moz-opacity: 0.2;
+  -khtml-opacity: 0.2;
+  opacity: 0.2;
+}
+/* line 279, ../sass/master.scss */
+.content .element14 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.5*10)";
+  filter: alpha(opacity=0.5*100);
+  -moz-opacity: 0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+}
+/* line 282, ../sass/master.scss */
+.content .element15 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0.8*10)";
+  filter: alpha(opacity=0.8*100);
+  -moz-opacity: 0.8;
+  -khtml-opacity: 0.8;
+  opacity: 0.8;
+}
+/* line 285, ../sass/master.scss */
+.content .element16 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=1*10)";
+  filter: alpha(opacity=1*100);
+  -moz-opacity: 1;
+  -khtml-opacity: 1;
+  opacity: 1;
+}
+/* line 291, ../sass/master.scss */
 .content .color-swatches {
   clear: both;
   overflow: hidden;
 }
-/* line 226, ../sass/master.scss */
+/* line 295, ../sass/master.scss */
 .content .color-swatches li {
   display: inline-block;
   height: 50px;
@@ -636,78 +768,78 @@ select.selIner {
   padding: 2%;
   color: #fff;
 }
-/* line 235, ../sass/master.scss */
+/* line 304, ../sass/master.scss */
 .content .color-swatches li.white {
   background: white;
   color: #999;
 }
-/* line 236, ../sass/master.scss */
+/* line 305, ../sass/master.scss */
 .content .color-swatches li.black {
   background: black;
 }
-/* line 237, ../sass/master.scss */
+/* line 306, ../sass/master.scss */
 .content .color-swatches li.gray {
   background: #eaeaea;
   color: #999;
 }
-/* line 238, ../sass/master.scss */
+/* line 307, ../sass/master.scss */
 .content .color-swatches li.red {
   background: #e24547;
 }
-/* line 239, ../sass/master.scss */
+/* line 308, ../sass/master.scss */
 .content .color-swatches li.orange {
   background: #f18c2c;
 }
-/* line 240, ../sass/master.scss */
+/* line 309, ../sass/master.scss */
 .content .color-swatches li.blue {
   background: #42a7dd;
 }
-/* line 241, ../sass/master.scss */
+/* line 310, ../sass/master.scss */
 .content .color-swatches li.green {
   background: #78ca45;
 }
-/* line 242, ../sass/master.scss */
+/* line 311, ../sass/master.scss */
 .content .color-swatches li.yellow {
   background: yellow;
   color: #999;
 }
-/* line 243, ../sass/master.scss */
+/* line 312, ../sass/master.scss */
 .content .color-swatches li.purple {
   background: #a132a8;
 }
-/* line 244, ../sass/master.scss */
+/* line 313, ../sass/master.scss */
 .content .color-swatches li.primary {
   background: #1abc9c;
 }
-/* line 245, ../sass/master.scss */
+/* line 314, ../sass/master.scss */
 .content .color-swatches li.warning {
   background: #f1c40f;
 }
-/* line 246, ../sass/master.scss */
+/* line 315, ../sass/master.scss */
 .content .color-swatches li.default {
   background: #bdc3c7;
 }
-/* line 247, ../sass/master.scss */
+/* line 316, ../sass/master.scss */
 .content .color-swatches li.danger {
   background: #e74c3c;
 }
-/* line 248, ../sass/master.scss */
+/* line 317, ../sass/master.scss */
 .content .color-swatches li.success {
   background: #2ecc71;
 }
-/* line 249, ../sass/master.scss */
+/* line 318, ../sass/master.scss */
 .content .color-swatches li.inverse {
   background: #34495e;
 }
-/* line 250, ../sass/master.scss */
+/* line 319, ../sass/master.scss */
 .content .color-swatches li.info {
   background: #3498db;
 }
-/* line 258, ../sass/master.scss */
+/* line 327, ../sass/master.scss */
 .content button {
   border: 1px solid #444444;
 }
-/* line 262, ../sass/master.scss */
+/* line 331, ../sass/master.scss */
 .content .button-example1 {
   background: #42a7dd;
   text-align: center;
@@ -731,7 +863,7 @@ select.selIner {
 .content .button-example1:hover {
   background: #2c9dd9;
 }
-/* line 265, ../sass/master.scss */
+/* line 334, ../sass/master.scss */
 .content .button-example2 {
   background: #42a7dd;
   text-align: center;
@@ -755,7 +887,7 @@ select.selIner {
 .content .button-example2:hover {
   background: #2c9dd9;
 }
-/* line 268, ../sass/master.scss */
+/* line 337, ../sass/master.scss */
 .content .button-example3 {
   background: #42a7dd;
   text-align: center;
@@ -779,7 +911,7 @@ select.selIner {
 .content .button-example3:hover {
   background: #2c9dd9;
 }
-/* line 271, ../sass/master.scss */
+/* line 340, ../sass/master.scss */
 .content .button-example4 {
   background: #42a7dd;
   text-align: center;
@@ -803,7 +935,7 @@ select.selIner {
 .content .button-example4:hover {
   background: #2c9dd9;
 }
-/* line 274, ../sass/master.scss */
+/* line 343, ../sass/master.scss */
 .content .button-example-primary {
   background: #1abc9c;
   text-align: center;
@@ -827,7 +959,7 @@ select.selIner {
 .content .button-example-primary:hover {
   background: #17a689;
 }
-/* line 277, ../sass/master.scss */
+/* line 346, ../sass/master.scss */
 .content .button-example-yellow {
   background: yellow;
   text-align: center;
@@ -851,7 +983,7 @@ select.selIner {
 .content .button-example-yellow:hover {
   background: #e5e600;
 }
-/* line 280, ../sass/master.scss */
+/* line 349, ../sass/master.scss */
 .content .button-example-purple {
   background: #a132a8;
   text-align: center;
@@ -875,7 +1007,7 @@ select.selIner {
 .content .button-example-purple:hover {
   background: #8e2c94;
 }
-/* line 283, ../sass/master.scss */
+/* line 352, ../sass/master.scss */
 .content .button-example-danger {
   background: #e74c3c;
   text-align: center;
@@ -899,7 +1031,7 @@ select.selIner {
 .content .button-example-danger:hover {
   background: #e43725;
 }
-/* line 293, ../sass/master.scss */
+/* line 362, ../sass/master.scss */
 .content .button5 {
   background: #42a7dd;
   text-align: center;
@@ -923,7 +1055,7 @@ select.selIner {
 .content .button5:hover {
   background: #2c9dd9;
 }
-/* line 296, ../sass/master.scss */
+/* line 365, ../sass/master.scss */
 .content .button6 {
   background: #42a7dd;
   text-align: center;
@@ -947,7 +1079,7 @@ select.selIner {
 .content .button6:hover {
   background: #2c9dd9;
 }
-/* line 299, ../sass/master.scss */
+/* line 368, ../sass/master.scss */
 .content .button7 {
   background: #42a7dd;
   text-align: center;
@@ -971,7 +1103,7 @@ select.selIner {
 .content .button7:hover {
   background: #2c9dd9;
 }
-/* line 302, ../sass/master.scss */
+/* line 371, ../sass/master.scss */
 .content .button8 {
   background: #42a7dd;
   text-align: center;
@@ -995,25 +1127,2265 @@ select.selIner {
 .content .button8:hover {
   background: #2c9dd9;
 }
-/* line 306, ../sass/master.scss */
+/* line 375, ../sass/master.scss */
 .content input.warning {
   border: 2px solid #f1c40f;
 }
-/* line 309, ../sass/master.scss */
+/* line 378, ../sass/master.scss */
 .content input.error {
   border: 2px solid #e74c3c;
 }
-/* line 312, ../sass/master.scss */
+/* line 381, ../sass/master.scss */
 .content input.success {
   border: 2px solid #2ecc71;
 }
-/* line 315, ../sass/master.scss */
+/* line 384, ../sass/master.scss */
 .content input.info {
   border: 2px solid #3498db;
 }
-/* line 318, ../sass/master.scss */
+/* line 387, ../sass/master.scss */
 .content input.disabled {
   border: 2px solid #bdc3c7;
+}
+/* line 393, ../sass/master.scss */
+.content .transition-example1,
+.content .transition-example2 {
+  background: #42A7DD;
+  height: 40px;
+}
+/* line 398, ../sass/master.scss */
+.content .transition-example1 {
+  -webkit-transition: background 1s ease;
+  -moz-transition: background 1s ease;
+  -ms-transition: background 1s ease;
+  -o-transition: background 1s ease;
+  transition: background 1s ease;
+}
+/* line 401, ../sass/master.scss */
+.content .transition-example1:hover {
+  background: #ff0000;
+}
+/* line 405, ../sass/master.scss */
+.content .transition-example2 {
+  -webkit-transition: background 1s ease, height 2s ease-in;
+  -moz-transition: background 1s ease, height 2s ease-in;
+  -ms-transition: background 1s ease, height 2s ease-in;
+  -o-transition: background 1s ease, height 2s ease-in;
+  transition: background 1s ease, height 2s ease-in;
+}
+/* line 408, ../sass/master.scss */
+.content .transition-example2:hover {
+  background: #ff0000;
+  height: 100px;
+}
+/* line 414, ../sass/master.scss */
+.content .rotate {
+  padding: 14% 1%;
+}
+/* line 419, ../sass/master.scss */
+.content .rotate-example1,
+.content .rotate-example2,
+.content .rotate-example3 {
+  background: #42A7DD;
+  height: 40px;
+}
+/* line 424, ../sass/master.scss */
+.content .rotate-example1 {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+/* line 427, ../sass/master.scss */
+.content .rotate-example2 {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+/* line 430, ../sass/master.scss */
+.content .rotate-example3 {
+  -webkit-transform: rotate(160deg);
+  -moz-transform: rotate(160deg);
+  -ms-transform: rotate(160deg);
+  -o-transform: rotate(160deg);
+  transform: rotate(160deg);
+}
+/* line 434, ../sass/master.scss */
+.content .rotate3d {
+  padding: 14% 1%;
+}
+/* line 439, ../sass/master.scss */
+.content .rotate3d-example1,
+.content .rotate3d-example2,
+.content .rotate3d-example3 {
+  background: #42A7DD;
+  height: 40px;
+}
+/* line 444, ../sass/master.scss */
+.content .rotate3d-example1 {
+  -webkit-transform: rotate3d(131, 160, -180, 80deg);
+  -moz-transform: rotate3d(131, 160, -180, 80deg);
+  -ms-transform: rotate3d(131, 160, -180, 80deg);
+  -o-transform: rotate3d(131, 160, -180, 80deg);
+  transform: rotate3d(131, 160, -180, 80deg);
+}
+/* line 447, ../sass/master.scss */
+.content .rotate3d-example2 {
+  -webkit-transform: rotate3d(50, 64, 25, 60deg);
+  -moz-transform: rotate3d(50, 64, 25, 60deg);
+  -ms-transform: rotate3d(50, 64, 25, 60deg);
+  -o-transform: rotate3d(50, 64, 25, 60deg);
+  transform: rotate3d(50, 64, 25, 60deg);
+}
+/* line 450, ../sass/master.scss */
+.content .rotate3d-example3 {
+  -webkit-transform: rotate3d(-60, 415, 170, 145deg);
+  -moz-transform: rotate3d(-60, 415, 170, 145deg);
+  -ms-transform: rotate3d(-60, 415, 170, 145deg);
+  -o-transform: rotate3d(-60, 415, 170, 145deg);
+  transform: rotate3d(-60, 415, 170, 145deg);
+}
+/* line 454, ../sass/master.scss */
+.content .scale {
+  padding: 5% 1%;
+}
+/* line 459, ../sass/master.scss */
+.content .scale-example1,
+.content .scale-example2,
+.content .scale-example3 {
+  background: #42A7DD;
+  height: 40px;
+  margin: 1% 8%;
+}
+/* line 465, ../sass/master.scss */
+.content .scale-example1 {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+/* line 468, ../sass/master.scss */
+.content .scale-example2 {
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+  transform: scale(1.5);
+}
+/* line 471, ../sass/master.scss */
+.content .scale-example3 {
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  -o-transform: scale(2);
+  transform: scale(2);
+}
+/* line 475, ../sass/master.scss */
+.content .translate {
+  padding: 5% 1%;
+}
+/* line 480, ../sass/master.scss */
+.content .translate-example1,
+.content .translate-example2,
+.content .translate-example3 {
+  background: #42A7DD;
+  height: 40px;
+  margin: 1% 8%;
+}
+/* line 486, ../sass/master.scss */
+.content .translate-example1 {
+  -webkit-transform: translate(0px, 50px);
+  -moz-transform: translate(0px, 50px);
+  -ms-transform: translate(0px, 50px);
+  -o-transform: translate(0px, 50px);
+  transform: translate(0px, 50px);
+}
+/* line 489, ../sass/master.scss */
+.content .translate-example2 {
+  -webkit-transform: translate(45px, -30px);
+  -moz-transform: translate(45px, -30px);
+  -ms-transform: translate(45px, -30px);
+  -o-transform: translate(45px, -30px);
+  transform: translate(45px, -30px);
+}
+/* line 492, ../sass/master.scss */
+.content .translate-example3 {
+  -webkit-transform: translate(0, 0);
+  -moz-transform: translate(0, 0);
+  -ms-transform: translate(0, 0);
+  -o-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+/* line 496, ../sass/master.scss */
+.content .translate3d {
+  padding: 5% 1%;
+}
+/* line 501, ../sass/master.scss */
+.content .translate3d-example1,
+.content .translate3d-example2,
+.content .translate3d-example3 {
+  background: #42A7DD;
+  height: 40px;
+  margin: 1% 8%;
+}
+/* line 507, ../sass/master.scss */
+.content .translate3d-example1 {
+  -webkit-transform: translate3d(0px, 50px, 20px);
+  -moz-transform: translate3d(0px, 50px, 20px);
+  -o-transform: translate3d(0px, 50px, 20px);
+  transform: translate3d(0px, 50px, 20px);
+}
+/* line 510, ../sass/master.scss */
+.content .translate3d-example2 {
+  -webkit-transform: translate3d(45px, -30px, 95px);
+  -moz-transform: translate3d(45px, -30px, 95px);
+  -o-transform: translate3d(45px, -30px, 95px);
+  transform: translate3d(45px, -30px, 95px);
+}
+/* line 513, ../sass/master.scss */
+.content .translate3d-example3 {
+  -webkit-transform: translate3d(0, 0, 80px);
+  -moz-transform: translate3d(0, 0, 80px);
+  -o-transform: translate3d(0, 0, 80px);
+  transform: translate3d(0, 0, 80px);
+}
+/* line 517, ../sass/master.scss */
+.content .skew {
+  padding: 5% 1%;
+}
+/* line 522, ../sass/master.scss */
+.content .skew-example1,
+.content .skew-example2,
+.content .skew-example3 {
+  background: #42A7DD;
+  height: 40px;
+  margin: 1% 8%;
+}
+/* line 528, ../sass/master.scss */
+.content .skew-example1 {
+  -webkit-transform: skew(0deg, 34deg);
+  -moz-transform: skew(0deg, 34deg);
+  -ms-transform: skew(0deg, 34deg);
+  -o-transform: skew(0deg, 34deg);
+  transform: skew(0deg, 34deg);
+}
+/* line 531, ../sass/master.scss */
+.content .skew-example2 {
+  -webkit-transform: skew(45deg, -30deg);
+  -moz-transform: skew(45deg, -30deg);
+  -ms-transform: skew(45deg, -30deg);
+  -o-transform: skew(45deg, -30deg);
+  transform: skew(45deg, -30deg);
+}
+/* line 534, ../sass/master.scss */
+.content .skew-example3 {
+  -webkit-transform: skew(-30deg, -10deg);
+  -moz-transform: skew(-30deg, -10deg);
+  -ms-transform: skew(-30deg, -10deg);
+  -o-transform: skew(-30deg, -10deg);
+  transform: skew(-30deg, -10deg);
+}
+/* line 538, ../sass/master.scss */
+.content .matrix {
+  padding: 5% 1%;
+}
+/* line 543, ../sass/master.scss */
+.content .matrix-example1,
+.content .matrix-example2,
+.content .matrix-example3 {
+  background: #42A7DD;
+  height: 40px;
+  margin: 1% 8%;
+}
+/* line 549, ../sass/master.scss */
+.content .matrix-example1 {
+  -webkit-transform: matrix(0.7, -0.2, 0, 1, 0, 0);
+  -moz-transform: matrix(0.7, -0.2, 0, 1, 0, 0);
+  -o-transform: matrix(0.7, -0.2, 0, 1, 0, 0);
+  transform: matrix(0.7, -0.2, 0, 1, 0, 0);
+}
+/* line 552, ../sass/master.scss */
+.content .matrix-example2 {
+  -webkit-transform: matrix(1, 0.2, 0.6, 1, 150, 0);
+  -moz-transform: matrix(1, 0.2, 0.6, 1, 150, 0);
+  -o-transform: matrix(1, 0.2, 0.6, 1, 150, 0);
+  transform: matrix(1, 0.2, 0.6, 1, 150, 0);
+}
+/* line 555, ../sass/master.scss */
+.content .matrix-example3 {
+  -webkit-transform: matrix(0.4, -0.4, 1, 0.6, 40, -30);
+  -moz-transform: matrix(0.4, -0.4, 1, 0.6, 40, -30);
+  -o-transform: matrix(0.4, -0.4, 1, 0.6, 40, -30);
+  transform: matrix(0.4, -0.4, 1, 0.6, 40, -30);
+}
+/* line 559, ../sass/master.scss */
+.content .animation-list {
+  list-style: disc inside none;
+}
+/* line 563, ../sass/master.scss */
+.content .animation-list li {
+  cursor: pointer;
+}
+/* line 567, ../sass/master.scss */
+.content .animate {
+  padding: 5% 1%;
+}
+/* line 570, ../sass/master.scss */
+.content .animate-example {
+  background: #42A7DD;
+  height: 40px;
+  margin: 1% 8%;
+}
+/* line 577, ../sass/master.scss */
+.content .animate-me {
+  display: none;
+  position: fixed;
+  top: 20px;
+  width: 200px;
+  height: 40px;
+  left: 50%;
+  margin: 0 0 0 -100px;
+  padding: 8px;
+  background: #42A7DD;
+  border: 1px solid #888888;
+  text-align: center;
+  color: #fff;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -ms-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  background: #339bd2;
+  background: -webkit-linear-gradient(top, #42a7dd, #248fc8) repeat-x #369dd4;
+  background: -moz-linear-gradient(top, #42a7dd, #248fc8) repeat-x #369dd4;
+  background: -ms-linear-gradient(top, #42a7dd, #248fc8) repeat-x #369dd4;
+  background: -o-linear-gradient(top, #42a7dd, #248fc8) repeat-x #369dd4;
+  background: linear-gradient(top, #42a7dd, #248fc8) repeat-x #369dd4;
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-example {
+  -webkit-animation-name: flash;
+  -moz-animation-name: flash;
+  -o-animation-name: flash;
+  animation-name: flash;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes flash {
+  /* line 381, ../sass/_mixins.scss */
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  /* line 382, ../sass/_mixins.scss */
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.flash {
+  -webkit-animation-name: flash;
+  -moz-animation-name: flash;
+  -o-animation-name: flash;
+  animation-name: flash;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes flash {
+  /* line 381, ../sass/_mixins.scss */
+  0%, 50%, 100% {
+    opacity: 1;
+  }
+
+  /* line 382, ../sass/_mixins.scss */
+  25%, 75% {
+    opacity: 0;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.shake {
+  -webkit-animation-name: shake;
+  -moz-animation-name: shake;
+  -o-animation-name: shake;
+  animation-name: shake;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes shake {
+  /* line 385, ../sass/_mixins.scss */
+  0%, 100% {
+    transform: translateX(0);
+  }
+
+  /* line 386, ../sass/_mixins.scss */
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-10px);
+  }
+
+  /* line 387, ../sass/_mixins.scss */
+  20%, 40%, 60%, 80% {
+    transform: translateX(10px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.bounce {
+  -webkit-animation-name: bounce;
+  -moz-animation-name: bounce;
+  -o-animation-name: bounce;
+  animation-name: bounce;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes bounce {
+  /* line 390, ../sass/_mixins.scss */
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+
+  /* line 391, ../sass/_mixins.scss */
+  40% {
+    transform: translateY(-30px);
+  }
+
+  /* line 392, ../sass/_mixins.scss */
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.swing {
+  -webkit-animation-name: swing;
+  -moz-animation-name: swing;
+  -o-animation-name: swing;
+  animation-name: swing;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes swing {
+  /* line 395, ../sass/_mixins.scss */
+  20%, 40%, 60%, 80%, 100% {
+    transform-origin: top center;
+  }
+
+  /* line 396, ../sass/_mixins.scss */
+  20% {
+    transform: rotate(15deg);
+  }
+
+  /* line 397, ../sass/_mixins.scss */
+  40% {
+    transform: rotate(-10deg);
+  }
+
+  /* line 398, ../sass/_mixins.scss */
+  60% {
+    transform: rotate(5deg);
+  }
+
+  /* line 399, ../sass/_mixins.scss */
+  80% {
+    transform: rotate(-5deg);
+  }
+
+  /* line 400, ../sass/_mixins.scss */
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.wobble {
+  -webkit-animation-name: wobble;
+  -moz-animation-name: wobble;
+  -o-animation-name: wobble;
+  animation-name: wobble;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes wobble {
+  /* line 403, ../sass/_mixins.scss */
+  0% {
+    transform: translateX(0%);
+  }
+
+  /* line 404, ../sass/_mixins.scss */
+  15% {
+    transform: translateX(-25%) rotate(-5deg);
+  }
+
+  /* line 405, ../sass/_mixins.scss */
+  30% {
+    transform: translateX(20%) rotate(3deg);
+  }
+
+  /* line 406, ../sass/_mixins.scss */
+  45% {
+    transform: translateX(-15%) rotate(-3deg);
+  }
+
+  /* line 407, ../sass/_mixins.scss */
+  60% {
+    transform: translateX(10%) rotate(2deg);
+  }
+
+  /* line 408, ../sass/_mixins.scss */
+  75% {
+    transform: translateX(-5%) rotate(-1deg);
+  }
+
+  /* line 409, ../sass/_mixins.scss */
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.pulse {
+  -webkit-animation-name: pulse;
+  -moz-animation-name: pulse;
+  -o-animation-name: pulse;
+  animation-name: pulse;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes pulse {
+  /* line 412, ../sass/_mixins.scss */
+  0% {
+    transform: scale(1);
+  }
+
+  /* line 413, ../sass/_mixins.scss */
+  50% {
+    transform: scale(1.1);
+  }
+
+  /* line 414, ../sass/_mixins.scss */
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.flipInX {
+  -webkit-animation-name: flipInX;
+  -moz-animation-name: flipInX;
+  -o-animation-name: flipInX;
+  animation-name: flipInX;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes flipInX {
+  /* line 417, ../sass/_mixins.scss */
+  0% {
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+
+  /* line 418, ../sass/_mixins.scss */
+  40% {
+    transform: perspective(400px) rotateX(-10deg);
+  }
+
+  /* line 419, ../sass/_mixins.scss */
+  70% {
+    transform: perspective(400px) rotateX(10deg);
+  }
+
+  /* line 420, ../sass/_mixins.scss */
+  100% {
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.flipOutX {
+  -webkit-animation-name: flipOutX;
+  -moz-animation-name: flipOutX;
+  -o-animation-name: flipOutX;
+  animation-name: flipOutX;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes flipOutX {
+  /* line 423, ../sass/_mixins.scss */
+  0% {
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+
+  /* line 424, ../sass/_mixins.scss */
+  100% {
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.flipInY {
+  -webkit-animation-name: flipInY;
+  -moz-animation-name: flipInY;
+  -o-animation-name: flipInY;
+  animation-name: flipInY;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes flipInY {
+  /* line 427, ../sass/_mixins.scss */
+  0% {
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+
+  /* line 428, ../sass/_mixins.scss */
+  40% {
+    transform: perspective(400px) rotateY(-10deg);
+  }
+
+  /* line 429, ../sass/_mixins.scss */
+  70% {
+    transform: perspective(400px) rotateY(10deg);
+  }
+
+  /* line 430, ../sass/_mixins.scss */
+  100% {
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.flipOutY {
+  -webkit-animation-name: flipOutY;
+  -moz-animation-name: flipOutY;
+  -o-animation-name: flipOutY;
+  animation-name: flipOutY;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes flipOutY {
+  /* line 433, ../sass/_mixins.scss */
+  0% {
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+
+  /* line 434, ../sass/_mixins.scss */
+  100% {
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeIn {
+  -webkit-animation-name: fadeIn;
+  -moz-animation-name: fadeIn;
+  -o-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeIn {
+  /* line 437, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+  }
+
+  /* line 438, ../sass/_mixins.scss */
+  100% {
+    opacity: 1;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  -moz-animation-name: fadeInUp;
+  -o-animation-name: fadeInUp;
+  animation-name: fadeInUp;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeInUp {
+  /* line 441, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  /* line 442, ../sass/_mixins.scss */
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  -moz-animation-name: fadeInDown;
+  -o-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeInDown {
+  /* line 445, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  /* line 446, ../sass/_mixins.scss */
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  -moz-animation-name: fadeInLeft;
+  -o-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeInLeft {
+  /* line 449, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  /* line 450, ../sass/_mixins.scss */
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeInRight {
+  -webkit-animation-name: fadeInRight;
+  -moz-animation-name: fadeInRight;
+  -o-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeInRight {
+  /* line 453, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  /* line 454, ../sass/_mixins.scss */
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeInUpBig {
+  -webkit-animation-name: fadeInUpBig;
+  -moz-animation-name: fadeInUpBig;
+  -o-animation-name: fadeInUpBig;
+  animation-name: fadeInUpBig;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeInUpBig {
+  /* line 457, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: translateY(2000px);
+  }
+
+  /* line 458, ../sass/_mixins.scss */
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeInDownBig {
+  -webkit-animation-name: fadeInDownBig;
+  -moz-animation-name: fadeInDownBig;
+  -o-animation-name: fadeInDownBig;
+  animation-name: fadeInDownBig;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeInDownBig {
+  /* line 461, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+
+  /* line 462, ../sass/_mixins.scss */
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeInLeftBig {
+  -webkit-animation-name: fadeInLeftBig;
+  -moz-animation-name: fadeInLeftBig;
+  -o-animation-name: fadeInLeftBig;
+  animation-name: fadeInLeftBig;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeInLeftBig {
+  /* line 465, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: translateX(-2000px);
+  }
+
+  /* line 466, ../sass/_mixins.scss */
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeInRightBig {
+  -webkit-animation-name: fadeInRightBig;
+  -moz-animation-name: fadeInRightBig;
+  -o-animation-name: fadeInRightBig;
+  animation-name: fadeInRightBig;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeInRightBig {
+  /* line 469, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+
+  /* line 470, ../sass/_mixins.scss */
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeOut {
+  -webkit-animation-name: fadeOut;
+  -moz-animation-name: fadeOut;
+  -o-animation-name: fadeOut;
+  animation-name: fadeOut;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeOut {
+  /* line 473, ../sass/_mixins.scss */
+  0% {
+    opacity: 1;
+  }
+
+  /* line 474, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeOutUp {
+  -webkit-animation-name: fadeOutUp;
+  -moz-animation-name: fadeOutUp;
+  -o-animation-name: fadeOutUp;
+  animation-name: fadeOutUp;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeOutUp {
+  /* line 477, ../sass/_mixins.scss */
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* line 478, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeOutDown {
+  -webkit-animation-name: fadeOutDown;
+  -moz-animation-name: fadeOutDown;
+  -o-animation-name: fadeOutDown;
+  animation-name: fadeOutDown;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeOutDown {
+  /* line 481, ../sass/_mixins.scss */
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* line 482, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeOutLeft {
+  -webkit-animation-name: fadeOutLeft;
+  -moz-animation-name: fadeOutLeft;
+  -o-animation-name: fadeOutLeft;
+  animation-name: fadeOutLeft;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeOutLeft {
+  /* line 485, ../sass/_mixins.scss */
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* line 486, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeOutRight {
+  -webkit-animation-name: fadeOutRight;
+  -moz-animation-name: fadeOutRight;
+  -o-animation-name: fadeOutRight;
+  animation-name: fadeOutRight;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeOutRight {
+  /* line 489, ../sass/_mixins.scss */
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* line 490, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeOutUpBig {
+  -webkit-animation-name: fadeOutUpBig;
+  -moz-animation-name: fadeOutUpBig;
+  -o-animation-name: fadeOutUpBig;
+  animation-name: fadeOutUpBig;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeOutUpBig {
+  /* line 493, ../sass/_mixins.scss */
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* line 494, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeOutDownBig {
+  -webkit-animation-name: fadeOutDownBig;
+  -moz-animation-name: fadeOutDownBig;
+  -o-animation-name: fadeOutDownBig;
+  animation-name: fadeOutDownBig;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeOutDownBig {
+  /* line 497, ../sass/_mixins.scss */
+  0% {
+    opacity: 1;
+    webkit-transform: translateY(0);
+  }
+
+  /* line 498, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: translateY(2000px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeOutLeftBig {
+  -webkit-animation-name: fadeOutLeftBig;
+  -moz-animation-name: fadeOutLeftBig;
+  -o-animation-name: fadeOutLeftBig;
+  animation-name: fadeOutLeftBig;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeOutLeftBig {
+  /* line 501, ../sass/_mixins.scss */
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* line 502, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: translateX(-2000px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.fadeOutRightBig {
+  -webkit-animation-name: fadeOutRightBig;
+  -moz-animation-name: fadeOutRightBig;
+  -o-animation-name: fadeOutRightBig;
+  animation-name: fadeOutRightBig;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeOutRightBig {
+  /* line 505, ../sass/_mixins.scss */
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* line 506, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.bounceIn {
+  -webkit-animation-name: bounceIn;
+  -moz-animation-name: bounceIn;
+  -o-animation-name: bounceIn;
+  animation-name: bounceIn;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes bounceIn {
+  /* line 509, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  /* line 510, ../sass/_mixins.scss */
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  /* line 511, ../sass/_mixins.scss */
+  70% {
+    transform: scale(0.9);
+  }
+
+  /* line 512, ../sass/_mixins.scss */
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.bounceInUp {
+  -webkit-animation-name: bounceInUp;
+  -moz-animation-name: bounceInUp;
+  -o-animation-name: bounceInUp;
+  animation-name: bounceInUp;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes bounceInUp {
+  /* line 515, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: translateY(2000px);
+  }
+
+  /* line 516, ../sass/_mixins.scss */
+  60% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+
+  /* line 517, ../sass/_mixins.scss */
+  80% {
+    transform: translateY(10px);
+  }
+
+  /* line 518, ../sass/_mixins.scss */
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.bounceInDown {
+  -webkit-animation-name: bounceInDown;
+  -moz-animation-name: bounceInDown;
+  -o-animation-name: bounceInDown;
+  animation-name: bounceInDown;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes bounceInDown {
+  /* line 521, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+
+  /* line 522, ../sass/_mixins.scss */
+  60% {
+    opacity: 1;
+    transform: translateY(30px);
+  }
+
+  /* line 523, ../sass/_mixins.scss */
+  80% {
+    transform: translateY(-10px);
+  }
+
+  /* line 524, ../sass/_mixins.scss */
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.bounceInLeft {
+  -webkit-animation-name: bounceInLeft;
+  -moz-animation-name: bounceInLeft;
+  -o-animation-name: bounceInLeft;
+  animation-name: bounceInLeft;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes bounceInLeft {
+  /* line 527, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: translateX(-2000px);
+  }
+
+  /* line 528, ../sass/_mixins.scss */
+  60% {
+    opacity: 1;
+    transform: translateX(30px);
+  }
+
+  /* line 529, ../sass/_mixins.scss */
+  80% {
+    transform: translateX(-10px);
+  }
+
+  /* line 530, ../sass/_mixins.scss */
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.bounceInRight {
+  -webkit-animation-name: bounceInRight;
+  -moz-animation-name: bounceInRight;
+  -o-animation-name: bounceInRight;
+  animation-name: bounceInRight;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes bounceInRight {
+  /* line 533, ../sass/_mixins.scss */
+  0% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+
+  /* line 534, ../sass/_mixins.scss */
+  60% {
+    opacity: 1;
+    transform: translateX(-30px);
+  }
+
+  /* line 535, ../sass/_mixins.scss */
+  80% {
+    transform: translateX(10px);
+  }
+
+  /* line 536, ../sass/_mixins.scss */
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.bounceOut {
+  -webkit-animation-name: bounceOut;
+  -moz-animation-name: bounceOut;
+  -o-animation-name: bounceOut;
+  animation-name: bounceOut;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes bounceOut {
+  /* line 539, ../sass/_mixins.scss */
+  0% {
+    transform: scale(1);
+  }
+
+  /* line 540, ../sass/_mixins.scss */
+  25% {
+    transform: scale(0.95);
+  }
+
+  /* line 541, ../sass/_mixins.scss */
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  /* line 542, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.bounceOutUp {
+  -webkit-animation-name: bounceOutUp;
+  -moz-animation-name: bounceOutUp;
+  -o-animation-name: bounceOutUp;
+  animation-name: bounceOutUp;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes bounceOutUp {
+  /* line 545, ../sass/_mixins.scss */
+  0% {
+    transform: translateY(0);
+  }
+
+  /* line 546, ../sass/_mixins.scss */
+  20% {
+    opacity: 1;
+    transform: translateY(20px);
+  }
+
+  /* line 547, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: translateY(-2000px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.bounceOutDown {
+  -webkit-animation-name: bounceOutDown;
+  -moz-animation-name: bounceOutDown;
+  -o-animation-name: bounceOutDown;
+  animation-name: bounceOutDown;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes bounceOutDown {
+  /* line 550, ../sass/_mixins.scss */
+  0% {
+    transform: translateY(0);
+  }
+
+  /* line 551, ../sass/_mixins.scss */
+  20% {
+    opacity: 1;
+    transform: translateY(-20px);
+  }
+
+  /* line 552, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: translateY(2000px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.bounceOutLeft {
+  -webkit-animation-name: bounceOutLeft;
+  -moz-animation-name: bounceOutLeft;
+  -o-animation-name: bounceOutLeft;
+  animation-name: bounceOutLeft;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes bounceOutLeft {
+  /* line 555, ../sass/_mixins.scss */
+  0% {
+    transform: translateX(0);
+  }
+
+  /* line 556, ../sass/_mixins.scss */
+  20% {
+    opacity: 1;
+    transform: translateX(20px);
+  }
+
+  /* line 557, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: translateX(-2000px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.bounceOutRight {
+  -webkit-animation-name: bounceOutRight;
+  -moz-animation-name: bounceOutRight;
+  -o-animation-name: bounceOutRight;
+  animation-name: bounceOutRight;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes bounceOutRight {
+  /* line 560, ../sass/_mixins.scss */
+  0% {
+    transform: translateX(0);
+  }
+
+  /* line 561, ../sass/_mixins.scss */
+  20% {
+    opacity: 1;
+    transform: translateX(-20px);
+  }
+
+  /* line 562, ../sass/_mixins.scss */
+  100% {
+    opacity: 0;
+    transform: translateX(2000px);
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.rotateIn {
+  -webkit-animation-name: rotateIn;
+  -moz-animation-name: rotateIn;
+  -o-animation-name: rotateIn;
+  animation-name: rotateIn;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes rotateIn {
+  /* line 565, ../sass/_mixins.scss */
+  0% {
+    transform-origin: center center;
+    transform: rotate(-200deg);
+    opacity: 0;
+  }
+
+  /* line 566, ../sass/_mixins.scss */
+  100% {
+    transform-origin: center center;
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.rotateInUpLeft {
+  -webkit-animation-name: rotateInUpLeft;
+  -moz-animation-name: rotateInUpLeft;
+  -o-animation-name: rotateInUpLeft;
+  animation-name: rotateInUpLeft;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes rotateInUpLeft {
+  /* line 569, ../sass/_mixins.scss */
+  0% {
+    transform-origin: left bottom;
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  /* line 570, ../sass/_mixins.scss */
+  100% {
+    transform-origin: left bottom;
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.rotateInDownLeft {
+  -webkit-animation-name: rotateInDownLeft;
+  -moz-animation-name: rotateInDownLeft;
+  -o-animation-name: rotateInDownLeft;
+  animation-name: rotateInDownLeft;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes rotateInDownLeft {
+  /* line 573, ../sass/_mixins.scss */
+  0% {
+    transform-origin: left bottom;
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  /* line 574, ../sass/_mixins.scss */
+  100% {
+    transform-origin: left bottom;
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.rotateInUpRight {
+  -webkit-animation-name: rotateInUpRight;
+  -moz-animation-name: rotateInUpRight;
+  -o-animation-name: rotateInUpRight;
+  animation-name: rotateInUpRight;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes rotateInUpRight {
+  /* line 577, ../sass/_mixins.scss */
+  0% {
+    transform-origin: right bottom;
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+
+  /* line 578, ../sass/_mixins.scss */
+  100% {
+    transform-origin: right bottom;
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.rotateInDownRight {
+  -webkit-animation-name: rotateInDownRight;
+  -moz-animation-name: rotateInDownRight;
+  -o-animation-name: rotateInDownRight;
+  animation-name: rotateInDownRight;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes rotateInDownRight {
+  /* line 581, ../sass/_mixins.scss */
+  0% {
+    transform-origin: right bottom;
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  /* line 582, ../sass/_mixins.scss */
+  100% {
+    transform-origin: right bottom;
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.rotateOut {
+  -webkit-animation-name: rotateOut;
+  -moz-animation-name: rotateOut;
+  -o-animation-name: rotateOut;
+  animation-name: rotateOut;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes rotateOut {
+  /* line 585, ../sass/_mixins.scss */
+  0% {
+    transform-origin: center center;
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 586, ../sass/_mixins.scss */
+  100% {
+    transform-origin: center center;
+    transform: rotate(200deg);
+    opacity: 0;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.rotateOutUpLeft {
+  -webkit-animation-name: rotateOutUpLeft;
+  -moz-animation-name: rotateOutUpLeft;
+  -o-animation-name: rotateOutUpLeft;
+  animation-name: rotateOutUpLeft;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes rotateOutUpLeft {
+  /* line 589, ../sass/_mixins.scss */
+  0% {
+    transform-origin: left bottom;
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 590, ../sass/_mixins.scss */
+  100% {
+    transform-origin: left bottom;
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.rotateOutDownLeft {
+  -webkit-animation-name: rotateOutDownLeft;
+  -moz-animation-name: rotateOutDownLeft;
+  -o-animation-name: rotateOutDownLeft;
+  animation-name: rotateOutDownLeft;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes rotateOutDownLeft {
+  /* line 593, ../sass/_mixins.scss */
+  0% {
+    transform-origin: left bottom;
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 594, ../sass/_mixins.scss */
+  100% {
+    transform-origin: left bottom;
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.rotateOutUpRight {
+  -webkit-animation-name: rotateOutUpRight;
+  -moz-animation-name: rotateOutUpRight;
+  -o-animation-name: rotateOutUpRight;
+  animation-name: rotateOutUpRight;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes rotateOutUpRight {
+  /* line 597, ../sass/_mixins.scss */
+  0% {
+    transform-origin: right bottom;
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 598, ../sass/_mixins.scss */
+  100% {
+    transform-origin: right bottom;
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.rotateOutDownRight {
+  -webkit-animation-name: rotateOutDownRight;
+  -moz-animation-name: rotateOutDownRight;
+  -o-animation-name: rotateOutDownRight;
+  animation-name: rotateOutDownRight;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+}
+
+@keyframes rotateOutDownRight {
+  /* line 601, ../sass/_mixins.scss */
+  0% {
+    transform-origin: right bottom;
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  /* line 602, ../sass/_mixins.scss */
+  100% {
+    transform-origin: right bottom;
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.lightSpeedIn {
+  -webkit-animation-name: lightSpeedIn;
+  -moz-animation-name: lightSpeedIn;
+  -o-animation-name: lightSpeedIn;
+  animation-name: lightSpeedIn;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-timing-function: ease-out;
+  -moz-animation-timing-function: ease-out;
+  -o-animation-timing-function: ease-out;
+  animation-timing-function: ease-out;
+}
+
+@keyframes lightSpeedIn {
+  /* line 605, ../sass/_mixins.scss */
+  0% {
+    transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
+
+  /* line 606, ../sass/_mixins.scss */
+  60% {
+    transform: translateX(-20%) skewX(30deg);
+    opacity: 1;
+  }
+
+  /* line 607, ../sass/_mixins.scss */
+  80% {
+    transform: translateX(0%) skewX(-15deg);
+    opacity: 1;
+  }
+
+  /* line 608, ../sass/_mixins.scss */
+  100% {
+    transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+}
+
+/* line 359, ../sass/_mixins.scss */
+.animate-me.lightSpeedOut {
+  -webkit-animation-name: lightSpeedOut;
+  -moz-animation-name: lightSpeedOut;
+  -o-animation-name: lightSpeedOut;
+  animation-name: lightSpeedOut;
+  -webkit-animation-duration: 1s;
+  -moz-animation-duration: 1s;
+  -o-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
+  -webkit-animation-timing-function: ease-in;
+  -moz-animation-timing-function: ease-in;
+  -o-animation-timing-function: ease-in;
+  animation-timing-function: ease-in;
+}
+
+@keyframes lightSpeedOut {
+  /* line 611, ../sass/_mixins.scss */
+  0% {
+    transform: translateX(0%) skewX(0deg);
+    opacity: 1;
+  }
+
+  /* line 612, ../sass/_mixins.scss */
+  100% {
+    transform: translateX(100%) skewX(-30deg);
+    opacity: 0;
+  }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -1035,15 +3407,38 @@ select.selIner {
   }
 
   /* line 79, ../sass/_mixins.scss */
-  .content .grid-example1 section, .content .grid-example3 .gd1, .content .grid-example3 .gd2, .nav, .content .grid-example3 .three-column, .content .grid-example3 .gd3, .content .element8, .content .element9, .content .element10, .content .element11, .content .element12, .content .color-swatches li, .content button, .content .grid-example3 .gd4, .content .grid-example3 .gd5, .content .grid-example3 .gd6, .content .html-example,
-  .content .css-example, .content .grid-example3 .gd7, .content .grid-example3 .gd8, .content, .content .grid-example3 .nine-column, .content .grid-example3 .gd9, .content .grid-example3 .gd10, .content .grid-example3 .gd11, .content .grid-example3 .gd12 {
+  .content .grid-example1 section, .content .grid-example3 .gd1, .content .grid-example3 .gd2, .content .scale-example1,
+  .content .scale-example2,
+  .content .scale-example3, .content .translate-example1,
+  .content .translate-example2,
+  .content .translate-example3, .content .translate3d-example1,
+  .content .translate3d-example2,
+  .content .translate3d-example3, .content .skew-example1,
+  .content .skew-example2,
+  .content .skew-example3, .content .matrix-example1,
+  .content .matrix-example2,
+  .content .matrix-example3, .nav, .content .grid-example3 .three-column, .content .grid-example3 .gd3, .content .grid-example4 .three-column-example,
+  .content .grid-example5 .three-column-example, .content .element5,
+  .content .element5b, .content .element8, .content .element9, .content .element10, .content .element11, .content .element12, .content .element13,
+  .content .element14,
+  .content .element15,
+  .content .element16, .content .color-swatches li, .content button, .content .grid-example3 .gd4, .content .grid-example4 .four-column-example,
+  .content .grid-example5 .four-column-example, .content .ellipsis-example, .content .transition-example1,
+  .content .transition-example2, .content .rotate-example1,
+  .content .rotate-example2,
+  .content .rotate-example3, .content .rotate3d-example1,
+  .content .rotate3d-example2,
+  .content .rotate3d-example3, .content .animate-example, .content .grid-example3 .gd5, .content .grid-example3 .gd6, .content .html-example,
+  .content .css-example, .content .animation-list, .content .grid-example3 .gd7, .content .grid-example3 .gd8, .content .grid-example4 .eight-column-example,
+  .content .grid-example5 .eight-column-example, .content, .content .grid-example3 .nine-column, .content .grid-example3 .gd9, .content .grid-example4 .nine-column-example,
+  .content .grid-example5 .nine-column-example, .content .grid-example3 .gd10, .content .grid-example3 .gd11, .content .grid-example3 .gd12 {
     float: none;
     clear: both;
     margin: 1% 1% 1% 1%;
     width: 98%;
   }
 
-  /* line 357, ../sass/master.scss */
+  /* line 678, ../sass/master.scss */
   .content .grid-example2 section {
     width: 98%;
   }

@@ -318,7 +318,7 @@
 
 // Transition
 
-@mixin transition ($tr){
+@mixin transition ($tr...){
 	@include prefix(transition, $tr, webkit moz ms o spec);
 }
 // trans formations
@@ -334,11 +334,11 @@
 @mixin translate($x, $y) {
   @include prefix(transform, translate($x, $y), webkit moz ms o spec);
 }
-@mixin skew($x, $y) {
-  @include prefix(transform, skew($x, $y), webkit moz ms o spec);
-}
 @mixin translate3d($x, $y, $z) {
   @include prefix(transform, translate3d($x, $y, $z), webkit moz o spec);
+}
+@mixin skew($x, $y) {
+  @include prefix(transform, skew(#{$x}deg, #{$y}deg), webkit moz ms o spec);
 }
 @mixin matrix($a, $b,$c, $d, $x, $y) {
   @include prefix(transform, matrix($a, $b,$c, $d, $x, $y), webkit moz o spec);
@@ -483,7 +483,7 @@
 			}
 			@if($animationName == 'fadeOutLeft'){
 				0% { opacity: 1; #{$i}transform: translateX(0); }
-				100% { opacity: 0; webkit-transform: translateX(-20px); }
+				100% { opacity: 0; #{$i}transform: translateX(-20px); }
 			}
 			@if($animationName == 'fadeOutRight'){
 				0% { opacity: 1; #{$i}transform: translateX(0); }
