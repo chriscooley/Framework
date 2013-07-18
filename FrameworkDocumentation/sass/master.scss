@@ -240,30 +240,29 @@
 		width: 200px;
 		background: #42A7DD;
 	}
-	.element8 {
-		@include gradient(#9bbe4d, #649419);
+
+	.element8,
+	.element9,
+	.element10,
+	.element11,
+	.element12 {
 		@extend %gd3;
 		padding: 1% 2%;
+	}
+	.element8 {
+		@include gradient(#9bbe4d, #649419);
 	}
 	.element9 {
 		@include gradient(#40a3db, #0c78b7, horizontal);
-		@extend %gd3;
-		padding: 1% 2%;
 	}
 	.element10 {
 		@include gradient(#fdcd3d, #e99f00, radial);
-		@extend %gd3;
-		padding: 1% 2%;
 	}
 	.element11 {
 		@include gradient(#e9574c, #9d0000, directional, 45);
-		@extend %gd3;
-		padding: 1% 2%;
 	}
 	.element12 {
 		@include gradient(#ccc, #999, image, url('../images/arrow.png') no-repeat right center);
-		@extend %gd3;
-		padding: 1% 2%;
 	}
 	.element13,
 	.element14,
@@ -326,7 +325,7 @@
 	}
 	button {
 		@extend %gd3;
-		border:1px solid #444;
+		border:1px solid #555;
 	}
 	.button-example1 {
 		@include button($blue);
@@ -340,18 +339,236 @@
 	.button-example4 {
 		@include button($blue, shiny);
 	}
-	.button-example-primary {
+	.button-example5 {
 		@include button($primary, flat, large);
 	}
-	.button-example-yellow {
+	.button-example6 {
 		@include button($yellow, simple, regular);
 	}
-	.button-example-purple {
+	.button-example7 {
 		@include button($purple, complex, small);
 	}
-	.button-example-danger {
-		@include button($danger,shiny, mini);
+	.button-example8 {
+		@include button($danger, shiny, mini);
 	}
+	.button-example9 {
+		@include button($orange, flat, regular, 6pt);
+		@include alpha();
+	}
+	.button-example10 {
+		@include button($green, simple, regular, 0.5em);
+	}
+	.button-example11 {
+		@include button($inverse, complex, small, 5px);
+	}
+	.button-example12 {
+		@include button($info, shiny, mini, 15px);
+	}
+
+	.button-icon-example1 {
+		@include button($blue);
+		i {
+			@include icon(arrow);
+		}
+	}
+	.button-icon-example2 {
+		@include button($red, complex);
+		i {
+			@include icon(lock);
+		}
+	}
+	.button-icon-example3 {
+		@include button($blue, complex, regular, 5px);
+		i {
+			@include icon(twitter-bird);
+		}
+	}
+	ul.icons {
+		@extend %gd3;
+		li {
+			margin: 0 0 5px;
+			font-size: 1em;
+			i {
+				&.arrow {@include icon(arrow);}
+				&.move {@include icon(move);}
+				&.eye {@include icon(eye);}
+				&.search {@include icon(search);}
+				&.zoom-out {@include icon(zoom-out);}
+				&.zoom-in {@include icon(zoom-in);}
+				&.paperclip {@include icon(paperclip);}
+				&.pencil {@include icon(pencil);}
+				&.touch {@include icon(touch);}
+				&.trash {@include icon(trash);}
+				&.lock {@include icon(lock);}
+				&.hand {@include icon(hand);}
+				&.unlock {@include icon(unlock);}
+				&.error {@include icon(error);}
+				&.bookmark {@include icon(bookmark);}
+
+				&.star-black {@include icon(star-black);}
+				&.star-white {@include icon(star-white);}
+				&.thumbs-up {@include icon(thumbs-up);}
+				&.thumbs-down {@include icon(thumbs-down);}
+				&.flame {@include icon(flame);}
+				&.heart {@include icon(heart);}
+				&.flag {@include icon(flag);}
+				&.crown {@include icon(crown);}
+				&.star {@include icon(star);}
+				&.google-plus {@include icon(google-plus);}
+				&.twitter-bird {@include icon(twitter-bird);}
+				&.twitter {@include icon(twitter);}
+				&.facebook {@include icon(facebook);}
+				&.linkedin {@include icon(linkedin);}
+				&.dribbble {@include icon(dribbble);}
+
+				&.paypal {@include icon(paypal);}
+				&.dropbox {@include icon(dropbox);}
+				&.skype {@include icon(skype);}
+				&.brush {@include icon(brush);}
+				&.ink {@include icon(ink);}
+				&.paint {@include icon(paint);}
+				&.unselected {@include icon(unselected);}
+				&.selected {@include icon(selected);}
+				&.foreground {@include icon(foreground);}
+				&.background {@include icon(background);}
+				&.layers {@include icon(layers);}
+				&.colors {@include icon(colors);}
+				&.magnet {@include icon(magnet);}
+				&.call {@include icon(call);}
+				&.phone {@include icon(phone);}
+
+				&.at-symbol {@include icon(at-symbol);}
+				&.film {@include icon(film);}
+				&.bullhorn {@include icon(bullhorn);}
+				&.mailbox {@include icon(mailbox);}
+				&.satellite {@include icon(satellite);}
+				&.rss {@include icon(rss);}
+				&.cellphone {@include icon(cellphone);}
+				&.mail {@include icon(mail);}
+				&.speech-bubble {@include icon(speech-bubble);}
+				&.speech-bubbles {@include icon(speech-bubbles);}
+				&.happy {@include icon(happy);}
+				&.sad {@include icon(sad);}
+				&.neutral {@include icon(neutral);}
+				&.smile {@include icon(smile);}
+				&.wink {@include icon(wink);}
+
+				&.surprised {@include icon(surprised);}
+				&.profile {@include icon(profile);}
+				&.user-full {@include icon(user-full);}
+				&.user-suit {@include icon(user-suit);}
+				&.user-info {@include icon(user-info);}
+				&.user-male {@include icon(user-male);}
+				&.user-female {@include icon(user-female);}
+				&.female-symbol {@include icon(female-symbol);}
+				&.male-symbol {@include icon(male-symbol);}
+				&.cart {@include icon(cart);}
+				&.wallet {@include icon(wallet);}
+				&.pay {@include icon(pay);}
+				&.register {@include icon(register);}
+				&.buy {@include icon(buy);}
+				&.sell {@include icon(sell);}
+
+				&.new {@include icon(new);}
+				&.credit-card {@include icon(credit-card);}
+				&.truck {@include icon(truck);}
+				&.graph {@include icon(graph);}
+				&.building {@include icon(building);}
+				&.house {@include icon(house);}
+				&.island {@include icon(island);}
+				&.christmas-tree {@include icon(christmas-tree);}
+				&.tree {@include icon(tree);}
+				&.marker-star {@include icon(marker-star);}
+				&.marker {@include icon(marker);}
+				&.scroll {@include icon(scroll);}
+				&.html5 {@include icon(html5);}
+				&.css3 {@include icon(css3);}
+				&.browsers {@include icon(browsers);}
+
+				&.save {@include icon(save);}
+				&.window {@include icon(window);}
+				&.window-down {@include icon(window-down);}
+				&.window-up {@include icon(window-up);}
+				&.stack {@include icon(stack);}
+				&.camera {@include icon(camera);}
+				&.video {@include icon(video);}
+				&.screen {@include icon(screen);}
+				&.music {@include icon(music);}
+				&.tv {@include icon(tv);}
+				&.video-camera {@include icon(video-camera);}
+				&.display {@include icon(display);}
+				&.mp3-player {@include icon(mp3-player);}
+				&.disc-drive {@include icon(disc-drive);}
+				&.hdd {@include icon(hdd);}
+
+				&.step-backward {@include icon(step-backward);}
+				&.rewind {@include icon(rewind);}
+				&.pause {@include icon(pause);}
+				&.play {@include icon(play);}
+				&.fast-forward {@include icon(fast-forward);}
+				&.step-forward {@include icon(step-forward);}
+				&.battery-low {@include icon(battery-low);}
+				&.battery-half {@include icon(battery-half);}
+				&.battery-full {@include icon(battery-full);}
+				&.battery-charging {@include icon(battery-charging);}
+				&.drawer {@include icon(drawer);}
+				&.notebook {@include icon(notebook);}
+				&.book {@include icon(book);}
+				&.open-book {@include icon(open-book);}
+				&.flowchart {@include icon(flowchart);}
+
+				&.grid {@include icon(grid);}
+				&.grid-large {@include icon(grid-large);}
+				&.list-large {@include icon(list-large);}
+				&.list {@include icon(list);}
+				&.present {@include icon(present);}
+				&.rocket {@include icon(rocket);}
+				&.fire {@include icon(fire);}
+				&.lightbulb {@include icon(lightbulb);}
+				&.hanger {@include icon(hanger);}
+				&.top-hat {@include icon(top-hat);}
+				&.surveillance {@include icon(surveillance);}
+				&.download {@include icon(download);}
+				&.upload {@include icon(upload);}
+				&.cloud-download {@include icon(cloud-download);}
+				&.cloud-upload {@include icon(cloud-upload);}
+
+				&.repeat {@include icon(repeat);}
+				&.file {@include icon(file);}
+				&.file-award {@include icon(file-award);}
+				&.file-zip {@include icon(file-zip);}
+				&.file-bookmark {@include icon(file-bookmark);}
+				&.file-text {@include icon(file-text);}
+				&.file-graph {@include icon(file-graph);}
+				&.file-excel {@include icon(file-excel);}
+				&.file-picture {@include icon(file-picture);}
+				&.file-play {@include icon(file-play);}
+				&.file-code {@include icon(file-code);}
+				&.file-stats {@include icon(file-stats);}
+				&.file-music {@include icon(file-music);}
+				&.move-dark {@include icon(move-dark);}
+				&.move-light {@include icon(move-light);}
+
+				&.folder {@include icon(folder);}
+				&.power {@include icon(power);}
+				&.check {@include icon(check);}
+				&.check-circle {@include icon(check-circle);}
+				&.check-clipboard {@include icon(check-clipboard);}
+				&.stop {@include icon(stop);}
+				&.x-checkbox {@include icon(x-checkbox);}
+				&.settings {@include icon(settings);}
+				&.wait {@include icon(wait);}
+				&.calendar {@include icon(calendar);}
+				&.left-arrow {@include icon(left-arrow);}
+				&.right-arrow {@include icon(right-arrow);}
+				&.up-arrow {@include icon(up-arrow);}
+				&.down-arrow {@include icon(down-arrow);}
+				&.coffee {@include icon(coffee);}
+			}
+		}
+		
+	}
+	
 
 	// .button5,
 	// .button6,
@@ -562,6 +779,11 @@
 
 		li {
 			cursor: pointer;
+
+			&:hover {
+				color: #488AC2;
+				text-decoration: underline;
+			}
 		}
 	}
 	.animate {
@@ -594,6 +816,15 @@
 
 
 } //end .content
+
+.footer {
+	background: #999;
+	height: 300px;
+
+	.footer-content {
+		@extend %gw;
+	}
+}
 
 
 @include animate('.animate-example', flash, 1, infinite);

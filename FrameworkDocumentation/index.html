@@ -618,22 +618,27 @@ $info: #3498DB;
 		<hr />
 		<h2 id="buttons">Buttons</h2>
 		<p>The button mixin allows you to create button background colors easily to any block-level element using only one color value.</p>
-		<p>It has three(3) parameters (the second and third parameters are both optional). The first parameter is the <strong>color value</strong> for the button, the second is the <strong>style</strong> of the button, and the third is the <strong>size</strong> of the button.</p>
+		<p>It has three(4) parameters (the second, third, and forth parameters are optional). The first parameter is the <strong>color value</strong> for the button, the second is the <strong>style</strong> of the button, the third is the <strong>size</strong> of the button, and the fourth is the <strong>border-radius</strong> size.</p>
 		<p>There are four different styles for buttons which you can choose from just by passing in the second parameter. The four types are <strong>flat</strong>, <strong>simple</strong>, <strong>complex</strong>, and <strong>shiny</strong> style buttons. The default is set to <strong>flat</strong>.<p>
 		<p>There are also four different sizes for buttons which you can choose from by passing in the third parameter. The four types are <strong>large</strong>, <strong>regular</strong>, <strong>small</strong>, and <strong>mini</strong> sizes for buttons. The default is set to <strong>regular</strong>.<p>
-		<p class="syntax"><strong>Syntax:</strong> @include button(color, <em>style</em>, <em>size</em>);</p>
+		<p>The fourth parameter is the <strong>border-radius</strong> size. The default value is 0.<p>
+		<p class="syntax"><strong>Syntax:</strong> @include button(color, <em>style</em>, <em>size</em>, <em>border-radius</em>);</p>
 		<p><strong>Example:</strong></p>
 		<div class="html-example">
 			<p><strong>HTML</strong></p>
 			<pre class="sunlight-highlight-httpd">
-&lt;button class="button-example1"&gt;(blue flat)&lt;/button&gt;
+&lt;button class="button-example1"&gt;(blue)&lt;/button&gt;
 &lt;button class="button-example2"&gt;(blue simple)&lt;/button&gt;
 &lt;button class="button-example3"&gt;(blue complex)&lt;/button&gt;
 &lt;button class="button-example4"&gt;(blue shiny)&lt;/button&gt;
-&lt;button class="button-example-primary"&gt;(primary, flat, large)&lt;/button&gt;
-&lt;button class="button-example-yellow"&gt;(yellow, simple, regular)&lt;/button&gt;
-&lt;button class="button-example-purple"&gt;(purple, complex, small)&lt;/button&gt;
-&lt;button class="button-example-danger"&gt;(danger, shiny, mini)&lt;/button&gt;
+&lt;button class="button-example5"&gt;(primary, flat, large)&lt;/button&gt;
+&lt;button class="button-example6"&gt;(yellow, simple, regular)&lt;/button&gt;
+&lt;button class="button-example7"&gt;(purple, complex, small)&lt;/button&gt;
+&lt;button class="button-example8"&gt;(danger, shiny, mini)&lt;/button&gt;
+&lt;button class="button-example9"&gt;(orange, flat, regular, 6pt)&lt;/button&gt;
+&lt;button class="button-example10"&gt;(green, simple, regular, 0.5em)&lt;/button&gt;
+&lt;button class="button-example11"&gt;(inverse, complex, small, 5px)&lt;/button&gt;
+&lt;button class="button-example12"&gt;(info, shiny, mini, 15px)&lt;/button&gt;
 			</pre>
 		</div>
 		<div class="css-example">
@@ -641,7 +646,7 @@ $info: #3498DB;
 			<pre class="sunlight-highlight-css custom">
 button {
 	@extend %gd3;
-	border: 1px solid #444;
+	border: 1px solid #555;
 }
 .button-example1 {
 	@include button($blue);
@@ -655,86 +660,291 @@ button {
 .button-example4 {
 	@include button($blue, shiny);
 }
-.button-example-primary {
+.button-example5 {
 	@include button($primary, flat, large);
 }
-.button-example-yellow {
+.button-example6 {
 	@include button($yellow, simple, regular);
 }
-.button-example-purple {
+.button-example7 {
 	@include button($purple, complex, small);
 }
-.button-example-danger {
+.button-example8 {
 	@include button($danger,shiny, mini);
 }
-
+.button-example9 {
+	@include button($orange, flat, regular, 6pt);
+}
+.button-example10 {
+	@include button($green, simple, regular, 0.5em);
+}
+.button-example11 {
+	@include button($inverse, complex, small, 5px);
+}
+.button-example12 {
+	@include button($info, shiny, mini, 15px);
+}
 			</pre>
 		</div>
 
 		<p><strong>Output:</strong></p>
 		<div class="output">
-			<button class="button-example1">(blue, flat)</button>
+			<button class="button-example1">(blue)</button>
 			<button class="button-example2">(blue, simple)</button>
 			<button class="button-example3">(blue, complex)</button>
 			<button class="button-example4">(blue, shiny)</button>
-			<button class="button-example-primary">(primary, flat, large)</button>
-			<button class="button-example-yellow">(yellow, simple, regular)</button>
-			<button class="button-example-purple">(purple, complex, small)</button>
-			<button class="button-example-danger">(danger, shiny, mini)</button>
+			<button class="button-example5">(primary, flat, large)</button>
+			<button class="button-example6">(yellow, simple, regular)</button>
+			<button class="button-example7">(purple, complex, small)</button>
+			<button class="button-example8">(danger, shiny, mini)</button>
+			<button class="button-example9">(orange, flat, regular, 6pt)</button>
+			<button class="button-example10">(green, simple, regular, 0.5em)</button>
+			<button class="button-example11">(inverse, complex, small, 5px)</button>
+			<button class="button-example12">(info, shiny, mini, 15px)</button>
 		</div>
 
-		<!-- <hr />
-		<h2 id="button-sizes">Button Sizes</h2>
-		<p>You can include these button sizes to your button elements to give them a certain size.<p>
 
-		<p><strong>Example:</strong></p>
+		<hr />
+		<h2 id="icon">Icons <span>by: <a href="http://www.webalys.com/minicons">Webalys</a></span></h2>
+		<p>The icon mixin allows you to add icon images to any element. It is best used for adding icons to buttons.</p>
+		<p>The icon mixin has two(2) parameters, though only the first one is required. The first parameter, <strong>icon-name</strong>, is required. The second parameter, <strong>display</strong> can either be 'block' or 'inline-block'. The default for display is 'inline-block'.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include icon(icon-name, display);</p>
+		<p><strong>List of icon names:</strong></p>
+		<ul class="icons">
+			<li><i class="arrow"></i> arrow</li>
+			<li><i class="move"></i> move</li>
+			<li><i class="eye"></i> eye</li>
+			<li><i class="search"></i> search</li>
+			<li><i class="zoom-out"></i> zoom-out</li>
+			<li><i class="zoom-in"></i> zoom-in</li>
+			<li><i class="paperclip"></i> paperclip</li>
+			<li><i class="pencil"></i> pencil</li>
+			<li><i class="touch"></i> touch</li>
+			<li><i class="trash"></i> trash</li>
+			<li><i class="lock"></i> lock</li>
+			<li><i class="hand"></i> hand</li>
+			<li><i class="unlock"></i> unlock</li>
+			<li><i class="error"></i> error</li>
+			<li><i class="bookmark"></i> bookmark</li>
+		</ul>
+		<ul class="icons">
+			<li><i class="star-black"></i> star-black</li>
+			<li><i class="star-white"></i> star-white</li>
+			<li><i class="thumbs-up"></i> thumbs-up</li>
+			<li><i class="thumbs-down"></i> thumbs-down</li>
+			<li><i class="flame"></i> flame</li>
+			<li><i class="heart"></i> heart</li>
+			<li><i class="flag"></i> flag</li>
+			<li><i class="crown"></i> crown</li>
+			<li><i class="star"></i> star</li>
+			<li><i class="google-plus"></i> google-plus</li>
+			<li><i class="twitter-bird"></i> twitter-bird</li>
+			<li><i class="twitter"></i> twitter</li>
+			<li><i class="facebook"></i> facebook</li>
+			<li><i class="linkedin"></i> linkedin</li>
+			<li><i class="dribbble"></i> dribbble</li>
+		</ul>
+		<ul class="icons">
+			<li><i class="paypal"></i> paypal</li>
+			<li><i class="dropbox"></i> dropbox</li>
+			<li><i class="skype"></i> skype</li>
+			<li><i class="brush"></i> brush</li>
+			<li><i class="ink"></i> ink</li>
+			<li><i class="paint"></i> paint</li>
+			<li><i class="unselected"></i> unselected</li>
+			<li><i class="selected"></i> selected</li>
+			<li><i class="foreground"></i> foreground</li>
+			<li><i class="background"></i> background</li>
+			<li><i class="layers"></i> layers</li>
+			<li><i class="colors"></i> colors</li>
+			<li><i class="magnet"></i> magnet</li>
+			<li><i class="call"></i> call</li>
+			<li><i class="phone"></i> phone</li>
+		</ul>
+		<ul class="icons">
+			<li><i class="at-symbol"></i> at-symbol</li>
+			<li><i class="film"></i> film</li>
+			<li><i class="bullhorn"></i> bullhorn</li>
+			<li><i class="mailbox"></i> mailbox</li>
+			<li><i class="satellite"></i> satellite</li>
+			<li><i class="rss"></i> rss</li>
+			<li><i class="cellphone"></i> cellphone</li>
+			<li><i class="mail"></i> mail</li>
+			<li><i class="speech-bubble"></i> speech-bubble</li>
+			<li><i class="speech-bubbles"></i> speech-bubbles</li>
+			<li><i class="happy"></i> happy</li>
+			<li><i class="sad"></i> sad</li>
+			<li><i class="neutral"></i> neutral</li>
+			<li><i class="smile"></i> smile</li>
+			<li><i class="wink"></i> wink</li>
+		</ul>
+		<ul class="icons">
+			<li><i class="surprised"></i> surprised</li>
+			<li><i class="profile"></i> profile</li>
+			<li><i class="user-full"></i> user-full</li>
+			<li><i class="user-suit"></i> user-suit</li>
+			<li><i class="user-info"></i> user-info</li>
+			<li><i class="user-male"></i> user-male</li>
+			<li><i class="user-female"></i> user-female</li>
+			<li><i class="female-symbol"></i> female-symbol</li>
+			<li><i class="male-symbol"></i> male-symbol</li>
+			<li><i class="cart"></i> cart</li>
+			<li><i class="wallet"></i> wallet</li>
+			<li><i class="pay"></i> pay</li>
+			<li><i class="register"></i> register</li>
+			<li><i class="buy"></i> buy</li>
+			<li><i class="sell"></i> sell</li>
+		</ul>
+		<ul class="icons">
+			<li><i class="new"></i> new</li>
+			<li><i class="credit-card"></i> credit-card</li>
+			<li><i class="truck"></i> truck</li>
+			<li><i class="graph"></i> graph</li>
+			<li><i class="building"></i> building</li>
+			<li><i class="house"></i> house</li>
+			<li><i class="island"></i> island</li>
+			<li><i class="christmas-tree"></i> christmas-tree</li>
+			<li><i class="tree"></i> tree</li>
+			<li><i class="marker-star"></i> marker-star</li>
+			<li><i class="marker"></i> marker</li>
+			<li><i class="scroll"></i> scroll</li>
+			<li><i class="html5"></i> html5</li>
+			<li><i class="css3"></i> css3</li>
+			<li><i class="browsers"></i> browsers</li>
+		</ul>
+		<ul class="icons">
+			<li><i class="save"></i> save</li>
+			<li><i class="window"></i> window</li>
+			<li><i class="window-down"></i> window-down</li>
+			<li><i class="window-up"></i> window-up</li>
+			<li><i class="stack"></i> stack</li>
+			<li><i class="camera"></i> camera</li>
+			<li><i class="video"></i> video</li>
+			<li><i class="screen"></i> screen</li>
+			<li><i class="music"></i> music</li>
+			<li><i class="tv"></i> tv</li>
+			<li><i class="video-camera"></i> video-camera</li>
+			<li><i class="display"></i> display</li>
+			<li><i class="mp3-player"></i> mp3-player</li>
+			<li><i class="disc-drive"></i> disc-drive</li>
+			<li><i class="hdd"></i> hdd</li>
+		</ul>
+		<ul class="icons">
+			<li><i class="step-backward"></i> step-backward</li>
+			<li><i class="rewind"></i> rewind</li>
+			<li><i class="pause"></i> pause</li>
+			<li><i class="play"></i> play</li>
+			<li><i class="fast-forward"></i> fast-forward</li>
+			<li><i class="step-forward"></i> step-forward</li>
+			<li><i class="battery-low"></i> battery-low</li>
+			<li><i class="battery-half"></i> battery-half</li>
+			<li><i class="battery-full"></i> battery-full</li>
+			<li><i class="battery-charging"></i> battery-charging</li>
+			<li><i class="drawer"></i> drawer</li>
+			<li><i class="notebook"></i> notebook</li>
+			<li><i class="book"></i> book</li>
+			<li><i class="open-book"></i> open-book</li>
+			<li><i class="flowchart"></i> flowchart</li>
+		</ul>
+		<ul class="icons">
+			<li><i class="grid"></i> grid</li>
+			<li><i class="grid-large"></i> grid-large</li>
+			<li><i class="list-large"></i> list-large</li>
+			<li><i class="list"></i> list</li>
+			<li><i class="present"></i> present</li>
+			<li><i class="rocket"></i> rocket</li>
+			<li><i class="fire"></i> fire</li>
+			<li><i class="lightbulb"></i> lightbulb</li>
+			<li><i class="hanger"></i> hanger</li>
+			<li><i class="top-hat"></i> top-hat</li>
+			<li><i class="surveillance"></i> surveillance</li>
+			<li><i class="download"></i> download</li>
+			<li><i class="upload"></i> upload</li>
+			<li><i class="cloud-download"></i> cloud-download</li>
+			<li><i class="cloud-upload"></i> cloud-upload</li>
+		</ul>
+		<ul class="icons">
+			<li><i class="repeat"></i> repeat</li>
+			<li><i class="file"></i> file</li>
+			<li><i class="file-award"></i> file-award</li>
+			<li><i class="file-zip"></i> file-zip</li>
+			<li><i class="file-bookmark"></i> file-bookmark</li>
+			<li><i class="file-text"></i> file-text</li>
+			<li><i class="file-graph"></i> file-graph</li>
+			<li><i class="file-excel"></i> file-excel</li>
+			<li><i class="file-picture"></i> file-picture</li>
+			<li><i class="file-play"></i> file-play</li>
+			<li><i class="file-code"></i> file-code</li>
+			<li><i class="file-stats"></i> file-stats</li>
+			<li><i class="file-music"></i> file-music</li>
+			<li><i class="move-dark"></i> move-dark</li>
+			<li><i class="move-light"></i> move-light</li>
+		</ul>
+		<ul class="icons">
+			<li><i class="folder"></i> folder</li>
+			<li><i class="power"></i> power</li>
+			<li><i class="check"></i> check</li>
+			<li><i class="check-circle"></i> check-circle</li>
+			<li><i class="check-clipboard"></i> check-clipboard</li>
+			<li><i class="stop"></i> stop</li>
+			<li><i class="x-checkbox"></i> x-checkbox</li>
+			<li><i class="settings"></i> settings</li>
+			<li><i class="wait"></i> wait</li>
+			<li><i class="calendar"></i> calendar</li>
+			<li><i class="left-arrow"></i> left-arrow</li>
+			<li><i class="right-arrow"></i> right-arrow</li>
+			<li><i class="up-arrow"></i> up-arrow</li>
+			<li><i class="down-arrow"></i> down-arrow</li>
+			<li><i class="coffee"></i> coffee</li>
+		</ul>
+		<p class="clear"><strong>Example:</strong></p>
 		<div class="html-example">
 			<p><strong>HTML</strong></p>
 			<pre class="sunlight-highlight-httpd">
-&lt;button class="button5"&gt;btn-large&lt;/button&gt;
-&lt;button class="button6"&gt;btn&lt;/button&gt;
-&lt;button class="button7"&gt;btn-small&lt;/button&gt;
-&lt;button class="button8"&gt;btn-mini&lt;/button&gt;
+&lt;button class="button-icon-example1"&gt;&lt;i&gt;&lt;/i&gt; arrow icon&lt;/button&gt;
+&lt;button class="button-icon-example2"&gt;&lt;i&gt;&lt;/i&gt; lock icon&lt;/button&gt;
+&lt;button class="button-icon-example3"&gt;&lt;i&gt;&lt;/i&gt; follow us&lt;/button&gt;
 			</pre>
 		</div>
 		<div class="css-example">
 			<p><strong>SASS</strong></p>
-			<pre class="sunlight-highlight-css">
+			<pre class="sunlight-highlight-css custom">
 button {
 	@extend %gd3;
-	padding: 1% 2%;
-	text-align: center; 
-	border: 1px solid #444;
+	border: 1px solid #555;
 }
-.button5,
-.button6,
-.button7,
-.button8 {
-	@include button($blue, complex);
+.button-icon-example1 {
+	@include button($blue);
+	i {
+		@include icon(arrow);
+	}
 }
-.button5 {
-	@include btn-large();
+.button-icon-example2 {
+	@include button($red, complex);
+	i {
+		@include icon(lock);
+	}
 }
-.button6 {
-	@include btn-regular();
-}
-.button7 {
-	@include btn-small();
-}
-.button8 {
-	@include btn-mini();
+.button-icon-example2 {
+	@include button($blue, complex, small, 5px);
+	i {
+		@include icon(twitter-bird);
+	}
 }
 			</pre>
 		</div>
 
 		<p><strong>Output:</strong></p>
 		<div class="output">
-			<button class="button5">button-large</button>
-			<button class="button6">button</button>
-			<button class="button7">button-small</button>
-			<button class="button8">button-mini</button>
-		</div> -->
+			<button class="button-icon-example1"><i></i> arrow icon</button>
+			<button class="button-icon-example2"><i></i> lock icon</button>
+			<button class="button-icon-example3"><i></i> follow us</button>
+		</div>
+
+
 		
+
+
 
 		<hr />
 		<h2 id="inputs">Inputs</h2>
@@ -760,7 +970,7 @@ button {
 		</div>
 
 		<hr />
-		<h3 id="input">Input</h3>
+		<h3 id="input">Input Styles</h3>
 		<p>The input mixin allows you to add styling borders to inputs by passing in one of the styles. There are 5 different styles of inputs: <strong>warning</strong>, <strong>error</strong>, <strong>success</strong>, <strong>info</strong>, and <strong>disabled</strong>.</p>
 		<p class="syntax"><strong>Syntax:</strong> @include input(type);</p>
 
@@ -895,33 +1105,33 @@ input.disabled {
 		<p class="syntax"><strong>Syntax:</strong> @include gradient(startColor, stopColor, style, [degree or image args depending on style]);</p>
 		<p><strong>Example:</strong></p>
 		<pre class="sunlight-highlight-css custom">
-//default vertical gradient
+.element8,
+.element9,
+.element10,
+.element11,
+.element12 {
+	@extend %gd3;
+	padding: 1% 2%;
+}
+// default vertical gradient
 .element8 {
 	@include gradient(#9bbe4d, #649419);
 }
 // horizontal gradient
 .element9 {
 	@include gradient(#40a3db, #0c78b7, horizontal);
-	@extend %gd3;
-	padding: 1% 2%;
 }
 // radial gradient
 .element10 {
 	@include gradient(#fdcd3d, #e99f00, radial);
-	@extend %gd3;
-	padding: 1% 2%;
 }
 // directional gradient
 .element11 {
 	@include gradient(#e9574c, #9d0000, directional, 45);
-	@extend %gd3;
-	padding: 1% 2%;
 }
 // image with gradient
 .element12 {
 	@include gradient(#ccc, #999, image, url('../images/arrow.png') no-repeat right center);
-	@extend %gd3;
-	padding: 1% 2%;
 }
 		</pre>
 
@@ -1430,6 +1640,11 @@ input.disabled {
 
 
 
+
+	</div>
+</div>
+<div class="footer">
+	<div class="footer-content">
 
 	</div>
 </div>

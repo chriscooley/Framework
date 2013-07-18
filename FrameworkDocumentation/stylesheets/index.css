@@ -186,6 +186,11 @@ textarea {
   min-height: 166px;
 }
 
+/* line 120, ../sass/_base.scss */
+button {
+  border: 0 none;
+}
+
 /* line 197, ../sass/_mixins.scss */
 span.selWrap {
   width: 100%;

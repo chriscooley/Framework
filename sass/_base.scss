@@ -87,10 +87,28 @@ input[type="text"], input[type="number"], input[type="email"], input[type="passw
 		margin: 1%;
 		width: 48%;
 	}
+	@include transition(box-shadow 0.3s linear);
+}
+input[type="submit"] {
+	padding: .8% .6%;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    background: $input-bg;
+    color: $input-text-color;
+    font-family: $custom1-font-family;
+    margin: 0 0 1%;
+    cursor: pointer;
+    &:hover {
+    	background: darken($input-bg, 5%);
+    }
+    &:active {
+    	background: darken($input-bg, 10%);
+    }
 }
 textarea:focus, input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="password"]:focus {
 	color: $input-focus-text-color;
 	background:$input-bg;
+	@include box-shadow(0 0 4px rgba(66,167,221, 0.9));
 }
 input:focus::-webkit-input-placeholder, input:focus::-moz-placeholder {
     color: $input-focus-text-color;
@@ -98,6 +116,9 @@ input:focus::-webkit-input-placeholder, input:focus::-moz-placeholder {
 }
 textarea {
 	min-height:166px;
+}
+button {
+	border: 0 none;
 }
 @include drop-down($dd-default-w: 100%, $dd-h: 36px, $dd-margin: $auto, $dd-t-padding: 0 .4em, $dd-t-color: $select-t-color, $dd-f-weight: normal, $dd-f-size: 1em);
 // Btn

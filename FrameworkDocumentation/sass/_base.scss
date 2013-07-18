@@ -117,6 +117,9 @@ input:focus::-webkit-input-placeholder, input:focus::-moz-placeholder {
 textarea {
 	min-height:166px;
 }
+button {
+	border: 0 none;
+}
 @include drop-down($dd-default-w: 100%, $dd-h: 36px, $dd-margin: $auto, $dd-t-padding: 0 .4em, $dd-t-color: $select-t-color, $dd-f-weight: normal, $dd-f-size: 1em);
 // Btn
 %btnAll {
