@@ -33,6 +33,13 @@
 			color: #fff;
 			font-size: 3em;
 			margin: 80px 0 0;
+			text-shadow:
+				0 1px 0 #CCCCCC, 
+				0 2px 0 #CCCCCC, 
+				0 3px 0 #BBBBBB, 
+				0 4px 0 #AAAAAA, 
+				0 5px 6px rgba(0, 0, 0, 0.4)
+			
 		}
 	}
 }
@@ -52,7 +59,7 @@
 	ul {
 		border: 1px solid #ccc;  
 		overflow: hidden;
-		
+		z-index: 9999;
 
 		li {
 			background: #fff;
@@ -888,7 +895,6 @@
 @media only screen and (max-width: $start-width)
 {
 	@include grid-wrap($gw-width: 100%);
-
 }
 @media only screen and (min-width: $mid-sm) and (max-width: $mid-lr)
 {
@@ -896,6 +902,14 @@
 	// #columns {
 	// 	@extend %columns;
 	// }
+	.content {
+		ul.icons {
+			width: 31%;
+			float: left;
+			clear: none;
+		}
+	}
+	
 }
 @media only screen and (min-width: $mobile-sm) and (max-width: $mobile-lr)
 {
@@ -909,6 +923,11 @@
 			section {
 				width: 98%;
 			}
+		}
+		ul.icons {
+			width: 48%;
+			float: left;
+			clear: none;
 		}
 	}
 	

@@ -34,7 +34,7 @@
 	</div>
 	<div class="content">
 		<h1 id="about">About Cooley Styles Framework</h1>
-		<p>The Cooley Styles framework is a Sass based framework that helps you design and develop your websites without creating extra markup or unnecessary clutter to your HTML and CSS. The difference between this and other frameworks is that you can create semantic HTML markup without adding numerous CSS classes to each element while also slimming down your outputted CSS.</p>
+		<p>The Cooley Styles framework is a <a href="http://www.sass-lang.com">Sass</a> based framework that helps you design and develop your websites without creating extra markup or unnecessary clutter to your HTML and CSS. The difference between this and other frameworks is that you can create semantic HTML markup without adding numerous CSS classes to each element while also slimming down your outputted CSS.</p>
 		<p>It mainly consists of four main Sass files and some JavaScript/jQuery libraries that help you to develop and design your website quickly and efficiently.</p>
 		<p>It also comes with a custom <a href="http://www.modernizr.com">Modernizr</a> JavaScript file for cross-browser compatability.</p>
 		<p>The four Sass files are <strong>_var.scss</strong>, <strong>_mixins.scss</strong>, <strong>_base.scss</strong>, and <strong>master.scss</strong>. The main file that you will use to design and develop your site is the <strong>master.scss</strong> file. At the top of the <strong>master.scss</strong> file, it will import the other three Sass files for us to use.</p>
@@ -45,10 +45,69 @@
 		</pre>
 
 		<h1 id="variables" class="header">Variables</h1>
-		<p>The <strong>_var.scss</strong> file contains all the variables used throughout the framework. You can change the default values in this file, though it is advised not to change the actual variable names as they are used all throughout the framework.</p>
+		<p>The <strong>_var.scss</strong> file contains all the variables used throughout the framework.</p> 
+		<p class="note">You can change the default values in this file, though it is advised not to change the actual variable names as they are used all throughout the framework.</p>
 		<p>You can change the values of different colors, custom fonts, link colors, font-sizes, inputs and dropdown colors, media query break points, etc.</p>
 
-		<p>The main variables that are most important, however, is the <strong>$gd-selector</strong> and <strong>$gd-count</strong>.</p>
+		<p>The main variables that are most important, however, are the <strong>$gd-count</strong> and <strong>$gd-selector</strong> variables.</p>
+
+
+		<hr />
+		<h2 id="gd-count">$gd-count</h2>
+		<p>The <strong>$gd-count</strong> variable allows you to change the number of columns you want to use for your grid. The default is set to use a 12 column grid.</p>
+
+		<p><strong>Example:</strong> </p>
+		<pre class="sunlight-highlight-css">
+$gd-count: 12;
+		</pre>
+
+		<p><strong>Output:</strong> </p>
+		<div class="output">
+			<div class="grid-example1">
+				<section>1</section>
+				<section>2</section>
+				<section>3</section>
+				<section>4</section>
+				<section>5</section>
+				<section>6</section>
+				<section>7</section>
+				<section>8</section>
+				<section>9</section>
+				<section>10</section>
+				<section>11</section>
+				<section>12</section>
+			</div>
+		</div>
+
+		<p class="example2"><strong>Example2:</strong> </p>
+		<pre class="sunlight-highlight-css">
+$gd-count: 18;
+		</pre>
+
+		<p><strong>Output:</strong> </p>
+		<div class="output">
+			<div class="grid-example2">
+				<section>1</section>
+				<section>2</section>
+				<section>3</section>
+				<section>4</section>
+				<section>5</section>
+				<section>6</section>
+				<section>7</section>
+				<section>8</section>
+				<section>9</section>
+				<section>10</section>
+				<section>11</section>
+				<section>12</section>
+				<section>13</section>
+				<section>14</section>
+				<section>15</section>
+				<section>16</section>
+				<section>17</section>
+				<section>18</section>
+			</div>
+		</div>
+
 
 		<hr />
 		<h2 id="gd-selector">$gd-selector</h2>
@@ -58,22 +117,52 @@
 $gd-selector: '%';
 		</pre>
 		<p>The default value of <strong>$gd-selector</strong> uses the percent(%) silent class selectors which allows you to use Sass's <em>@extend</em> feature to extend your selectors without printing the acutal class selector itself.</p>
-		<p><strong>Example:</strong></p>
-		<pre class="sunlight-highlight-css">
-.container {
+		<div class=" css-example">
+			<p><strong>Example:</strong></p>
+			<p><strong>SASS</strong></p>
+			<pre class="sunlight-highlight-css custom">
+.parent {
 	@extend %gw;
+
+	.child1 {
+		@extend %gd1;
+	}
+	.child2 {
+		@extend %gd11;
+	}
 }
-		</pre>
-		<p><strong>Output:</strong></p>
-		<pre class="sunlight-highlight-css">
-.container {
+			</pre>
+		</div>
+		<div class="css-example">
+			<p><strong>Output:</strong></p>
+			<p><strong>CSS</strong></p>
+			<pre class="sunlight-highlight-css">
+.parent {
 	overflow: hidden;
 	width: 1280px;
 	margin: 0 auto;
 	padding: 1%;
 }
-		</pre>
+.parent .child1,
+.parent .child2 {
+	clear: none;
+	float: left;
+	margin: 1%;
+}
+.parent .child1 {
+	width: 6.33333%;
+}
+.parent .child2 {
+	width: 89.66667%;
+}
+			</pre>
+		</div>
 
+		<p>You'll notice that we used the Sass <strong>&#64;extend</strong> functionality to extend the values of our grid.</p>
+		<p>You'll also notice that we extended a predefined grid-width: <strong>&#64;extend %gw;</strong> which will provide us the main width we will use to contain our content. This is predefined from other variables in the <strong>_var.scss</strong> file using the <strong>$start-width</strong> and <strong>$top</strong>, <strong>$right</strong>, <strong>$bottom</strong>, and <strong>$left</strong> variables.</p>
+		<p>Also, since we are using the default 12-column grid, we can use the <strong>&#64;extend</strong> functionality to provide us the width of each child element. In this case, we used <strong>&#64;extend %gd1;</strong> to give us a 1 column-sized width and <strong>&#64;extend %gd11;</strong> to give use an 11 column-sized width for child1 and child2 elements respectively.</p>
+
+		<hr />
 		<p>If you change the value of <strong>$gd-selector</strong> to use the dot(.) normal selector, the classes for your grid will print out to your css file.</p>
 		
 		<p><strong>Example:</strong></p>
@@ -140,61 +229,7 @@ $gd-selector: '.';
 }
 		</pre>
 
-		<hr />
-		<h2 id="gd-count">$gd-count</h2>
-		<p>The <strong>$gd-count</strong> variable allows you to change the number of columns you want to use for your grid. The default is set to use a 12 column grid.</p>
-
-		<p><strong>Example:</strong> </p>
-		<pre class="sunlight-highlight-css">
-$gd-count: 12;
-		</pre>
-
-		<p><strong>Output:</strong> </p>
-		<div class="output">
-			<div class="grid-example1">
-				<section>1</section>
-				<section>2</section>
-				<section>3</section>
-				<section>4</section>
-				<section>5</section>
-				<section>6</section>
-				<section>7</section>
-				<section>8</section>
-				<section>9</section>
-				<section>10</section>
-				<section>11</section>
-				<section>12</section>
-			</div>
-		</div>
-
-		<p class="example2"><strong>Example2:</strong> </p>
-		<pre class="sunlight-highlight-css">
-$gd-count: 18;
-		</pre>
-
-		<p><strong>Output:</strong> </p>
-		<div class="output">
-			<div class="grid-example2">
-				<section>1</section>
-				<section>2</section>
-				<section>3</section>
-				<section>4</section>
-				<section>5</section>
-				<section>6</section>
-				<section>7</section>
-				<section>8</section>
-				<section>9</section>
-				<section>10</section>
-				<section>11</section>
-				<section>12</section>
-				<section>13</section>
-				<section>14</section>
-				<section>15</section>
-				<section>16</section>
-				<section>17</section>
-				<section>18</section>
-			</div>
-		</div>
+		
 
 		<h1 id="mixins" class="header">Mixins</h1>
 		<p>The <strong>_mixins.scss</strong> file contains all the helpful mixins you can use to help you develop and design your webpages quickly. This file also contains the <strong>grid mixin</strong> that is used to set up our grid system.</p>
@@ -205,9 +240,11 @@ $gd-count: 18;
 		<p>The prefix mixin is only used within the <strong>_mixins.scss</strong> file to append browser prefixes to specific CSS properties.</p>
 		<p class="note"><strong>Note:</strong> You most likely will not need to use this mixin (as it is most extensively used within the <strong>_mixins.scss</strong> file only) unless you want to create your own custom prefixed CSS property.</p>
 		
-		<p>The prefix mixin has three parameters, two of which require an actual value. The <strong>$property</strong> parameter requires the CSS parameter and the <strong>$value</strong> requires the value of that CSS parameter. The <strong>$prefixes</strong> parameter already have the default values for all modern browsers so it's optional to include.</p>
+		<p>The prefix mixin has three(3) parameters, two of which require an actual value. The <strong>$property</strong> parameter requires the CSS property and the <strong>$value</strong> requires the value of that CSS parameter.</p> 
+		<p>The <strong>$prefixes</strong> parameter already has the default values for all modern browsers so it's optional to include. If you want to include only some of the prefixes to output, you must add only the ones you want. There are five different prefixes for various browsers: <strong>webkit</strong>, <strong>moz</strong>, <strong>ms</strong>, <strong>o</strong>, and <strong>spec</strong> (for W3C specs)</p>
 		<p>If you want to use the prefix mixin to create your own custom prefixed property, you can include it like so:</p>
 		<p class="note"><strong>Note:</strong> There is already a <a href="#border-radius">border-radius</a> and <a href="#box-shadow">box-shadow</a> mixin provided with the framework. The examples below just shows you how the prefix mixin is used.</p>
+		<p class="syntax"><strong>Syntax:</strong> @include prefix(property, value, browser-prefixes)</p>
 		<p><strong>Example:</strong></p>
 		<pre class="sunlight-highlight-css custom">
 .element1 {
@@ -240,7 +277,7 @@ $gd-count: 18;
 		<h2 id="calc">calc</h2>
 		<p>The calc mixin uses the new CSS3 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/calc">calc</a> function to perform calculations to determine CSS values. It is useful for combining and converting 2 different values together such as percentages(%) and pixels(px).</p>
 		<p>There are 5 parameters needed to use the calc mixin: property, value1, operation, value2, fallback.</p>
-
+		<p class="syntax"><strong>Syntax:</strong> @include calc(property, value1, operation, value2, fallback-value)</p>
 		<p><strong>Example:</strong></p>
 		<pre class="sunlight-highlight-css">
 .element3 {
@@ -926,7 +963,7 @@ button {
 	}
 }
 .button-icon-example2 {
-	@include button($blue, complex, small, 5px);
+	@include button($blue, complex, regular, 5px);
 	i {
 		@include icon(twitter-bird);
 	}

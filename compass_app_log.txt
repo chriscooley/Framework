@@ -8277,3 +8277,8 @@
 2013-07-10 16:39:18 overwrite stylesheets/master.css 
 2013-07-10 16:39:24 identical stylesheets/master.css 
 2013-07-15 12:22:14 overwrite stylesheets/master.css 
+2013-07-24 11:41:47     error sass/master.scss (Line 13: Invalid CSS after "...-three-colors()": expected "{", was ";")
+2013-07-24 11:41:48 overwrite stylesheets/master.css 
+2013-07-24 11:42:37 overwrite stylesheets/master.css 
+2013-07-24 11:42:41 identical stylesheets/master.css 
+2013-07-24 11:43:10 overwrite stylesheets/master.css 

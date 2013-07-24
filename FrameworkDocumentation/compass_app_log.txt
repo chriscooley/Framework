@@ -1074,3 +1074,35 @@
 2013-07-18 11:33:44 overwrite stylesheets/master.css 
 2013-07-18 11:36:17 overwrite stylesheets/index.css 
 2013-07-18 11:36:20 overwrite stylesheets/master.css 
+2013-07-18 11:52:22 identical stylesheets/master.css 
+2013-07-18 12:03:07 overwrite stylesheets/master.css 
+2013-07-18 12:03:50 identical stylesheets/master.css 
+2013-07-18 12:04:24 identical stylesheets/master.css 
+2013-07-18 12:05:14 overwrite stylesheets/master.css 
+2013-07-18 12:06:07 overwrite stylesheets/master.css 
+2013-07-18 13:49:10 overwrite stylesheets/master.css 
+2013-07-18 13:49:56 overwrite stylesheets/master.css 
+2013-07-18 13:50:05 overwrite stylesheets/master.css 
+2013-07-18 13:51:04 overwrite stylesheets/master.css 
+2013-07-18 13:52:08 overwrite stylesheets/master.css 
+2013-07-18 13:53:06 overwrite stylesheets/master.css 
+2013-07-18 13:53:23 overwrite stylesheets/master.css 
+2013-07-18 13:53:34 overwrite stylesheets/master.css 
+2013-07-18 13:54:39 identical stylesheets/master.css 
+2013-07-18 13:55:06 identical stylesheets/master.css 
+2013-07-18 13:55:11 overwrite stylesheets/master.css 
+2013-07-19 10:03:58     error sass/master.scss (Line 42: Undefined mixin 'text-shadow'.)
+2013-07-19 10:03:58 overwrite stylesheets/master.css 
+2013-07-19 10:04:28     error sass/master.scss (Line 36: Invalid CSS after "			text-shadow": expected "{", was "(	")
+2013-07-19 10:04:28 overwrite stylesheets/master.css 
+2013-07-19 10:04:30     error sass/master.scss (Line 36: Invalid CSS after "			text-shadow": expected "{", was "(	")
+2013-07-19 10:04:30 identical stylesheets/master.css 
+2013-07-19 10:04:57 overwrite stylesheets/master.css 
+2013-07-19 10:41:10 identical stylesheets/index.css 
+2013-07-19 10:42:40 overwrite stylesheets/master.css 
+2013-07-22 09:13:55 identical stylesheets/index.css 
+2013-07-22 09:15:27 identical stylesheets/master.css 
+2013-07-22 09:15:29 identical stylesheets/index.css 
+2013-07-22 09:15:33 overwrite stylesheets/master.css 
+2013-07-22 09:15:34 identical stylesheets/index.css 
+2013-07-22 09:15:41 identical stylesheets/master.css 
