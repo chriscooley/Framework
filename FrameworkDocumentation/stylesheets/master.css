@@ -1339,7 +1339,7 @@ select.selIner {
   background: #248fc8;
 }
 /* line 389, ../sass/master.scss */
-.content .button-icon-example3 i {
+.content .button-icon-example3 span {
   height: 20px;
   width: 20px;
   line-height: 20px;

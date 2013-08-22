@@ -940,7 +940,7 @@ button {
 			<pre class="sunlight-highlight-httpd">
 &lt;button class="button-icon-example1"&gt;&lt;i&gt;&lt;/i&gt; arrow icon&lt;/button&gt;
 &lt;button class="button-icon-example2"&gt;&lt;i&gt;&lt;/i&gt; lock icon&lt;/button&gt;
-&lt;button class="button-icon-example3"&gt;&lt;i&gt;&lt;/i&gt; follow us&lt;/button&gt;
+&lt;button class="button-icon-example3"&gt;&lt;span&gt;&lt;/span&gt; follow us&lt;/button&gt;
 			</pre>
 		</div>
 		<div class="css-example">
@@ -964,7 +964,7 @@ button {
 }
 .button-icon-example2 {
 	@include button($blue, complex, regular, 5px);
-	i {
+	span {
 		@include icon(twitter-bird);
 	}
 }
@@ -975,7 +975,7 @@ button {
 		<div class="output">
 			<button class="button-icon-example1"><i></i> arrow icon</button>
 			<button class="button-icon-example2"><i></i> lock icon</button>
-			<button class="button-icon-example3"><i></i> follow us</button>
+			<button class="button-icon-example3"><span></span> follow us</button>
 		</div>
 
 

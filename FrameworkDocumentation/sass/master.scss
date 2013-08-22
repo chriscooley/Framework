@@ -386,7 +386,7 @@
 	}
 	.button-icon-example3 {
 		@include button($blue, complex, regular, 5px);
-		i {
+		span {
 			@include icon(twitter-bird);
 		}
 	}

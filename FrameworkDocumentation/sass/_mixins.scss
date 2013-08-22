@@ -161,7 +161,7 @@
   @if ($type == 'image'){
     background: #{$degOrImageArgs} mix($startColor, $endColor,50%);
     @each $i in -webkit-, -moz-, -ms-, -o-, '' {
-      background: #{$degOrImageArgs}, #{$i}linear-gradient(center top, $startColor, $endColor);
+      background: #{$degOrImageArgs}, #{$i}linear-gradient(top, $startColor, $endColor);
     }
   }
 }
@@ -230,6 +230,7 @@
 		border:0 none;
 		float:none;
 		opacity:0;
+		cursor: pointer;
 		filter: alpha(opacity=00);
 		-webkit-appearance: menulist-button;
 	}
