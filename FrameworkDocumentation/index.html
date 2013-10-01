@@ -1587,7 +1587,7 @@ input.disabled {
 		<h2 id="animate">animate</h2>
 		<p>The animate mixin uses many of the CSS3 specific <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform">transform</a> and opacity properties which allows you to create animations based on the predefined animation names.</p>
 		<p>This mixin has a total of six(values) you can pass in, though only the first two(2) are required. The values are: <strong>selector</strong>, <strong>animationName</strong>, <strong>duration</strong>, <strong>iterationCount</strong>, <strong>timingFunction</strong>, and <strong>delay</strong>. The default values for the 4 latter properties are: <strong>duration: 1</strong>, <strong>iterationCount: 1</strong>,<strong>timingFunction: ease</strong>, and <strong>delay: 0</strong>.</p>
-		<p class="syntax"><strong>Syntax:</strong> @include animate(selector, animation-name, duration(in seconds), iteration, timing, delay(in seconds));</p>
+		<p class="syntax"><strong>Syntax:</strong> @include animate(selector, animation-name, duration(in seconds), iteration, timing, delay(in seconds), fillmode);</p>
 		<p class="note"><strong>Note:</strong> The animate mixin is a special mixin that is <strong>NOT</strong> called inside a selector but is instead called to target a selector. Make sure that the animate mixin is not nested within another selector in your Sass file or it may not work.</p>
 		<p><strong>List of predefined animation names</strong></p>
 		<p class="syntax">Click on the animation name to view the animation</p>

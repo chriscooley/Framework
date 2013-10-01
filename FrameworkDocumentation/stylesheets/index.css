@@ -192,7 +192,7 @@ button {
 }
 
 /* line 197, ../sass/_mixins.scss */
-span.selWrap {
+span.selectW {
   width: 100%;
   margin: 0 auto;
   height: 36px;
@@ -202,7 +202,7 @@ span.selWrap {
 }
 
 /* line 205, ../sass/_mixins.scss */
-span.selText {
+span.selectIner {
   margin: 0;
   z-index: 1;
   width: 100%;
@@ -217,26 +217,33 @@ span.selText {
   font-weight: normal;
   color: #757474;
   font-size: 1em;
-  background: url("../images/arrow.png") 100% 97.8% #f3f3f3;
-  background: url("../images/arrow.png") 100% 97.8%, -webkit-linear-gradient(center top, #ffffff, #e7e7e7);
-  background: url("../images/arrow.png") 100% 97.8%, -moz-linear-gradient(center top, #ffffff, #e7e7e7);
-  background: url("../images/arrow.png") 100% 97.8%, -ms-linear-gradient(center top, #ffffff, #e7e7e7);
-  background: url("../images/arrow.png") 100% 97.8%, -o-linear-gradient(center top, #ffffff, #e7e7e7);
-  background: url("../images/arrow.png") 100% 97.8%, linear-gradient(center top, #ffffff, #e7e7e7);
-  border: 4px solid #eaeaea;
+  background: url("../images/arrow.png") no-repeat 96% 7px #f3f3f3;
+  background: url("../images/arrow.png") no-repeat 96% 7px, -webkit-linear-gradient(top, #ffffff, #e7e7e7);
+  background: url("../images/arrow.png") no-repeat 96% 7px, -moz-linear-gradient(top, #ffffff, #e7e7e7);
+  background: url("../images/arrow.png") no-repeat 96% 7px, -ms-linear-gradient(top, #ffffff, #e7e7e7);
+  background: url("../images/arrow.png") no-repeat 96% 7px, -o-linear-gradient(top, #ffffff, #e7e7e7);
+  background: url("../images/arrow.png") no-repeat 96% 7px, linear-gradient(top, #ffffff, #e7e7e7);
+  border: 1px solid #555555;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
 }
 
-/* line 223, ../sass/_mixins.scss */
-select.selIner {
+/* line 224, ../sass/_mixins.scss */
+select.allSelect {
   width: 100%;
   height: 36px;
   position: absolute;
+  left: 0;
   z-index: 2;
   padding: 0;
   margin: 0;
   border: 0 none;
   float: none;
   opacity: 0;
+  cursor: pointer;
   filter: alpha(opacity=0);
   -webkit-appearance: menulist-button;
 }
