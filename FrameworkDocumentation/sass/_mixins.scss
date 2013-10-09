@@ -238,6 +238,36 @@
 	}
 }
 
+//Custom dropdown without JS
+@mixin dropdown($dd-default-w: $dd-default-w, $dd-h: $dd-h, $dd-margin: $dd-margin, $dd-t-padding: $dd-t-padding, $dd-t-color: $select-t-color, $dd-f-weight: $dd-f-weight, $dd-f-size: $dd-f-size) {
+	select::-ms-expand {
+	    display: none; //hide arrow in IE10
+	}
+	select {
+	    width: $dd-default-w; //only set width. Do not set height else it will fail in IE8-10. use padding for height.
+	    color: $dd-t-color;
+	    font-weight: $dd-f-weight;
+	    font-size: $dd-f-size;
+	    line-height:1.2em;
+	    margin: $dd-margin;
+	    border: 0 none;
+	    cursor: pointer;
+	    background: $custom-dropdown-bg;
+	    text-indent: 0.01px;
+	    text-overflow: "";
+	    padding: $dd-t-padding;
+	    padding: $dd-t-padding \9;
+	    *background-image:none;
+	    @include prefix(appearance, none);
+
+	    &:focus{
+	        outline:none;
+	        background-position: url('../images/arrow.png') no-repeat 100% -2px #fff;
+	        border: 0 none;
+	    }
+	}
+}
+
 // retina image usage for devices that support it
 @mixin retina($image, $width, $height) {
   @media (min--moz-device-pixel-ratio: 1.3),
@@ -572,6 +602,36 @@
 	@each $i in -webkit-, -moz-, -ms-, -o-, '' {
 		@keyframes #{$animationName} {
 
+			// animations from (http://justinaguilar.com/animations/)
+			@if($animationName == 'tossing'){
+				0% { #{$i}transform: rotate(-4deg); }
+				50% { #{$i}transform: rotate(4deg); }
+				100% { #{$i}transform: rotate(-4deg); }
+			}
+			@if($animationName == 'floating'){
+				0% { #{$i}transform: translateY(0%); }
+				50% { #{$i}transform: translateY(8%); }
+				100% { #{$i}transform: translateY(0%); }
+			}
+			@if($animationName == 'hatch'){
+				0% { #{$i}transform: rotate(0deg) scaleY(0.6); }
+				20% { #{$i}transform: rotate(-2deg) scaleY(1.05); }
+				35% { #{$i}transform: rotate(2deg) scaleY(1); }
+				50% { #{$i}transform: rotate(-2deg); }
+				65% { #{$i}transform: rotate(1deg); }
+				80% { #{$i}transform: rotate(-1deg); }
+				100% { #{$i}transform: rotate(0deg); }
+			}
+			@if($animationName == 'bigEntrance'){
+				0% { opacity: 0.2; #{$i}transform: scale(0.3) rotate(6deg) translateX(-30%) translateY(30%); }
+				30% { opacity: 1; #{$i}transform: scale(1.03) rotate(-2deg) translateX(2%) translateY(-2%); }
+				45% { opacity: 1; #{$i}transform: scale(0.98) rotate(1deg) translateX(0%) translateY(0%); }
+				60% { opacity: 1; #{$i}transform: scale(1.01) rotate(-1deg) translateX(0%) translateY(0%); }
+				75% { opacity: 1; #{$i}transform: scale(0.99) rotate(1deg) translateX(0%) translateY(0%); }
+				90% { opacity: 1; #{$i}transform: scale(1.01) rotate(0deg) translateX(0%) translateY(0%); }
+				100% { opacity: 1; #{$i}transform: scale(1) rotate(0deg) translateX(0%) translateY(0%); }
+			}
+
 			// animations from Animate.css (http://daneden.me/animate/)
 			@if($animationName == 'flash'){
 				0%, 50%, 100% {opacity: 1;}
@@ -605,9 +665,9 @@
 				100% { #{$i}transform: translateX(0%); }
 			}
 			@if($animationName == 'pulse'){
-				0% { #{$i}transform: scale(1); }	
-				50% { #{$i}transform: scale(1.1); }
-			    100% { #{$i}transform: scale(1); }
+				0% { opacity: 0.7; #{$i}transform: scale(0.9); }	
+				50% { opacity: 1; #{$i}transform: scale(1.1); }
+			    100% { opacity: 0.7; #{$i}transform: scale(0.9); }
 			}
 			@if($animationName == 'flipInX'){
 				0% { #{$i}transform: perspective(400px) rotateX(90deg); opacity: 0; }
